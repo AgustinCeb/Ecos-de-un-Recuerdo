@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7d7a07a2a249546ba9e08190eb6c77, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: Assembly-CSharp::StatsPerLevel
+  levels:
+  - requiredExpForNextLevel: 50
+    maxHealth: 10
+    damage: 5
+    defense: 5
+  - requiredExpForNextLevel: 100
+    maxHealth: 15
+    damage: 7
+    defense: 7
+  - requiredExpForNextLevel: 150
+    maxHealth: 20
+    damage: 10
+    defense: 10
+  - requiredExpForNextLevel: 200
+    maxHealth: 25
+    damage: 12
+    defense: 12
+  - requiredExpForNextLevel: 250
+    maxHealth: 30
+    damage: 15
+    defense: 15
+  - requiredExpForNextLevel: 300
+    maxHealth: 35
+    damage: 17
+    defense: 17
+  - requiredExpForNextLevel: 350
+    maxHealth: 40
+    damage: 20
+    defense: 20
+  - requiredExpForNextLevel: 400
+    maxHealth: 45
+    damage: 22
+    defense: 22
+  - requiredExpForNextLevel: 450
+    maxHealth: 50
+    damage: 25
+    defense: 25
+  - requiredExpForNextLevel: 500
+    maxHealth: 55
+    damage: 27
+    defense: 27

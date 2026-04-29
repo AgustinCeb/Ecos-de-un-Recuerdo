@@ -4,9 +4,10 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance;
     int playerLevel;
-    [SerializeField]int[] levelList;
+    [SerializeField] StatsPerLevel statValuesPerLevel;
     int requiredXP;
     int heldXP;
+    LevelStats LevelStats;
 
     private void Awake()
     {
@@ -27,12 +28,13 @@ public class PlayerStats : MonoBehaviour
     }
     void LevelUp()
     {
-        if (playerLevel < levelList.Length)
+        if (playerLevel < statValuesPerLevel.levels.Length)
         {
-            heldXP -= levelList[playerLevel];
+            heldXP -= LevelStats.requiredExpForNextLevel;
             playerLevel++;
-            requiredXP = levelList[playerLevel];
-            Debug.Log("LEVEL UP");
+            LevelStats = statValuesPerLevel.levels[playerLevel-1];
+            requiredXP = LevelStats.requiredExpForNextLevel;
+            Debug.Log("LEVEL UP, YOUR DAMAGE IS NOW "+LevelStats.damage+ " ,YOUR HEALTH IS NOW " + LevelStats.maxHealth+ " AND YOUR DEFENSE IS NOW " + LevelStats.defense);
         }
 
     }
@@ -40,7 +42,9 @@ public class PlayerStats : MonoBehaviour
     {
         playerLevel = 1;
         heldXP = 0;
-        requiredXP = levelList[playerLevel];
+        LevelStats = statValuesPerLevel.levels[playerLevel -1];
+        requiredXP = LevelStats.requiredExpForNextLevel;
         AddXP(0);
     }
+
 }
