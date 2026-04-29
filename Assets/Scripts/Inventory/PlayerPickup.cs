@@ -12,7 +12,7 @@ public class PlayerPickup : MonoBehaviour
         if(pickup != null)
         {
             _inventory.addItem(pickup.ItemData, pickup.Quantity);
-            Debug.Log("Item Guardado");
+
             Destroy(other.gameObject);
         }
     }

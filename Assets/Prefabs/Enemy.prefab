@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7150797777279381591}
   - component: {fileID: 2936137436440886004}
   - component: {fileID: 2888798199432527541}
+  - component: {fileID: 6127389421594751402}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -128,3 +129,16 @@ MonoBehaviour:
   sightRange: 10
   Speed: 2
   attackRange: 3
+--- !u!114 &6127389421594751402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471116617965200751}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1292f2918affd704bafa851c34de7858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemiesHealt
+  _enemyHealt: 5
