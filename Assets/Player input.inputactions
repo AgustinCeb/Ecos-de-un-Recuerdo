@@ -144,7 +144,7 @@
                 {
                     "name": "",
                     "id": "34ef21a8-c507-4450-a25a-d0ded83ac32e",
-                    "path": "<Keyboard>/j",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
