@@ -119,6 +119,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &92907055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+  m_PrefabInstance: {fileID: 1362932378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &92907056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+  m_PrefabInstance: {fileID: 1362932378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &141625475
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +349,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 65
+  field of view: 60
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -365,8 +375,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975038, y: -0.0045595327, z: 0.0010763595, w: 0.97323835}
-  m_LocalPosition: {x: 0.046848062, y: 4.91, z: 26.34022}
+  m_LocalRotation: {x: 0.22975294, y: 0, z: 0, w: 0.973249}
+  m_LocalPosition: {x: 0, y: 5.33, z: 29.169998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -850,7 +860,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 65
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -876,7 +886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555341606}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1676607, y: -0.004618542, z: 0.00078547525, w: 0.98583364}
+  m_LocalRotation: {x: 0.1734615, y: 0, z: 0, w: 0.9848407}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1147,7 +1157,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 65
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1173,7 +1183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961389900}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975038, y: -0.004559534, z: 0.0010763598, w: 0.97323835}
+  m_LocalRotation: {x: 0.22975294, y: 0, z: 0, w: 0.973249}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1327,6 +1337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
   _sword: {fileID: 1902679130}
+  _backSword: {fileID: 92907055}
   _attackColdown: 0.3
 --- !u!1 &1060803073
 GameObject:
@@ -1820,6 +1831,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f23a8879cb87ec4199020b1952616d0, type: 3}
+--- !u!1001 &1362932378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1040560686}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.12278774
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6963643
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.12278774
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6963643
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
+      propertyPath: m_Name
+      value: Sword_Back
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5aaf4022568d2ee4ebd8f4fba7884eb8, type: 3}
 --- !u!1 &1417106208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,7 +2590,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 65
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -2536,7 +2616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609807223}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975038, y: -0.004559534, z: 0.0010763598, w: 0.97323835}
+  m_LocalRotation: {x: 0.22975294, y: 0, z: 0, w: 0.973249}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3380,7 +3460,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1040560686}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 65
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -3472,7 +3552,7 @@ Transform:
   m_GameObject: {fileID: 1793149208}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.046848066, y: 4.91, z: 26.34022}
+  m_LocalPosition: {x: 0, y: 5.33, z: 29.169998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4192,11 +4272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919801823663285996, guid: d99c61090c746384b949aab0742b0650, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.41
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 4919801823663285996, guid: d99c61090c746384b949aab0742b0650, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.34
+      value: 34.17
       objectReference: {fileID: 0}
     - target: {fileID: 4919801823663285996, guid: d99c61090c746384b949aab0742b0650, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4260,7 +4340,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4919801823663285996, guid: d99c61090c746384b949aab0742b0650, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 92907056}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7743155339882080509, guid: d99c61090c746384b949aab0742b0650, type: 3}
       insertIndex: -1
