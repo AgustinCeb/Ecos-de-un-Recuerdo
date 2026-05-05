@@ -876,7 +876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555341606}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1676607, y: -0.004618542, z: 0.00078547525, w: 0.98583364}
+  m_LocalRotation: {x: 0.1676607, y: -0.004618575, z: 0.00078548095, w: 0.98583364}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1173,7 +1173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961389900}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975038, y: -0.004559534, z: 0.0010763598, w: 0.97323835}
+  m_LocalRotation: {x: 0.22975038, y: -0.0045595295, z: 0.0010763586, w: 0.97323835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3378d6cc20d4f8a47b5502930542436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  _sword: {fileID: 1902679130}
+  _sword: {fileID: 0}
   _attackColdown: 0.3
 --- !u!1 &1060803073
 GameObject:
@@ -2536,7 +2536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609807223}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975038, y: -0.004559534, z: 0.0010763598, w: 0.97323835}
+  m_LocalRotation: {x: 0.22975041, y: -0.0045595365, z: 0.0010763603, w: 0.97323835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3472,7 +3472,7 @@ Transform:
   m_GameObject: {fileID: 1793149208}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.046848066, y: 4.91, z: 26.34022}
+  m_LocalPosition: {x: 0.046848096, y: 4.91, z: 26.34022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3650,11 +3650,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14ce02e110b3c364db60bf1203349faa, type: 3}
---- !u!1 &1902679130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1413573743367573966, guid: d99c61090c746384b949aab0742b0650, type: 3}
-  m_PrefabInstance: {fileID: 6018124644021570840}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1934592872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4166,6 +4161,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1659203678258511457, guid: d99c61090c746384b949aab0742b0650, type: 3}
+      propertyPath: m_Name
+      value: 'Sword '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037178149719760196, guid: d99c61090c746384b949aab0742b0650, type: 3}
+      propertyPath: statValuesPerLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: 919070e7d1f694741bac9b6a609a5b40, type: 2}
     - target: {fileID: 1500560183618789115, guid: d99c61090c746384b949aab0742b0650, type: 3}
       propertyPath: m_Name
       value: Base
@@ -4181,7 +4184,7 @@ PrefabInstance:
     - target: {fileID: 3626842189787931202, guid: d99c61090c746384b949aab0742b0650, type: 3}
       propertyPath: _sword
       value: 
-      objectReference: {fileID: 1902679130}
+      objectReference: {fileID: 0}
     - target: {fileID: 3626842189787931202, guid: d99c61090c746384b949aab0742b0650, type: 3}
       propertyPath: _inventory
       value: 
