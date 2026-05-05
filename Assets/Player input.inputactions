@@ -50,6 +50,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Equip",
+                    "type": "Button",
+                    "id": "75b5bbd9-9bc7-4a61-9081-022841019868",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -144,11 +153,22 @@
                 {
                     "name": "",
                     "id": "34ef21a8-c507-4450-a25a-d0ded83ac32e",
-                    "path": "<Keyboard>/j",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d018150e-3968-4e3f-b69c-6c15537e559d",
+                    "path": "<Keyboard>/p",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Equip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
