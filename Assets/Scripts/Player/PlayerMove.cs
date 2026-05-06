@@ -1,8 +1,10 @@
 using System;
+using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : NetworkBehaviour
 {
     public Rigidbody Rbd;
 
@@ -22,26 +24,42 @@ public class PlayerMove : MonoBehaviour
     //Camara
     [SerializeField] private Transform _camaraTransform;
 
+    //Input
+    [SerializeField] private PlayerInput _playerInput;
 
 
     private void Start()
     {
         Rbd= GetComponent<Rigidbody>();
 
+        if (!IsOwner) 
+        {
+            _playerInput.enabled = false;
+            return;
+        }
+
+        _camaraTransform = Camera.main.transform;
+
     }
 
     private void OnMove(InputValue inputValue)
     {
+        if (!IsOwner) return ;
+
         _moveInput = inputValue.Get<Vector2>();
     }
         
     private void OnJump(InputValue Value)
     {
+        if (!IsOwner) return;
+
         _jump = Value.isPressed;
     }
 
     private void FixedUpdate()
     {
+        if (!IsOwner) return;
+
         //Movimiento
         Vector3 forward = _camaraTransform.forward;
         Vector3 right = _camaraTransform.right;
