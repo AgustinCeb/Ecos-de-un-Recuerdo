@@ -6,6 +6,8 @@ public class InventoryToggle : NetworkBehaviour
 {
 
     [SerializeField] private GameObject _inventory;
+
+    [SerializeField] private InventoryUi _inventoryUi;
     
 
 
@@ -15,6 +17,9 @@ public class InventoryToggle : NetworkBehaviour
 
         _inventory = GameObject.Find("PNL_Inventori");
 
+        _inventoryUi = FindFirstObjectByType<InventoryUi>();
+        
+
         _inventory.SetActive(false);
         
     }
@@ -22,7 +27,16 @@ public class InventoryToggle : NetworkBehaviour
     {
         if(!IsOwner) return;
 
-        _inventory.SetActive(!_inventory.activeSelf);
+        if (_inventory == null) return;
+
+        bool active = !_inventory.activeSelf;
+
+        _inventory.SetActive(active);
+
+        if (active && _inventory != null)
+        {
+            _inventoryUi.UpdateUI();
+        }
     
     }
 
