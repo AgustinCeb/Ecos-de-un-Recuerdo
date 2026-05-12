@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,6 +28,10 @@ public class PlayerMove : NetworkBehaviour
     //Input
     [SerializeField] private PlayerInput _playerInput;
 
+    //Dash
+    [SerializeField] private float _dashForce;
+    [SerializeField] private float _dashCooldown;
+    private bool _canDash = true;
 
     private void Start()
     {
@@ -39,6 +44,15 @@ public class PlayerMove : NetworkBehaviour
         }
 
         _camaraTransform = Camera.main.transform;
+
+    }
+
+    private void OnDash()
+    {
+        if (!IsOwner) return; 
+        if (!_canDash) return;
+
+        StartCoroutine(Dash());
 
     }
 
@@ -55,12 +69,9 @@ public class PlayerMove : NetworkBehaviour
 
         _jump = Value.isPressed;
     }
-
-    private void FixedUpdate()
+    private Vector3 GetMoveDirection()
     {
-        if (!IsOwner) return;
-
-        //Movimiento
+        //movimento
         Vector3 forward = _camaraTransform.forward;
         Vector3 right = _camaraTransform.right;
 
@@ -70,8 +81,19 @@ public class PlayerMove : NetworkBehaviour
         forward.Normalize();
         right.Normalize();
 
-        Vector3 moveDir = forward * _moveInput.y + right * _moveInput.x;
-        Rbd.linearVelocity = new Vector3(moveDir.x * _speed, Rbd.linearVelocity.y, moveDir.z * _speed);
+         return forward * _moveInput.y + right * _moveInput.x;
+    }
+
+    
+    private void FixedUpdate()
+    {
+        if (!IsOwner) return;
+
+       
+        Vector3 moveDir = GetMoveDirection();
+        
+        Vector3 targetVelocity = new Vector3(moveDir.x * _speed, Rbd.linearVelocity.y, moveDir.z * _speed);
+        Rbd.linearVelocity = Vector3.Lerp(Rbd.linearVelocity,targetVelocity,0.2f);
 
         //Compureba si esta en el suelo
         _isGrounded = Physics.CheckSphere(_groundCheck.position,_groundDistance,_groundLayer);
@@ -91,6 +113,24 @@ public class PlayerMove : NetworkBehaviour
 
             Rbd.MoveRotation(Quaternion.Slerp(Rbd.rotation, rotation, _rotationSpeed * Time.fixedDeltaTime));
         }
+    }
+    private IEnumerator Dash()
+    {
+        
+        _canDash = false;
+
+        Vector3 dashDir = GetMoveDirection();
+
+        if (dashDir == Vector3.zero) 
+        {
+            dashDir = transform.forward;
+        }
+
+        Rbd.AddForce(dashDir.normalized * _dashForce,ForceMode.Impulse);
+        yield return new WaitForSeconds(_dashCooldown);
+
+        _canDash = true;
+
     }
 
 }
