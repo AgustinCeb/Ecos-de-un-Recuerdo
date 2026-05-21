@@ -69,7 +69,11 @@ public class PlayerMove : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        _jump = Value.isPressed;
+        if (Value.isPressed && _isGrounded)
+        {
+            _jump = true;
+        }
+        
     }
     private Vector3 GetMoveDirection()
     {
