@@ -988,6 +988,7 @@ GameObject:
   - component: {fileID: 1246945688859726084}
   - component: {fileID: 326419585619147125}
   - component: {fileID: 6481755089741517730}
+  - component: {fileID: 8885342168530427645}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1164,7 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1231986452
+  GlobalObjectIdHash: 2419518658
   InScenePlacedSourceGlobalObjectIdHash: 2419518658
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1337,6 +1338,22 @@ MonoBehaviour:
   UseRigidBodyForMotion: 1
   AutoUpdateKinematicState: 1
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &8885342168530427645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743155339882080509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a08735a1895764d91c39f9b5b6d3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillSlot
+  ShowTopMostFoldoutHeaderGroup: 1
+  _slot1: {fileID: 0}
+  _slot2: {fileID: 0}
+  _slot3: {fileID: 0}
 --- !u!1001 &622898690356509418
 PrefabInstance:
   m_ObjectHideFlags: 0
