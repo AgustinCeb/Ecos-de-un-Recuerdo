@@ -29,8 +29,10 @@ public class PlayerMove : NetworkBehaviour
     [SerializeField] private PlayerInput _playerInput;
 
     //Dash
+    [Header("Dash")]
     [SerializeField] private float _dashForce;
     [SerializeField] private float _dashCooldown;
+    [SerializeField] private AudioClip _dashSFX;
     private bool _canDash = true;
 
     private void Start()
@@ -125,7 +127,7 @@ public class PlayerMove : NetworkBehaviour
         {
             dashDir = transform.forward;
         }
-
+        SFXManager.instance.PlaySFX(_dashSFX, this.transform, 1, 1);
         Rbd.AddForce(dashDir.normalized * _dashForce,ForceMode.Impulse);
         yield return new WaitForSeconds(_dashCooldown);
 
