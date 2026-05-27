@@ -26,7 +26,7 @@ public class SkillSlot : NetworkBehaviour
         GameObject obj = Instantiate(_slot1.SkillPrefab, transform.position, transform.rotation);
 
         obj.GetComponent<NetworkObject>().Spawn();
-
+         
     }
 
     public void OnSkill2(InputAction.CallbackContext context)

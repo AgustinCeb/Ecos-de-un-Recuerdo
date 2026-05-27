@@ -18,6 +18,6 @@ MonoBehaviour:
   _skillDamage: 40
   _skillCooldown: 20
   _skillCost: 25
-  _skillPrefab: {fileID: 0}
+  _skillPrefab: {fileID: 698267104646967881, guid: b0c1a784ab13b074786ed2e9eb484ba8, type: 3}
   _skillId: 1
   _skillType: 0
