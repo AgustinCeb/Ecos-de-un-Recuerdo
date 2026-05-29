@@ -8,11 +8,11 @@ public class SkillSlot : NetworkBehaviour
     [SerializeField] private Skilldata _slot2;
     [SerializeField] private Skilldata _slot3;
 
-    public void OnSkill1(InputAction.CallbackContext context)
+    public void OnSkill1()
     {
         if (!IsOwner) return;
 
-        if (!context.performed) return;
+
 
         if (_slot1.Skill == Skilldata.SkillType.Attack)
         {
@@ -29,12 +29,12 @@ public class SkillSlot : NetworkBehaviour
          
     }
 
-    public void OnSkill2(InputAction.CallbackContext context)
+    public void OnSkill2()
     {
         if (!IsOwner) return;
 
-        if (!context.performed) return;
 
+        
         if (_slot2.Skill == Skilldata.SkillType.Buff)
         {
             UseSkill2ServerRpc();
@@ -50,11 +50,11 @@ public class SkillSlot : NetworkBehaviour
 
     }
 
-    public void OnSkill3(InputAction.CallbackContext context)
+    public void OnSkill3()
     {
         if (!IsOwner) return;
 
-        if (!context.performed) return;
+        
 
         if (_slot3.Skill == Skilldata.SkillType.Ultimate)
         {
