@@ -1,16 +1,21 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerHealt : MonoBehaviour
+public class PlayerHealt : NetworkBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int _healt = 100;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamagePlayer(int enemyDamage)
     {
-        
+        _healt -= enemyDamage;
+        if (_healt < 0)
+        {
+            if(IsServer)
+            {
+                NetworkObject.Despawn();
+            }
+        }
+
+
     }
 }

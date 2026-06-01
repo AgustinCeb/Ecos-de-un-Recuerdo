@@ -14,16 +14,23 @@ public class InventoryToggle : NetworkBehaviour
     
 
 
-    public void Start()
+    public override void OnNetworkSpawn()
     {
         if (!IsOwner) return;
 
-        _inventory = GameObject.Find("PNL_Inventori");
 
-        _inventoryUi = FindFirstObjectByType<InventoryUi>();
         
 
-        _inventory.SetActive(false);
+
+        _inventoryUi = FindFirstObjectByType<InventoryUi>(FindObjectsInactive.Include);
+        
+        _inventory = _inventoryUi.transform.parent.gameObject;
+        
+
+
+
+
+        //_inventory.SetActive(false);
         
     }
     public void OnInventory()
@@ -52,16 +59,6 @@ public class InventoryToggle : NetworkBehaviour
             _playerInput.SwitchCurrentActionMap("Player");
         }
 
-
-
     }
 
-    
  }
-    
-
-
-
-    
-
-

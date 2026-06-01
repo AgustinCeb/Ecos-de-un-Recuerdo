@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class EnemiesHealt : MonoBehaviour
+public class EnemiesHealt : NetworkBehaviour
 {
 
     public int _enemyHealt = 5;
@@ -10,7 +11,10 @@ public class EnemiesHealt : MonoBehaviour
         _enemyHealt -= damage;
         if (_enemyHealt <= 0)
         {
-            Destroy(gameObject);
+            if (IsServer)
+            {
+                NetworkObject.Despawn();
+            }
 
         }
     }
