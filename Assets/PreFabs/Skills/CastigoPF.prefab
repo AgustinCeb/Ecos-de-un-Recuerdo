@@ -138,7 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CastigoData
   ShowTopMostFoldoutHeaderGroup: 1
-  _posision: 5
+  _posisionF: 5
+  _posisionUp: 5
+  _fallVelocity: 20
 --- !u!1 &5463948813454363068
 GameObject:
   m_ObjectHideFlags: 0

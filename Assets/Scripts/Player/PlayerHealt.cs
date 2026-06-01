@@ -3,17 +3,18 @@ using Unity.Netcode;
 
 public class PlayerHealt : NetworkBehaviour
 {
-    public int _healt = 100;
+    public NetworkVariable <int> Healt = new(100);
 
     public void TakeDamagePlayer(int enemyDamage)
     {
-        _healt -= enemyDamage;
-        if (_healt < 0)
+        if(!IsServer) return;
+
+        Healt.Value -= enemyDamage;
+
+        if(Healt.Value <= 0)
         {
-            if(IsServer)
-            {
-                NetworkObject.Despawn();
-            }
+            NetworkObject.Despawn();
+        
         }
 
 

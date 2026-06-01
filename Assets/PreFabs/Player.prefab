@@ -1343,7 +1343,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealt
   ShowTopMostFoldoutHeaderGroup: 1
-  _healt: 100
+  Healt:
+    UpdateTraits:
+      MinSecondsBetweenUpdates: 0
+      MaxSecondsBetweenUpdates: 0
+    m_InternalValue: 100
 --- !u!1 &8116821727549947431
 GameObject:
   m_ObjectHideFlags: 0
