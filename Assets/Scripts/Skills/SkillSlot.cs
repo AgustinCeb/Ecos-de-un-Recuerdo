@@ -44,7 +44,15 @@ public class SkillSlot : NetworkBehaviour
     [ServerRpc]
     private void UseSkill2ServerRpc()
     {
+
         GameObject obj = Instantiate(_slot2.SkillPrefab, transform.position, transform.rotation);
+
+        ProteccionData proteccion = obj.GetComponent<ProteccionData>();
+
+        if(proteccion != null)
+        {
+            proteccion.SetOwner(GetComponent<PlayerHealt>());
+        }
 
         obj.GetComponent<NetworkObject>().Spawn();
 

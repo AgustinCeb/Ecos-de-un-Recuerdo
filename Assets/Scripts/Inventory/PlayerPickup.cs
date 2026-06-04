@@ -17,7 +17,8 @@ public class PlayerPickup : NetworkBehaviour
             
             if (IsServer)
             {
-                NetworkObject.Despawn();
+                pickup.GetComponent<NetworkObject>().Despawn(false);
+
             }
         }
     }
