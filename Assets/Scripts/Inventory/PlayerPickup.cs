@@ -1,7 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerPickup : MonoBehaviour
+public class PlayerPickup : NetworkBehaviour
 {
     [SerializeField] private Inventory _inventory;
 
@@ -13,7 +14,12 @@ public class PlayerPickup : MonoBehaviour
         {
             _inventory.addItem(pickup.ItemData, pickup.Quantity);
 
-            Destroy(other.gameObject);
+            
+            if (IsServer)
+            {
+                pickup.GetComponent<NetworkObject>().Despawn(false);
+
+            }
         }
     }
 }

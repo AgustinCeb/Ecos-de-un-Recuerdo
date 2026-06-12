@@ -1,18 +1,23 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class EnemiesHealt : MonoBehaviour
+public class EnemiesHealt : NetworkBehaviour
 {
-
-    public int _enemyHealt = 5;
+    
+    public NetworkVariable <int> EnemyHealt = new(50);
 
     public void TakeDamage(int damage)
     {
-        _enemyHealt -= damage;
-        if (_enemyHealt <= 0)
+        if (!IsServer) return;
+
+        EnemyHealt.Value -= damage;
+
+        if (EnemyHealt.Value <= 0)
         {
-            Destroy(gameObject);
+            NetworkObject.Despawn();
 
         }
+
     }
 
 }
