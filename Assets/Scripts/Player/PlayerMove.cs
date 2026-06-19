@@ -10,11 +10,13 @@ public class PlayerMove : NetworkBehaviour
     public Rigidbody Rbd;
 
     //Movimiento
+    [Header("Movimiento")]
     [SerializeField] private float _speed;
     [SerializeField] private float _rotationSpeed;
     private Vector2 _moveInput;
 
     //Salto
+    [Header("Salto")]
     [SerializeField] private float _jumpForce;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundDistance;
@@ -23,9 +25,11 @@ public class PlayerMove : NetworkBehaviour
     private bool _isGrounded;
 
     //Camara
+    [Header("Camara")]
     [SerializeField] private Transform _camaraTransform;
 
     //Input
+    [Header("Input")]
     [SerializeField] private PlayerInput _playerInput;
 
     //Dash

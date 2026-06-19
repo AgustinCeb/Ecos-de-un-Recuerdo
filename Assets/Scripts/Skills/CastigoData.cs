@@ -8,6 +8,9 @@ public class CastigoData : NetworkBehaviour
     [SerializeField] private float _posisionUp = 5f;
     [SerializeField] private float _fallVelocity = 25f;
 
+    //SFX
+    [SerializeField] private AudioClip _skillSound;
+
     private Rigidbody _rb;
 
     private void Start()
@@ -17,6 +20,7 @@ public class CastigoData : NetworkBehaviour
 
         transform.position += transform.forward * _posisionF;
         transform.position += transform.up * _posisionUp;
+        SFXManager.instance.PlaySFX(_skillSound, transform, 1f, 1f);
 
     }
 

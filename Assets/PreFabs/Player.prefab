@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105126643982354680}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19844347, y: 0.4904772, z: -0.11578563, w: 0.8406224}
+  m_LocalRotation: {x: -0.06301195, y: 0.8962365, z: -0.13518536, w: -0.4177494}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2.5, z: -5}
+  m_FollowOffset: {x: 0, y: 1.2466658, z: -4.038477}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2.5, z: -5}
+  m_FollowOffset: {x: 0, y: 1.2466658, z: -4.038477}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2.5, z: -5}
+  m_FollowOffset: {x: 0, y: 1.2466658, z: -4.038477}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 4944856584855622821}
   - component: {fileID: 8775392146683711051}
   - component: {fileID: 9117407953092448962}
+  - component: {fileID: 230633201817820604}
   m_Layer: 0
   m_Name: Player Camara
   m_TagString: Untagged
@@ -614,7 +615,7 @@ Transform:
   m_GameObject: {fileID: 5263333504941544642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.352844, y: 2.5, z: -2.460266}
+  m_LocalPosition: {x: 3.0928345, y: 1.246666, z: 2.5968628}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -663,7 +664,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.5
+    Value: 0.24902524
     m_SpeedMode: 0
     m_MaxSpeed: 4
     m_AccelTime: 0.2
@@ -789,6 +790,20 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &230633201817820604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5263333504941544642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &6393013607354663408
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344687736424359292}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14982301, y: 0.49631888, z: -0.08741709, w: 0.8506344}
+  m_LocalRotation: {x: -0.038908675, y: 0.90252256, z: -0.08347439, w: -0.4206794}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -924,7 +939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7689137342476405603}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19844347, y: 0.4904772, z: -0.11578563, w: 0.8406224}
+  m_LocalRotation: {x: -0.06301195, y: 0.8962365, z: -0.13518536, w: -0.4177494}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1118,7 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 2419518658
+  GlobalObjectIdHash: 1231986452
   InScenePlacedSourceGlobalObjectIdHash: 2419518658
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1157,7 +1172,7 @@ MonoBehaviour:
   _playerInput: {fileID: 31419945494460776}
   _dashForce: 40
   _dashCooldown: 0.5
-  _dashSFX: {fileID: 0}
+  _dashSFX: {fileID: 8300000, guid: 0129ac5e615921348b1f45b3e6bf0ec3, type: 3}
 --- !u!114 &3123446033682992612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,9 +1242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3378d6cc20d4f8a47b5502930542436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  _sword: {fileID: 0}
+  _sword: {fileID: 1413573743367573966}
   _backSword: {fileID: 316820834835253179}
   _attackColdown: 0.3
+  _attackSound: {fileID: 8300000, guid: 2fe1f4b6e6e860f4699f74dcb76fea48, type: 3}
 --- !u!114 &326419585619147125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,10 +1597,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 79416455f5646cb419fc4b4da7c98beb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8718940696915052376}
   m_SourcePrefab: {fileID: 100100000, guid: 79416455f5646cb419fc4b4da7c98beb, type: 3}
+--- !u!1 &1413573743367573966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79416455f5646cb419fc4b4da7c98beb, type: 3}
+  m_PrefabInstance: {fileID: 2260644308324674719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1789571138851834740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79416455f5646cb419fc4b4da7c98beb, type: 3}
   m_PrefabInstance: {fileID: 2260644308324674719}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7460528907744455823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 79416455f5646cb419fc4b4da7c98beb, type: 3}
+  m_PrefabInstance: {fileID: 2260644308324674719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8718940696915052376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460528907744455823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba3b9b1cef8ff142bddb87648c3d50c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  _damage: 10
