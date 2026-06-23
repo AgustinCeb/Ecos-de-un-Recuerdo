@@ -1,14 +1,16 @@
+using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 public class Inventory : NetworkBehaviour
 {
-    [SerializeField] private int _maxSlot = 20;
+    [SerializeField] private int _maxSlot = 18;
 
     private List<InventorySlot> _slots = new List<InventorySlot>();
 
     public List<InventorySlot> Slots => _slots;
+
 
     public void addItem(ItemData itemData, int amount)
     {

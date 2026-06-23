@@ -12,12 +12,14 @@ public class InventorySlotUi : MonoBehaviour
     {
         if (slot == null)
         {
-            gameObject.SetActive(false);
+            _icon.enabled = false;
+            _itemNameText.text = "";
+            _quantityText.text = "";
             return;
         }
-        
-        gameObject.SetActive(true);
-        _icon.sprite =  slot.ItemData.ItemIcon;
+
+        _icon.enabled = true;
+        _icon.sprite = slot.ItemData.ItemIcon;
         _itemNameText.text = slot.ItemData.ItemName;
         _quantityText.text = slot.Quantity.ToString();
 

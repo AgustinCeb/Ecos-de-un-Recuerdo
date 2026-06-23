@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 108ca3e7dda90d945b0914bf9259ec94
+guid: 1f32cdf2558875d49bc9bce75ac1cd68
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -86,10 +86,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 159068
-  packageName: GUI Parts
-  packageVersion: 1.0
-  assetPath: Assets/GUI_Parts/Icons/stoune_icon.png
-  uploadId: 342429

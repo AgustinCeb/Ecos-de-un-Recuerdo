@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   ShowTopMostFoldoutHeaderGroup: 1
-  _maxSlot: 20
+  _maxSlot: 18
 --- !u!114 &3626842189787931202
 MonoBehaviour:
   m_ObjectHideFlags: 0

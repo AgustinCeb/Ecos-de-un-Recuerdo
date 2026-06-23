@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,14 +9,17 @@ public class InventoryUi : MonoBehaviour
     [SerializeField] private Inventory _inventory;
     [SerializeField] private GameObject _slotPrefab;
     [SerializeField] private Transform _contentParent;
+    [SerializeField] private int _maxSlots = 18;
 
     private bool _inventoryFound;
+
+    private List<InventorySlotUi> _uiSlots = new();
 
     private void Update()
     {
         if(_inventoryFound) return;
         {
-            Inventory[] inventories = Object.FindObjectsByType<Inventory>(FindObjectsSortMode.None);
+            Inventory[] inventories = Object.FindObjectsByType<Inventory>();
 
 
             foreach (Inventory inventory in inventories)
@@ -24,31 +28,39 @@ public class InventoryUi : MonoBehaviour
                 {
                     _inventory = inventory;
                     _inventoryFound = true;
+                
+                    for (int i = 0; i < _maxSlots; i++)
+                    {
+                    GameObject slot = Instantiate(_slotPrefab, _contentParent);
+                    _uiSlots.Add(slot.GetComponent<InventorySlotUi>());
+                    }
+
+
+                    UpdateUI();
                     break;
                 }
+                
+
             }
-     
+
         }
 
     }
 
     public void UpdateUI()
     {
-        if(_inventory == null) return;
+        if (_inventory == null) return;
 
-        foreach (Transform child in _contentParent )
+        for (int i = 0; i < _uiSlots.Count; i++)
         {
-            Destroy( child.gameObject );
-        }
-
-        foreach (var slot in _inventory.Slots)
-        {
-            GameObject newSlot = Instantiate(_slotPrefab, _contentParent);
-            InventorySlotUi slotUi = newSlot.GetComponent<InventorySlotUi>();
-            
-            slotUi.SetSlot( slot );
-
+            if (i < _inventory.Slots.Count)
+            {
+                _uiSlots[i].SetSlot(_inventory.Slots[i]);
+            }
+            else
+            {
+                _uiSlots[i].SetSlot(null);
+            }
         }
     }
-
 }
