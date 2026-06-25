@@ -11,7 +11,9 @@ public class EnemiesDamage : MonoBehaviour
             e.TakeDamagePlayer(_damage);
 
         }
-
     }
-
+    public void setDamage(int damage)
+    {
+        _damage = damage;
+    }
 }
