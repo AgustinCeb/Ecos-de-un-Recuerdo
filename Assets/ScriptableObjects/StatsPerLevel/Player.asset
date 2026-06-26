@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatsPerLevel
   levels:
   - requiredExpForNextLevel: 50
-    maxHealth: 10
+    maxHealth: 100
     damage: 5
     defense: 5
   - requiredExpForNextLevel: 100
-    maxHealth: 15
+    maxHealth: 120
     damage: 7
     defense: 7
   - requiredExpForNextLevel: 150
-    maxHealth: 20
+    maxHealth: 140
     damage: 10
     defense: 10
   - requiredExpForNextLevel: 200
@@ -30,11 +30,11 @@ MonoBehaviour:
     damage: 12
     defense: 12
   - requiredExpForNextLevel: 250
-    maxHealth: 30
+    maxHealth: 180
     damage: 15
     defense: 15
   - requiredExpForNextLevel: 300
-    maxHealth: 35
+    maxHealth: 200
     damage: 17
     defense: 17
   - requiredExpForNextLevel: 350

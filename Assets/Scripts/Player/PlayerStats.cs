@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -46,5 +47,11 @@ public class PlayerStats : MonoBehaviour
         requiredXP = LevelStats.requiredExpForNextLevel;
         AddXP(0);
     }
+    public int getHealthPoints()
+    {
+        int hp=0;
+        hp = Convert.ToInt32(LevelStats.maxHealth);
+        return hp;
 
+    }
 }
