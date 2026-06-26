@@ -8,7 +8,11 @@ public class InventoryUi : MonoBehaviour
 
     [SerializeField] private Inventory _inventory;
     [SerializeField] private GameObject _slotPrefab;
-    [SerializeField] private Transform _contentParent;
+    [Header ("Contenedor Inventario")]
+    [SerializeField] private Transform _content1;
+    [SerializeField] private Transform _content2;
+    [SerializeField] private Transform _content3;
+    [Header("Slots Maximos")]
     [SerializeField] private int _maxSlots = 18;
 
     private bool _inventoryFound;
@@ -31,7 +35,7 @@ public class InventoryUi : MonoBehaviour
                 
                     for (int i = 0; i < _maxSlots; i++)
                     {
-                    GameObject slot = Instantiate(_slotPrefab, _contentParent);
+                    GameObject slot = Instantiate(_slotPrefab, _content1);
                     _uiSlots.Add(slot.GetComponent<InventorySlotUi>());
                     }
 

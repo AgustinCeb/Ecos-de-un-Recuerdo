@@ -16,22 +16,15 @@ public class InventoryToggle : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner) return;
-
-
         
 
+        if (!IsOwner) return;
 
         _inventoryUi = FindFirstObjectByType<InventoryUi>(FindObjectsInactive.Include);
         
-        _inventory = _inventoryUi.transform.parent.gameObject;
+        _inventory = _inventoryUi.transform.gameObject;
         
 
-
-
-
-        //_inventory.SetActive(false);
-        
     }
     public void OnInventory()
     {
