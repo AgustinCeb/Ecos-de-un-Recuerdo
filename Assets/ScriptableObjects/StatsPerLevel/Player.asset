@@ -17,11 +17,11 @@ MonoBehaviour:
     maxHealth: 100
     damage: 5
     defense: 5
-  - requiredExpForNextLevel: 100
+  - requiredExpForNextLevel: 200
     maxHealth: 120
     damage: 7
     defense: 7
-  - requiredExpForNextLevel: 150
+  - requiredExpForNextLevel: 400
     maxHealth: 140
     damage: 10
     defense: 10
@@ -29,27 +29,27 @@ MonoBehaviour:
     maxHealth: 25
     damage: 12
     defense: 12
-  - requiredExpForNextLevel: 250
+  - requiredExpForNextLevel: 600
     maxHealth: 180
     damage: 15
     defense: 15
-  - requiredExpForNextLevel: 300
+  - requiredExpForNextLevel: 800
     maxHealth: 200
     damage: 17
     defense: 17
-  - requiredExpForNextLevel: 350
-    maxHealth: 40
+  - requiredExpForNextLevel: 1000
+    maxHealth: 250
     damage: 20
     defense: 20
-  - requiredExpForNextLevel: 400
-    maxHealth: 45
+  - requiredExpForNextLevel: 1200
+    maxHealth: 300
     damage: 22
     defense: 22
-  - requiredExpForNextLevel: 450
-    maxHealth: 50
+  - requiredExpForNextLevel: 1400
+    maxHealth: 350
     damage: 25
     defense: 25
-  - requiredExpForNextLevel: 500
-    maxHealth: 55
+  - requiredExpForNextLevel: 1600
+    maxHealth: 400
     damage: 27
     defense: 27

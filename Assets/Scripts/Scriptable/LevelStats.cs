@@ -7,4 +7,6 @@ public class LevelStats
     public float maxHealth;
     public float damage;
     public float defense;
+    public float Maxmana;
+    public float agility;
 }

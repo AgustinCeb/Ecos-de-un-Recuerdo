@@ -3,7 +3,42 @@ guid: 6e35c56b7a4dc954e8941a22107f91d2
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Costuras_Color
+    second: {fileID: 2100000, guid: 2e17bc92fe8e6fd4fa944e41968509f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes_Color
+    second: {fileID: 2100000, guid: 00a3e8d32f778e94a805acba64399949, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head_Color
+    second: {fileID: 2100000, guid: bf39a8fe56a36c04aa20a2053c02c3ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PElo
+    second: {fileID: 2100000, guid: 95c45509931d7e144935b0eac78dafc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PElo.001
+    second: {fileID: 2100000, guid: 3b3fe51887a558448971b7ea1dceb02c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Piel_Smasher
+    second: {fileID: 2100000, guid: 2642f8b7c27449242a02cdf1dac37c6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_smasher
+    second: {fileID: 2100000, guid: b5a2c6f231c91d34c92538e6cf8fb07a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

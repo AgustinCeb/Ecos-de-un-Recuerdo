@@ -3,7 +3,27 @@ guid: fbe32a949673aab4b9156a1a534ad22f
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseColor_Body_Emphasizer.001
+    second: {fileID: 2100000, guid: 31fa7eb15f7112145897f36c89c0d24e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseColor_CombatMask_Emphasizer
+    second: {fileID: 2100000, guid: 596566a03362088409a612ef22510197, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseColor_Head_Emphasizer.001
+    second: {fileID: 2100000, guid: d92d7e97b0d996243b0120359684145b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 6557acd02296c6f45aef7d2e2e210d50, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

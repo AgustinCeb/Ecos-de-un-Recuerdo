@@ -176,8 +176,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.8473816, y: 3.9451418, z: 2.2566528}
+  m_Center: {x: 0.21690369, y: 1.4725709, z: -0.070373535}
 --- !u!114 &4395063452606883437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   damageVal: 5
   bulletPrefab: {fileID: 1284065784715675720, guid: 64ce81976be93f14e8992112c0eddbb6, type: 3}
   shootPoint: {fileID: 5605588742316945406}
-  bulletSpeed: 5
+  bulletSpeed: 3
 --- !u!114 &3233607105841120120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 397461706
+  GlobalObjectIdHash: 2260851410
   InScenePlacedSourceGlobalObjectIdHash: 2260851410
   DeferredDespawnTick: 0
   Ownership: 1
