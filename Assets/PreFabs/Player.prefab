@@ -957,7 +957,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7743155339882080509}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c4336faaf8143f84db0e94485455a42d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1069,9 +1069,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   ShowTopMostFoldoutHeaderGroup: 1
   Rbd: {fileID: 1631337353599401335}
-  _speed: 10
+  _speed: 18
   _rotationSpeed: 10
-  _jumpForce: 6
+  _jumpForce: 20
   _groundCheck: {fileID: 8671682201401368819}
   _groundDistance: 0.2
   _groundLayer:
@@ -1082,6 +1082,9 @@ MonoBehaviour:
   _dashForce: 40
   _dashCooldown: 0.5
   _dashSFX: {fileID: 8300000, guid: 0129ac5e615921348b1f45b3e6bf0ec3, type: 3}
+  _maxAngle: 55
+  _rampCheckDistance: 1
+  _downForce: 35
 --- !u!114 &3123446033682992612
 MonoBehaviour:
   m_ObjectHideFlags: 0
