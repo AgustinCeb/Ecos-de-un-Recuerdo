@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -29,6 +30,9 @@ public class PlayerMove : NetworkBehaviour
     //Camara
     [Header("Camara")]
     [SerializeField] private Transform _camaraTransform;
+    [SerializeField] private PlayerCamera _cameraPlayer;
+
+
 
     //Input
     [Header("Input")]
@@ -93,7 +97,7 @@ public class PlayerMove : NetworkBehaviour
         
     }
 
-
+    
     private Vector3 GetMoveDirection()
     {
         //movimento

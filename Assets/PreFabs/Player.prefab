@@ -916,7 +916,9 @@ GameObject:
   - component: {fileID: 6228621920988402086}
   - component: {fileID: 2972981977261032065}
   - component: {fileID: 3123446033682992612}
-  - component: {fileID: 5190262612755975059}
+  - component: {fileID: 1466018179155869162}
+  - component: {fileID: 6327759926150183334}
+  - component: {fileID: 3692630788859568530}
   - component: {fileID: 3626842189787931202}
   - component: {fileID: 1037178149719760196}
   - component: {fileID: 1246945688859726084}
@@ -1078,6 +1080,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _camaraTransform: {fileID: 0}
+  _cameraPlayer: {fileID: 8775392146683711051}
   _playerInput: {fileID: 31419945494460776}
   _dashForce: 40
   _dashCooldown: 0.5
@@ -1098,8 +1101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPickup
   ShowTopMostFoldoutHeaderGroup: 1
-  _inventory: {fileID: 5190262612755975059}
---- !u!114 &5190262612755975059
+  _inventory: {fileID: 1466018179155869162}
+  _inventory2: {fileID: 6327759926150183334}
+  _inventory3: {fileID: 3692630788859568530}
+--- !u!114 &1466018179155869162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1111,6 +1116,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631a79322bc5b524f8bd526ce7f21556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  ShowTopMostFoldoutHeaderGroup: 1
+  _maxSlot: 18
+--- !u!114 &6327759926150183334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743155339882080509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e15eb03661f3ed449a92eb8ffc5b058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory2
+  ShowTopMostFoldoutHeaderGroup: 1
+  _maxSlot: 18
+--- !u!114 &3692630788859568530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743155339882080509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1739efc079ab32408c667525c6b449e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory3
   ShowTopMostFoldoutHeaderGroup: 1
   _maxSlot: 18
 --- !u!114 &3626842189787931202
@@ -1126,7 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryToggle
   ShowTopMostFoldoutHeaderGroup: 1
-  _inventory: {fileID: 0}
+  _inventoryMenu: {fileID: 0}
   _inventoryUi: {fileID: 0}
   _playerInput: {fileID: 31419945494460776}
 --- !u!114 &1037178149719760196

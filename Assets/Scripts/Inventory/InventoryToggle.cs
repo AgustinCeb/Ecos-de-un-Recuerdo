@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class InventoryToggle : NetworkBehaviour
 {
 
-    [SerializeField] private GameObject _inventory;
+    [SerializeField] private GameObject _inventoryMenu;
 
     [SerializeField] private InventoryUi _inventoryUi;
 
@@ -22,7 +22,7 @@ public class InventoryToggle : NetworkBehaviour
 
         _inventoryUi = FindFirstObjectByType<InventoryUi>(FindObjectsInactive.Include);
         
-        _inventory = _inventoryUi.transform.gameObject;
+        _inventoryMenu = _inventoryUi.transform.gameObject;
         
 
     }
@@ -30,13 +30,13 @@ public class InventoryToggle : NetworkBehaviour
     {
         if(!IsOwner) return;
 
-        if (_inventory == null) return;
+        if (_inventoryMenu == null) return;
 
-        bool active = !_inventory.activeSelf;
+        bool active = !_inventoryMenu.activeSelf;
         
-        _inventory.SetActive(active);
+        _inventoryMenu.SetActive(active);
 
-        if ( active &&_inventory != null)
+        if ( active &&_inventoryMenu != null)
         {
             _inventoryUi.UpdateUI();
 
