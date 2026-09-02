@@ -1,12 +1,16 @@
 using Unity.Netcode;
 using UnityEngine;
 using Cinemachine;
+using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 
 public class PlayerCamera : NetworkBehaviour
 {
+    [Header("Camara")]
     [SerializeField] private CinemachineFreeLook _freelook;
     [SerializeField] private Transform _target;
 
+  
     private void Start()
     {
         if(IsOwner)
@@ -24,5 +28,7 @@ public class PlayerCamera : NetworkBehaviour
 
 
     }
+
+    
 
 }
