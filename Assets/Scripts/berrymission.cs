@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class berrymission : MonoBehaviour
     int heldBerries;
     [SerializeField]int maxBerries;
     [SerializeField] GameObject completedMissionUI;
+    public static Action onReturn;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class berrymission : MonoBehaviour
     private void OnEnable()
     {
         MissionTrigger.onStartMission += StartBerryMission;
+        MissionTrigger.onEndMission += EndMission;
         MissionCollectible.onMissionCollect += addBerry;
     }
     private void OnDisable()
@@ -33,8 +36,9 @@ public class berrymission : MonoBehaviour
     }
     void StartBerryMission()
     {
+        Debug.Log("MissionStarted");
+        missionUI.SetActive(true);
         UpdateProgress();
-        missionUI.SetActive(true); 
     }
     void UpdateProgress()
     {
@@ -47,8 +51,12 @@ public class berrymission : MonoBehaviour
         UpdateProgress();
         if (heldBerries == maxBerries)
         {
-            StartCoroutine(MissionComplete());
+            onReturn?.Invoke();
         }
+    }
+    void EndMission()
+    {
+        StartCoroutine (MissionComplete());
     }
     IEnumerator MissionComplete()
     {

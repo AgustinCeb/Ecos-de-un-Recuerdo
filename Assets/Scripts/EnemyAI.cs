@@ -65,6 +65,7 @@ public class EnemyAI : MonoBehaviour
     }
     void handleAttack()
     {
+        if (playerObjective == null) return;
         Vector3 direction = playerObjective.transform.position - transform.position;
         direction.y = 0;
         transform.rotation = Quaternion.LookRotation(direction);
