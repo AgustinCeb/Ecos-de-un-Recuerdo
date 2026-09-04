@@ -285,7 +285,7 @@
                     "name": "",
                     "id": "a674e7cc-3f55-4a66-8e99-5a4beaadef01",
                     "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
