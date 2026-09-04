@@ -1,20 +1,25 @@
 using System;
 using UnityEngine;
 
-public class MissionCollectible : MonoBehaviour
+public class MissionCollectible : MonoBehaviour, IInteractable 
 {
     public static Action onMissionCollect;
+
+    public string ActionText => "Cosechar";
 
     private void OnEnable()
     {
     }
-    private void OnTriggerEnter(Collider other)
+    
+    public void Interact(GameObject Starter)
     {
-        if (other.transform.CompareTag("Player"))
+        if (Starter.transform.CompareTag("Player"))
         {
             onMissionCollect?.Invoke();
             Destroy(this.gameObject);
         }
+
     }
+    
 
 }

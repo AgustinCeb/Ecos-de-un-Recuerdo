@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
 
-public class MissionTrigger : MonoBehaviour
+public class MissionTrigger : MonoBehaviour, IInteractable
 {
     public static Action onStartMission;
     public static Action onEndMission;
     MeshRenderer myRenderer;
     Collider myCollider;
     bool triggered;
+
+    public String ActionText { get; private set; } = "Aceptar Mision";
 
     private void Awake()
     {
@@ -18,20 +20,22 @@ public class MissionTrigger : MonoBehaviour
     {
         berrymission.onReturn += MissionReturn;
     }
-    private void OnTriggerEnter(Collider collision)
+    public void Interact(GameObject Starter)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (Starter.transform.CompareTag("Player"))
         {
             if (triggered)
             {
                 onEndMission?.Invoke();
                 this.gameObject.SetActive(false);
+                
             }
             else
             {
                 onStartMission?.Invoke();
                 triggered = true;
                 ToogleVisuals(false);
+                
             }
 
         }
@@ -44,5 +48,7 @@ public class MissionTrigger : MonoBehaviour
     void MissionReturn()
     {
         ToogleVisuals(true);
+        ActionText = "Entregar Objetos";
+
     }
 }

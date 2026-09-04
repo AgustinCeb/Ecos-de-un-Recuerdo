@@ -995,6 +995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Berry (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3157832507787717738, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3700278085925303229, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 463.34027
@@ -2367,6 +2371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Berry (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3157832507787717738, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3700278085925303229, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 459.6083
@@ -2576,6 +2584,10 @@ PrefabInstance:
     - target: {fileID: 1588725917612432953, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
       propertyPath: m_Name
       value: Berry (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157832507787717738, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3700278085925303229, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6305,6 +6317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Berry (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3157832507787717738, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3700278085925303229, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 462.8885
@@ -8731,6 +8747,10 @@ PrefabInstance:
     - target: {fileID: 1588725917612432953, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
       propertyPath: m_Name
       value: Berry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157832507787717738, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3700278085925303229, guid: 01c8b8838dafb0c4a9a975a074113c33, type: 3}
       propertyPath: m_LocalPosition.x
