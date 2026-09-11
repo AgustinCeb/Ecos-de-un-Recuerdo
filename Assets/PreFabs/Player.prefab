@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105126643982354680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.01656494, y: 0, z: 0, w: 0.9998628}
+  m_LocalRotation: {x: -0.107934415, y: -0.63637424, z: -0.090567484, w: 0.75840336}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.88528764, z: -3.461083}
+  m_FollowOffset: {x: 0, y: -0.26868576, z: -4.3709145}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: -80
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -261,14 +261,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3142227145650721446}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1789571138851834740}
   - {fileID: 1093884819030154497}
-  m_Father: {fileID: 4919801823663285996}
+  m_Father: {fileID: 3908013441180067389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4220406371381954282
 GameObject:
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.88528764, z: -3.461083}
+  m_FollowOffset: {x: 0, y: -0.26868576, z: -4.3709145}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: -80
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.88528764, z: -3.461083}
+  m_FollowOffset: {x: 0, y: -0.26868576, z: -4.3709145}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: -80
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -554,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 5263333504941544642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8852873, z: -3.46109}
+  m_LocalPosition: {x: 4.3045044, y: -0.26868534, z: -0.7590027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -603,7 +603,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.16122288
+    Value: 0.1
     m_SpeedMode: 0
     m_MaxSpeed: 1.5
     m_AccelTime: 0.1
@@ -627,7 +627,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: -80
     m_SpeedMode: 0
     m_MaxSpeed: 150
     m_AccelTime: 0.1
@@ -655,14 +655,14 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_BindingMode: 4
-  m_SplineCurvature: 0.2
+  m_SplineCurvature: 0.4
   m_Orbits:
-  - m_Height: 4.5
+  - m_Height: 3.5
     m_Radius: 2.5
-  - m_Height: 2.5
+  - m_Height: 1.5
     m_Radius: 5
-  - m_Height: 0.4
-    m_Radius: 2.5
+  - m_Height: -0.5
+    m_Radius: 4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 1219002146954131155}
@@ -804,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344687736424359292}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07397851, y: 0, z: 0, w: 0.99725986}
+  m_LocalRotation: {x: -0.15132555, y: -0.63012016, z: -0.12697683, w: 0.75095016}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -883,7 +883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7689137342476405603}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.01656494, y: 0, z: 0, w: 0.9998628}
+  m_LocalRotation: {x: -0.107934415, y: -0.63637424, z: -0.090567484, w: 0.75840336}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -984,7 +984,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3908013441180067389}
-  - {fileID: 3480567752617218389}
   - {fileID: 8671682201401368819}
   - {fileID: 854954334841423995}
   - {fileID: 8508927637617549163}
@@ -1677,7 +1676,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2764da85b51e0b14092f6990c9da1bd1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3480567752617218389}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2764da85b51e0b14092f6990c9da1bd1, type: 3}
 --- !u!4 &3908013441180067389 stripped
