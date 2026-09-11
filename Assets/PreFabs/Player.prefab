@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105126643982354680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014687929, y: -0.46230137, z: -0.0076590274, w: 0.8865682}
+  m_LocalRotation: {x: -0.01656494, y: 0, z: 0, w: 0.9998628}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -79,6 +79,37 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 2000933892295257070}
+--- !u!1 &921313943656891573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8508927637617549163}
+  m_Layer: 0
+  m_Name: Orientation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8508927637617549163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921313943656891573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4919801823663285996}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163637064985917183
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
-  m_BindingMode: 5
+  m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 0.88528764, z: -3.461083}
   m_XDamping: 1
   m_YDamping: 1
@@ -297,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
-  m_BindingMode: 5
+  m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 0.88528764, z: -3.461083}
   m_XDamping: 1
   m_YDamping: 1
@@ -424,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
-  m_BindingMode: 5
+  m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 0.88528764, z: -3.461083}
   m_XDamping: 1
   m_YDamping: 1
@@ -523,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 5263333504941544642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8379211, y: 0.8852873, z: -1.9812622}
+  m_LocalPosition: {x: 0, y: 0.8852873, z: -3.46109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -598,7 +629,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 250
+    m_MaxSpeed: 150
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -623,7 +654,7 @@ MonoBehaviour:
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
-  m_BindingMode: 5
+  m_BindingMode: 4
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 4.5
@@ -668,6 +699,11 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   _freelook: {fileID: 149405615593212633}
   _target: {fileID: 5607167574946936291}
+  _orientation: {fileID: 8508927637617549163}
+  _player: {fileID: 4919801823663285996}
+  _playerObj: {fileID: 3908013441180067389}
+  _rbd: {fileID: 1631337353599401335}
+  _rotationSpeed: 7
 --- !u!114 &9117407953092448962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344687736424359292}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06559596, y: -0.46109784, z: -0.034205046, w: 0.8842601}
+  m_LocalRotation: {x: -0.07397851, y: 0, z: 0, w: 0.99725986}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -847,7 +883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7689137342476405603}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014687929, y: -0.46230137, z: -0.0076590274, w: 0.8865682}
+  m_LocalRotation: {x: -0.01656494, y: 0, z: 0, w: 0.9998628}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -951,6 +987,7 @@ Transform:
   - {fileID: 3480567752617218389}
   - {fileID: 8671682201401368819}
   - {fileID: 854954334841423995}
+  - {fileID: 8508927637617549163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3830147732259806200
@@ -1073,7 +1110,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   Rbd: {fileID: 1631337353599401335}
   _speed: 18
-  _rotationSpeed: 10
+  _direction: {fileID: 8508927637617549163}
   _jumpForce: 20
   _groundCheck: {fileID: 8671682201401368819}
   _groundDistance: 0.2

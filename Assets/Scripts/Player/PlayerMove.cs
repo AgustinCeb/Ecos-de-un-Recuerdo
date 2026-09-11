@@ -15,9 +15,9 @@ public class PlayerMove : NetworkBehaviour
     //Movimiento
     [Header("Movimiento")]
     [SerializeField] private float _speed;
-    [SerializeField] private float _rotationSpeed;
-    private Vector2 _moveInput;
-
+    [SerializeField] private Transform _direction;
+    private Vector3 _moveInput;
+    
     //Salto
     [Header("Salto")]
     [SerializeField] private float _jumpForce;
@@ -52,6 +52,8 @@ public class PlayerMove : NetworkBehaviour
     [SerializeField] private float _downForce;
     private bool _isFalling;
     private bool _isJumping;
+
+    public Vector2 MoveInput => _moveInput;
 
     private void Start()
     {
@@ -101,8 +103,8 @@ public class PlayerMove : NetworkBehaviour
     private Vector3 GetMoveDirection()
     {
         //movimento
-        Vector3 forward = _camaraTransform.forward;
-        Vector3 right = _camaraTransform.right;
+        Vector3 forward = _direction.forward;
+        Vector3 right = _direction.right;
 
         forward.y = 0f;
         right.y = 0f;
@@ -175,8 +177,8 @@ public class PlayerMove : NetworkBehaviour
 
     }
 
-    
 
+    
 
     private void FixedUpdate()
     {
@@ -206,14 +208,7 @@ public class PlayerMove : NetworkBehaviour
             
         }
 
-        //Rotacion de personaje
-        if (moveDir != Vector3.zero) 
-        {
-            Quaternion rotation = Quaternion.LookRotation(moveDir);
-
-            Rbd.MoveRotation(Quaternion.Slerp(Rbd.rotation, rotation, _rotationSpeed * Time.fixedDeltaTime));
-        }
-
+        
         //Gravedad En Rampas
         if (onRamp && !_jump)
         {
