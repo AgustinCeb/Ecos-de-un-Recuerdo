@@ -15,7 +15,7 @@ MonoBehaviour:
   _skillName: Castigo de Sombras
   _skillIcon: {fileID: 0}
   _skillDescription: 
-  _skillDamage: 40
+  _skillDamage: 30
   _skillCooldown: 20
   _skillCost: 25
   _skillPrefab: {fileID: 698267104646967881, guid: b0c1a784ab13b074786ed2e9eb484ba8, type: 3}

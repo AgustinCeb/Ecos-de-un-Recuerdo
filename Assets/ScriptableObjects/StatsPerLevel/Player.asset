@@ -17,39 +17,59 @@ MonoBehaviour:
     maxHealth: 100
     damage: 5
     defense: 5
+    Maxmana: 50
+    agility: 0
   - requiredExpForNextLevel: 200
-    maxHealth: 120
+    maxHealth: 100
     damage: 7
     defense: 7
+    Maxmana: 50
+    agility: 0
   - requiredExpForNextLevel: 400
-    maxHealth: 140
+    maxHealth: 100
     damage: 10
     defense: 10
+    Maxmana: 50
+    agility: 0
   - requiredExpForNextLevel: 200
-    maxHealth: 25
+    maxHealth: 100
     damage: 12
     defense: 12
+    Maxmana: 50
+    agility: 0
   - requiredExpForNextLevel: 600
-    maxHealth: 180
+    maxHealth: 100
     damage: 15
     defense: 15
+    Maxmana: 50
+    agility: 0
   - requiredExpForNextLevel: 800
-    maxHealth: 200
+    maxHealth: 120
     damage: 17
     defense: 17
+    Maxmana: 100
+    agility: 0
   - requiredExpForNextLevel: 1000
-    maxHealth: 250
+    maxHealth: 120
     damage: 20
     defense: 20
+    Maxmana: 100
+    agility: 0
   - requiredExpForNextLevel: 1200
-    maxHealth: 300
+    maxHealth: 120
     damage: 22
     defense: 22
+    Maxmana: 100
+    agility: 0
   - requiredExpForNextLevel: 1400
-    maxHealth: 350
+    maxHealth: 120
     damage: 25
     defense: 25
+    Maxmana: 100
+    agility: 0
   - requiredExpForNextLevel: 1600
-    maxHealth: 400
+    maxHealth: 150
     damage: 27
     defense: 27
+    Maxmana: 125
+    agility: 0
