@@ -3,19 +3,24 @@ using Unity.Netcode;
 
 public class LiberacionData : NetworkBehaviour
 {
-    [SerializeField] private int _damageExplotion = 30;
+
+    [SerializeField] private Skilldata _skillUlti;
 
     [SerializeField] private GameObject _areaPF;
+
+    private int _skillDamage;
 
     private void Start()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, 5f);
 
+        _skillDamage = _skillUlti.SkillDamage;
+
         foreach (Collider hit in hits)
         {
             if (hit.CompareTag("Enemy"))
             {
-                hit.GetComponent<EnemiesHealt>()?.TakeDamage(_damageExplotion);
+                hit.GetComponent<EnemiesHealt>()?.TakeDamage(_skillDamage);
 
             }
         }

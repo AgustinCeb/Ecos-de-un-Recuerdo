@@ -18,8 +18,8 @@ public class Skilldata : ScriptableObject
     [SerializeField] private string _skillDescription;
     //Damage,cooldown y Mana
     [SerializeField] private int    _skillDamage;
-    [SerializeField] private int    _skillCooldown;
-    [SerializeField] private int    _skillCost;
+    [SerializeField] private float    _skillCooldown;
+    [SerializeField] private float    _skillCost;
     //Prefab
     [SerializeField] private GameObject _skillPrefab;
     //Id
@@ -31,8 +31,8 @@ public class Skilldata : ScriptableObject
     public Sprite SkillIcon => _skillIcon;
     public string SkillDescription => _skillDescription;
     public int SkillDamage => _skillDamage;
-    public int SkillCooldown => _skillCooldown;
-    public int SkillCost => _skillCost;
+    public float SkillCooldown => _skillCooldown;
+    public float SkillCost => _skillCost;
     public GameObject SkillPrefab => _skillPrefab;
     public int SkillId => _skillId;
     public SkillType Skill => _skillType;

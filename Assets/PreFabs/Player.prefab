@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105126643982354680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.107934415, y: -0.63637424, z: -0.090567484, w: 0.75840336}
+  m_LocalRotation: {x: -0.10784215, y: -0.63638604, z: -0.09049026, w: 0.75841576}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -804,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344687736424359292}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.15132555, y: -0.63012016, z: -0.12697683, w: 0.75095016}
+  m_LocalRotation: {x: -0.15123412, y: -0.63013643, z: -0.12690043, w: 0.7509678}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -883,7 +883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7689137342476405603}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.107934415, y: -0.63637424, z: -0.090567484, w: 0.75840336}
+  m_LocalRotation: {x: -0.10784215, y: -0.63638604, z: -0.09049026, w: 0.75841576}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -963,6 +963,7 @@ GameObject:
   - component: {fileID: 8885342168530427645}
   - component: {fileID: 7433453687186855986}
   - component: {fileID: 6905028323338983625}
+  - component: {fileID: 204008510710109917}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1009,9 +1010,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.30155563
-  m_Height: 2.184902
+  m_Height: 2.0624638
   m_Direction: 1
-  m_Center: {x: 0.0058354437, y: 0.4938346, z: -0.0391407}
+  m_Center: {x: 0.0058354437, y: 0.5096693, z: -0.0391407}
 --- !u!54 &1631337353599401335
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1081,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 2419518658
+  GlobalObjectIdHash: 1231986452
   InScenePlacedSourceGlobalObjectIdHash: 2419518658
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1350,6 +1351,24 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   _interacRange: 2.5
   _actionText: {fileID: 0}
+--- !u!114 &204008510710109917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743155339882080509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce11b5c795c19248b4091f37fa19e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMana
+  ShowTopMostFoldoutHeaderGroup: 1
+  Mana:
+    UpdateTraits:
+      MinSecondsBetweenUpdates: 0
+      MaxSecondsBetweenUpdates: 0
+    m_InternalValue: 100
 --- !u!1001 &622898690356509418
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -28,8 +28,19 @@ public class CastigoData : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         bool HitGround = collision.gameObject.layer == LayerMask.NameToLayer("Ground");
         bool HitEnemi = collision.gameObject.CompareTag("Enemy");
+
+        if (HitEnemi)
+        {
+            
+           
+                
+
+           
+
+        }
 
         if (HitGround || HitEnemi) 
         {

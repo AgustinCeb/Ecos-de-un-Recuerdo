@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 524139528529273193}
   - component: {fileID: 7751251928281991934}
   - component: {fileID: 2219263607498191522}
-  - component: {fileID: 5284912189009346448}
   - component: {fileID: 1544614257133108004}
   - component: {fileID: 774881058922697856}
+  - component: {fileID: 5781729128808883501}
   m_Layer: 0
   m_Name: CastigoPF
   m_TagString: Untagged
@@ -87,19 +87,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &5284912189009346448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698267104646967881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba3b9b1cef8ff142bddb87648c3d50c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  _damage: 10
 --- !u!114 &1544614257133108004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +129,19 @@ MonoBehaviour:
   _posisionUp: 5
   _fallVelocity: 20
   _skillSound: {fileID: 8300000, guid: ba6a3e178b3a03a44bc908e765161e95, type: 3}
+--- !u!114 &5781729128808883501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698267104646967881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a058f98681cd84e860f700d4b9f7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillDamage
+  skillCastigo: {fileID: 11400000, guid: 543fa7390e815f04e82af1acd477dd55, type: 2}
 --- !u!1 &5463948813454363068
 GameObject:
   m_ObjectHideFlags: 0
