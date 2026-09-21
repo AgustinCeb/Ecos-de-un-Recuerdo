@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Castigo
   m_EditorClassIdentifier: Assembly-CSharp::Skilldata
   _skillName: Castigo de Sombras
-  _skillIcon: {fileID: 0}
+  _skillIcon: {fileID: 21300000, guid: 3e219b2ae4cfc2c4bb2e464d6445e668, type: 3}
   _skillDescription: 
   _skillDamage: 30
   _skillCooldown: 20

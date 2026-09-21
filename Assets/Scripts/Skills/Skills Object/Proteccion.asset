@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Proteccion
   m_EditorClassIdentifier: Assembly-CSharp::Skilldata
   _skillName: Proteccion
-  _skillIcon: {fileID: 0}
+  _skillIcon: {fileID: 21300000, guid: 0fc5470977037d948827a86ffb102f14, type: 3}
   _skillDescription: 
   _skillDamage: 0
   _skillCooldown: 50
