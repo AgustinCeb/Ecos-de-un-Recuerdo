@@ -13,6 +13,19 @@ public class SkillSlot : NetworkBehaviour
     private float _coolDownSkill2;
     private float _coolDownSkill3;
 
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) return;
+
+        SkillUi skillUi = FindFirstObjectByType<SkillUi>();
+
+        if(skillUi != null)
+        {
+            skillUi.SetSkill(_slot1,_slot2,_slot3);
+        }
+
+    }
+    
     public void OnSkill1()
     {
         if (!IsOwner) return;

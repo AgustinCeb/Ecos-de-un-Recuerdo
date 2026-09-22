@@ -4,21 +4,13 @@ using UnityEngine.UI;
 
 public class Skill_UI_Slot : MonoBehaviour
 {
-    [SerializeField] private Image _icon;
-    [SerializeField] private TextMeshProUGUI _CooldownText;
+    [SerializeField] private Image _skillIcon;
+    [SerializeField] private TextMeshProUGUI _manaCostText;
 
-    public void SetSlot(InventorySlot slot)
+    public void SetSkill(Skilldata skilldata)
     {
-        if (slot == null)
-        {
-            _icon.enabled = false;
-            _CooldownText.text = "";
-            return;
-        }
-
-        _icon.enabled = true;
-        _icon.sprite = slot.ItemData.ItemIcon;
-        _CooldownText.text = slot.Quantity.ToString();
+        _skillIcon.sprite = skilldata.SkillIcon;
+        _manaCostText.text = skilldata.SkillCost.ToString();
 
     }
 

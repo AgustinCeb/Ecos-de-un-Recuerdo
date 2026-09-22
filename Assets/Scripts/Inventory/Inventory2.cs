@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
 public class Inventory2 : NetworkBehaviour
 {
@@ -10,6 +11,7 @@ public class Inventory2 : NetworkBehaviour
 
     public List<InventorySlot> Slots => _slots;
 
+   
 
     public void addItem(ItemData itemData, int amount)
     {

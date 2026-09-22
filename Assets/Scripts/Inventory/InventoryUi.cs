@@ -24,7 +24,11 @@ public class InventoryUi : MonoBehaviour
     private List<InventorySlotUi> _uiSlots2 = new();
     private List<InventorySlotUi> _uiSlots3 = new();
 
-    private void Update()
+    private void OnEnable()
+    {
+        FindInventories();
+    }
+    public void FindInventories()
     {
         if(_inventoryFound) return;
         {

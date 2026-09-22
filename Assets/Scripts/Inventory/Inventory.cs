@@ -11,6 +11,7 @@ public class Inventory : NetworkBehaviour
 
 
     public List<InventorySlot> Slots => _slots;
+
     
 
     public void addItem(ItemData itemData, int amount)
