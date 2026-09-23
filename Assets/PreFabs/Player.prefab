@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105126643982354680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10784215, y: -0.63638604, z: -0.09049026, w: 0.75841576}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.15218131, y: -0.2330373, z: 0.03695022, w: 0.9597756}
+  m_LocalPosition: {x: -0.000030517578, y: -0.0000019073486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.26868576, z: -4.3709145}
+  m_FollowOffset: {x: 0, y: 2.414708, z: -4.348985}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -80
+    Value: -27.295225
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.26868576, z: -4.3709145}
+  m_FollowOffset: {x: 0, y: 2.414708, z: -4.348985}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -80
+    Value: -27.295225
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.26868576, z: -4.3709145}
+  m_FollowOffset: {x: 0, y: 2.414708, z: -4.348985}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -80
+    Value: -27.295225
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -554,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 5263333504941544642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3045044, y: -0.26868534, z: -0.7590027}
+  m_LocalPosition: {x: 1.9943542, y: 2.41471, z: -3.864746}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -603,7 +603,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.1
+    Value: 0.67090523
     m_SpeedMode: 0
     m_MaxSpeed: 1.5
     m_AccelTime: 0.1
@@ -627,7 +627,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -80
+    Value: -27.295225
     m_SpeedMode: 0
     m_MaxSpeed: 150
     m_AccelTime: 0.1
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
   ShowTopMostFoldoutHeaderGroup: 1
   _freelook: {fileID: 149405615593212633}
-  _target: {fileID: 5607167574946936291}
+  _target: {fileID: 4919801823663285996}
   _orientation: {fileID: 8508927637617549163}
   _player: {fileID: 4919801823663285996}
   _playerObj: {fileID: 3908013441180067389}
@@ -804,8 +804,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344687736424359292}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.15123412, y: -0.63013643, z: -0.12690043, w: 0.7509678}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.09679202, y: -0.23477516, z: 0.023501482, w: 0.96693313}
+  m_LocalPosition: {x: -0.000030517578, y: -0.0000019073486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -883,8 +883,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7689137342476405603}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10784215, y: -0.63638604, z: -0.09049026, w: 0.75841576}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.15218131, y: -0.2330373, z: 0.03695022, w: 0.9597756}
+  m_LocalPosition: {x: -0.000030517578, y: -0.0000019073486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1010,9 +1010,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.30155563
-  m_Height: 2.0624638
+  m_Height: 2.063795
   m_Direction: 1
-  m_Center: {x: 0.0058354437, y: 0.5096693, z: -0.0391407}
+  m_Center: {x: 0.0058354437, y: 0.50900364, z: -0.0391407}
 --- !u!54 &1631337353599401335
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1231986452
+  GlobalObjectIdHash: 2419518658
   InScenePlacedSourceGlobalObjectIdHash: 2419518658
   DeferredDespawnTick: 0
   Ownership: 1
