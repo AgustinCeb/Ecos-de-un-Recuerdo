@@ -7283,16 +7283,36 @@ PrefabInstance:
       value: Skill_Icon_1
       objectReference: {fileID: 0}
     - target: {fileID: 3169568525133414659, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ed1074391f139544d941ae0870937dc0, type: 3}
+    - target: {fileID: 3169568525133414659, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
       propertyPath: m_Color.b
-      value: 0.023228915
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169568525133414659, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
       propertyPath: m_Color.g
-      value: 0.023228915
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169568525133414659, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
       propertyPath: m_Color.r
-      value: 0.05660379
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093080720838797185, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093080720838797185, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093080720838797185, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093080720838797185, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4177765229565965658, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
       propertyPath: m_AnchoredPosition.x

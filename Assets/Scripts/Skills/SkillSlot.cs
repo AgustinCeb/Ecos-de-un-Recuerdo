@@ -8,10 +8,14 @@ public class SkillSlot : NetworkBehaviour
     [SerializeField] private Skilldata _slot2;
     [SerializeField] private Skilldata _slot3;
 
+    [SerializeField] private PlayerMana _playerMana;
+
+
     //Colldown y Costos
     private float _coolDownSkill1;
     private float _coolDownSkill2;
     private float _coolDownSkill3;
+   
 
     public override void OnNetworkSpawn()
     {
@@ -26,23 +30,33 @@ public class SkillSlot : NetworkBehaviour
 
     }
     
+    
+
     public void OnSkill1()
     {
         if (!IsOwner) return;
 
         if (_coolDownSkill1 > 0)
         {
-            Debug.Log("Habilidad 1 En enfiramiento"+_coolDownSkill1+"Seg");
+            Debug.Log("Habilidad 1 En enfiramiento"+(_coolDownSkill1.ToString("0F"))+"Seg");
             
             return;
         }
 
-
+        
         if (_slot1.Skill == Skilldata.SkillType.Attack)
         {
-            UseSkill1ServerRpc();
+            if (_playerMana.TryUseMana(_slot1.SkillCost))
+            {
 
-            _coolDownSkill1 = _slot1.SkillCooldown;
+                UseSkill1ServerRpc();
+
+                _coolDownSkill1 = _slot1.SkillCooldown;
+            }
+            else 
+            {
+                Debug.Log("Mana Insuficiente");
+            }
         }
 
     }
@@ -68,9 +82,16 @@ public class SkillSlot : NetworkBehaviour
 
         if (_slot2.Skill == Skilldata.SkillType.Buff)
         {
-            UseSkill2ServerRpc();
+            if (_playerMana.TryUseMana(_slot2.SkillCost))
+            {
+                UseSkill2ServerRpc();
 
-            _coolDownSkill2 = _slot2.SkillCooldown;
+                _coolDownSkill2 = _slot2.SkillCooldown;
+            }
+            else
+            {
+                Debug.Log("Mana Insuficiente");
+            }
         }
 
     }
@@ -104,9 +125,17 @@ public class SkillSlot : NetworkBehaviour
 
         if (_slot3.Skill == Skilldata.SkillType.Ultimate)
         {
-            UseSkill3ServerRpc();
+            if (_playerMana.TryUseMana(_slot3.SkillCost))
+            {
+                UseSkill3ServerRpc();
 
-            _coolDownSkill3 = _slot3.SkillCooldown;
+                _coolDownSkill3 = _slot3.SkillCooldown;
+            }
+            else
+            {
+                Debug.Log("Mana Insuficiente");
+            }
+
         }
 
     }
