@@ -27,6 +27,7 @@ public class PlayerMove : NetworkBehaviour
     private bool _jump;
     private bool _isGrounded;
 
+
     //Camara
     [Header("Camara")]
     [SerializeField] private Transform _camaraTransform;

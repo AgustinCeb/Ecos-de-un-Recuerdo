@@ -10,6 +10,10 @@ public class SkillSlot : NetworkBehaviour
 
     [SerializeField] private PlayerMana _playerMana;
 
+    [SerializeField] private PlayerStats _playerStats;
+
+    private SkillUi _skillUi;
+    private int _lastLevel;
 
     //Colldown y Costos
     private float _coolDownSkill1;
@@ -26,15 +30,38 @@ public class SkillSlot : NetworkBehaviour
         if(skillUi != null)
         {
             skillUi.SetSkill(_slot1,_slot2,_slot3);
+
+            _lastLevel = _playerStats._playerLevel;
+
+            _skillUi = skillUi;
+
+            UpdateSkillUnlocks();
         }
 
     }
     
     
+    private void UpdateSkillUnlocks()
+    {
+        bool skill1Unlocked = _playerStats._playerLevel >= 3;
+
+        if (_skillUi!= null)
+        {
+            _skillUi.SetSkill1Unlocked(skill1Unlocked);
+        }
+
+    }
+
 
     public void OnSkill1()
     {
         if (!IsOwner) return;
+
+        if (_playerStats._playerLevel < 3)
+        {
+            Debug.Log("Habilidad No Desbloqueada");
+            return;
+        }
 
         if (_coolDownSkill1 > 0)
         {
@@ -150,6 +177,17 @@ public class SkillSlot : NetworkBehaviour
 
     private void Update()
     {
+
+        if (!IsOwner) return;
+
+        if (_playerStats._playerLevel!= _lastLevel)
+        {
+            _lastLevel = _playerStats._playerLevel;
+
+            UpdateSkillUnlocks();
+        }
+    
+
         if (_coolDownSkill1> 0)
         {
             _coolDownSkill1 -= Time.deltaTime;
