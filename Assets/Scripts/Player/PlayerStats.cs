@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
     float exDefense;
     float exAgility;
 
+    public int _playerLevel => playerLevel;
+
     private void Awake()
     {
         if (Instance == null)

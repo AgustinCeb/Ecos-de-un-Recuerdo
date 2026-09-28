@@ -14,4 +14,10 @@ public class Skill_UI_Slot : MonoBehaviour
 
     }
 
+    public void SetSkillUnlocked(bool unlocked)
+    {
+        _skillIcon.enabled = unlocked;
+        _manaCostText.enabled = unlocked;
+    }
+
 }

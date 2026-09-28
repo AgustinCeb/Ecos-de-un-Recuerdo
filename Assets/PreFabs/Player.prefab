@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 2419518658
+  GlobalObjectIdHash: 1231986452
   InScenePlacedSourceGlobalObjectIdHash: 2419518658
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1309,6 +1309,7 @@ MonoBehaviour:
   _slot2: {fileID: 11400000, guid: 03aa1a77b8c44d44f8c5b3e60aca7840, type: 2}
   _slot3: {fileID: 11400000, guid: c8581961582e2b64ca819d3a6f7564f1, type: 2}
   _playerMana: {fileID: 204008510710109917}
+  _playerStats: {fileID: 1037178149719760196}
 --- !u!114 &7433453687186855986
 MonoBehaviour:
   m_ObjectHideFlags: 0
