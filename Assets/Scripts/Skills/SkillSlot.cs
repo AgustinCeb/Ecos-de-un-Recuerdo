@@ -45,9 +45,17 @@ public class SkillSlot : NetworkBehaviour
     {
         bool skill1Unlocked = _playerStats._playerLevel >= 3;
 
+        bool skill2Unlocked = _playerStats._playerLevel >= 6;
+
+        bool skill3Unlocked = _playerStats._playerLevel >= 9;
+
         if (_skillUi!= null)
         {
             _skillUi.SetSkill1Unlocked(skill1Unlocked);
+
+            _skillUi.SetSkill2Unlocked(skill2Unlocked);
+
+            _skillUi.SetSkill3Unlocked(skill3Unlocked);
         }
 
     }
@@ -100,6 +108,12 @@ public class SkillSlot : NetworkBehaviour
     {
         if (!IsOwner) return;
 
+        if (_playerStats._playerLevel < 6)
+        {
+            Debug.Log("Habilidad No Desbloqueada");
+            return;
+        }
+
         if (_coolDownSkill2 > 0)
         {
             Debug.Log("Habilidad 2 En enfiramiento" + _coolDownSkill2 + "Seg");
@@ -142,6 +156,12 @@ public class SkillSlot : NetworkBehaviour
     public void OnSkill3()
     {
         if (!IsOwner) return;
+
+        if (_playerStats._playerLevel < 9)
+        {
+            Debug.Log("Habilidad No Desbloqueada");
+            return;
+        }
 
         if (_coolDownSkill3 > 0)
         {

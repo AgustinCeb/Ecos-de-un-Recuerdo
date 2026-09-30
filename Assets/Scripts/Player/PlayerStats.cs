@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
     public void AddXP(int addXp)
     {
         heldXP += addXp;
-        if (heldXP >= requiredXP)
+        while (heldXP >= requiredXP && playerLevel< statValuesPerLevel.levels.Length)
         {
             LevelUp();
         }
@@ -36,14 +36,22 @@ public class PlayerStats : MonoBehaviour
     }
     void LevelUp()
     {
-        if (playerLevel < statValuesPerLevel.levels.Length)
-        {
+        
             heldXP -= LevelStats.requiredExpForNextLevel;
             playerLevel++;
             LevelStats = statValuesPerLevel.levels[playerLevel-1];
             requiredXP = LevelStats.requiredExpForNextLevel;
-            Debug.Log("LEVEL UP, YOUR DAMAGE IS NOW "+LevelStats.damage+ " ,YOUR HEALTH IS NOW " + LevelStats.maxHealth+ " AND YOUR DEFENSE IS NOW " + LevelStats.defense);
+
+        // Recargar maná al subir de nivel
+        PlayerMana playerMana = GetComponent<PlayerMana>();
+
+        if (playerMana != null)
+        {
+            playerMana.RestoreMana();
         }
+
+        Debug.Log("LEVEL UP, YOUR DAMAGE IS NOW "+LevelStats.damage+ " ,YOUR HEALTH IS NOW " + LevelStats.maxHealth+ " AND YOUR DEFENSE IS NOW " + LevelStats.defense);
+
 
     }
     void InitializeXP()

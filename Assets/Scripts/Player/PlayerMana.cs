@@ -5,17 +5,30 @@ public class PlayerMana : NetworkBehaviour
 {
     int maxMana;
 
-    public NetworkVariable<int> Mana = new(100);
+    public NetworkVariable<int> Mana = new(50);
 
     
 
     private void Update()
     {
-        maxMana = GetComponent<PlayerStats>().getMaxMana();
+        int newMaxMana = GetComponent<PlayerStats>().getMaxMana();
 
-        if(Mana.Value > maxMana)
-            Mana.Value = maxMana;
+        if (newMaxMana != maxMana)
+        {
+            maxMana = newMaxMana;
 
+            if(Mana.Value > maxMana)
+            {
+                Mana.Value = maxMana;
+            }
+        }
+
+        
+    }
+
+    public void RestoreMana()
+    {
+        Mana.Value = GetComponent<PlayerStats>().getMaxMana();
     }
 
     public bool TryUseMana(int amount)

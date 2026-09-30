@@ -21,4 +21,14 @@ public class SkillUi : MonoBehaviour
         _skillCont1.SetSkillUnlocked(unlocked);
     }
 
+    public void SetSkill2Unlocked(bool unlocked)
+    {
+        _skillCont2.SetSkillUnlocked(unlocked);
+    }
+
+    public void SetSkill3Unlocked(bool unlocked)
+    {
+        _skillCont3.SetSkillUnlocked(unlocked);
+    }
+
 }
