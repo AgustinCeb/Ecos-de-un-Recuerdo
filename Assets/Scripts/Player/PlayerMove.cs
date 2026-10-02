@@ -54,6 +54,11 @@ public class PlayerMove : NetworkBehaviour
     private bool _isFalling;
     private bool _isJumping;
 
+    //Aniamator
+    [Header("Animator")]
+    [SerializeField] private Animator _animator;
+
+
     public Vector2 MoveInput => _moveInput;
 
     private void Start()
@@ -77,6 +82,8 @@ public class PlayerMove : NetworkBehaviour
         if (!IsOwner) return; 
         if (!_canDash) return;
 
+        _animator.SetTrigger("Dash");
+
         StartCoroutine(Dash());
 
     }
@@ -86,6 +93,7 @@ public class PlayerMove : NetworkBehaviour
         if (!IsOwner) return ;
 
         _moveInput = inputValue.Get<Vector2>();
+        
     }
         
     private void OnJump(InputValue Value)
@@ -178,9 +186,7 @@ public class PlayerMove : NetworkBehaviour
 
     }
 
-
     
-
     private void FixedUpdate()
     {
         if (!IsOwner) return;
@@ -193,6 +199,13 @@ public class PlayerMove : NetworkBehaviour
         
         Vector3 targetVelocity = new Vector3(moveDir.x * _speed, Rbd.linearVelocity.y, moveDir.z * _speed);
         Rbd.linearVelocity = Vector3.Lerp(Rbd.linearVelocity,targetVelocity,0.2f);
+
+
+        //Animation
+        Vector3 horizontalVelocity = new Vector3(Rbd.linearVelocity.x,0f,Rbd.linearVelocity.z);
+
+        _animator.SetFloat("Speed",horizontalVelocity.magnitude);
+
 
         //Compureba si esta en el suelo
         _isGrounded = Physics.CheckSphere(_groundCheck.position,_groundDistance,_groundLayer);
@@ -238,6 +251,7 @@ public class PlayerMove : NetworkBehaviour
     {
         
         _canDash = false;
+
 
         Vector3 dashDir = GetMoveDirection();
 
