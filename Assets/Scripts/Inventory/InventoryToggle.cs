@@ -1,4 +1,5 @@
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +12,8 @@ public class InventoryToggle : NetworkBehaviour
     [SerializeField] private InventoryUi _inventoryUi;
 
     [SerializeField] private PlayerInput _playerInput;
-    
+
+    [SerializeField] private GameObject _skillUi;
 
 
     public override void OnNetworkSpawn()
@@ -23,6 +25,8 @@ public class InventoryToggle : NetworkBehaviour
         _inventoryUi = FindFirstObjectByType<InventoryUi>(FindObjectsInactive.Include);
         
         _inventoryMenu = _inventoryUi.transform.gameObject;
+
+        _skillUi = FindFirstObjectByType<SkillUi>().gameObject;
         
 
     }
@@ -45,11 +49,15 @@ public class InventoryToggle : NetworkBehaviour
         if (active)
         {
             _playerInput.SwitchCurrentActionMap("PlayerUI");
+            _skillUi.transform.parent.gameObject.SetActive(false);
+
+            
         }
 
         else
         {
             _playerInput.SwitchCurrentActionMap("Player");
+            _skillUi?.transform.parent.gameObject.SetActive(true);
         }
 
     }

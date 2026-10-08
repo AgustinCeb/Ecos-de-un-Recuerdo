@@ -16,6 +16,6 @@ MonoBehaviour:
   _itemIcon: {fileID: 21300000, guid: d659f7396cd57754eba78763cf986c51, type: 3}
   _itemDescription: Prueba de testeo
   _itemID: 1
-  _itemType: 1
+  _itemType: 2
   _isStackable: 0
   _maxStack: 1

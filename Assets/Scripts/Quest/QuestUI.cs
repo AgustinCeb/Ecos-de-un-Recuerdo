@@ -12,7 +12,7 @@ public class QuestUI : MonoBehaviour
     public int testQuestAmount;
     private List<QuestProgress> testQuests = new();
 
-    private void Start()
+    void Start()
     {
         for (int i = 0; i< testQuestAmount; i++)
         {
@@ -32,8 +32,8 @@ public class QuestUI : MonoBehaviour
         foreach(var quest in testQuests)
         {
             GameObject entry = Instantiate(questEntryPF,questListConten);
-            TMP_Text questNameText = entry.transform.Find("QuestNameText").GetComponent<TMP_Text>();
-            Transform objectiveList = entry.transform.Find("ObjectiveList");
+            TMP_Text questNameText = entry.transform.Find("QuestName").GetComponent<TMP_Text>();
+            Transform objectiveList = entry.transform.Find("QuestObjective");
 
             questNameText.text = quest.quest.name;
 
