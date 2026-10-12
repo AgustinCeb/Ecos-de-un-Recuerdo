@@ -24,6 +24,8 @@ public class PlayerInteract : NetworkBehaviour
 
     }
 
+   
+
     private void Update()
     {
         Collider[] CloserObj = Physics.OverlapSphere(transform.position, _interacRange);
@@ -33,12 +35,15 @@ public class PlayerInteract : NetworkBehaviour
         foreach(var col in CloserObj)
         {
             var interactable = col.GetComponent<IInteractable>();
+
             if(interactable != null)
             {
                 _interactObject = interactable;
                 break;
             }
         }
+
+        if(!IsOwner) return;
 
         _actionText.gameObject.SetActive(_interactObject !=null);
         if(_interactObject != null)
@@ -50,10 +55,12 @@ public class PlayerInteract : NetworkBehaviour
 
     public void OnInteract(InputValue Value)
     {
-        
-        if (_interactObject != null) 
+
+        if (_interactObject != null)
         {
-            _interactObject.Interact(gameObject);
+            _interactObject.Interact();
+
+
         }
 
     }

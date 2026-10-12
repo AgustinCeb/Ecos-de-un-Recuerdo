@@ -5969,7 +5969,59 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5d74023-fd35-4486-9290-15b70b51a043
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 07b47424-0bff-46f6-b0c3-2279ea700ff8
+    m_ActionName: 'Player/Camara[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8f1257ba-94c7-489e-872b-fa934c65d0b3
+    m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0308a0b2-0d23-4903-a7b4-032cffe1b732
+    m_ActionName: 'Player/Inventory[/Keyboard/i]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 82ba171e-9c18-420b-843a-d403e4c3b129
+    m_ActionName: 'Player/Attack[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 75b5bbd9-9bc7-4a61-9081-022841019868
+    m_ActionName: 'Player/Equip[/Keyboard/p]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a6addca2-d45e-4cc0-97a0-9323cbc7f5e0
+    m_ActionName: 'Player/Dash[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5e25e148-af00-49cd-8aae-24cfe3f7713e
+    m_ActionName: 'Player/Skill1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e78c904-86c8-4383-98af-0f0240e527c1
+    m_ActionName: 'Player/Skill2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ee18cc5-9cb1-4e0f-8922-373e2a384007
+    m_ActionName: 'Player/Skill3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 12798db0-a198-4225-b016-0a23c5f333ee
+    m_ActionName: 'Player/LockOn[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d24537c9-2585-4c1c-8243-2f835f4cbf1e
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 150f39ca-8473-4357-b355-5a17af1bdac6
+    m_ActionName: 'PlayerUI/Inventory[/Keyboard/i]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

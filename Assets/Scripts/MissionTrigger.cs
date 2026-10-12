@@ -51,4 +51,14 @@ public class MissionTrigger : MonoBehaviour, IInteractable
         ActionText = "Entregar Objetos";
 
     }
+
+    public bool CantInteract()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Interact()
+    {
+        throw new NotImplementedException();
+    }
 }

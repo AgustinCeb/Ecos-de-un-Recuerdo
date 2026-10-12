@@ -5,16 +5,24 @@ public class MissionCollectible : MonoBehaviour, IInteractable
 {
     public static Action onMissionCollect;
 
+    public bool IsEmpty;
+
     [SerializeField] private GameObject _emptyTreePF;
 
     public string ActionText => "Cosechar";
 
-    private void OnEnable()
-    {
-    }
     
-    public void Interact(GameObject Starter)
+
+    public bool CantInteract()
     {
+        return !IsEmpty;
+    }
+
+    public void Interact()
+    {
+        
+        void TakeOne(GameObject Starter)
+        {
         if (Starter.transform.CompareTag("Player"))
         {
             onMissionCollect?.Invoke();
@@ -24,7 +32,8 @@ public class MissionCollectible : MonoBehaviour, IInteractable
             Destroy(this.gameObject);
         }
 
+        }
     }
-    
+
 
 }
