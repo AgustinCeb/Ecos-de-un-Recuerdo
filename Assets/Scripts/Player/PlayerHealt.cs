@@ -14,6 +14,8 @@ public class PlayerHealt : NetworkBehaviour
 
     private void Update()
     {
+        if (!IsServer)return;
+
         int startingMaxHp = maxHealth;
         maxHealth = GetComponent<PlayerStats>().getHealthPoints();
         if (startingMaxHp != maxHealth) Healt.Value = maxHealth;
