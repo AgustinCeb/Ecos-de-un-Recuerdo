@@ -11,6 +11,10 @@ public class Npc_DialogeData : ScriptableObject
     [Header("Npc Dialogues")]
     public string[] dialogeLines;
     public bool[] autoProgressLines;
+    public bool[] endDialogueLines;
+
+    [Header("Npc Choises")]
+    public DialogueChoice[] choices;
 
     [Header("Dialogues Config")]
     public float typingSpeed = 0.05f;
@@ -18,4 +22,11 @@ public class Npc_DialogeData : ScriptableObject
     public AudioClip voiceSound;
     public float voicePitch = 1f;
 
+}
+[System.Serializable]
+public class DialogueChoice
+{
+    public int dialogueIndex;
+    public string[] choices;
+    public int[] nextDialogueIndexes;
 }

@@ -15,9 +15,28 @@ MonoBehaviour:
   npcName: Aldeano Feliz
   npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
   dialogeLines:
-  - "Hola Extra\xF1o"
-  - Bienvenido A La aldea Costera
-  autoProgressLines: 0100
+  - Hola Forastero, Estamos en la Aldea Costera
+  - Necesitas Ayuda?
+  - Que Quieres Saber?
+  - Ok Suerte
+  - "Si sales por la puerta izquierda, vas hacia la monta\xF1a volcanica y si vas
+    hacia la derecha vas al cementerio pero ten cuidado con los mounstros"
+  - Intenta hablar con nuestro lider, esta en la capilla, es ese edificio del centro.
+    tambien puedes hablar con el alquimista, es ese de gorro blanco
+  autoProgressLines: 010100000000
+  endDialogueLines: 000000010101
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Si
+    - No, Gracias
+    nextDialogueIndexes: 0200000003000000
+  - dialogueIndex: 2
+    choices:
+    - Indicaciones
+    - Lugares De Interes
+    - Olvidalo
+    nextDialogueIndexes: 040000000500000003000000
   typingSpeed: 0.05
   autoProgressDelay: 1.5
   voiceSound: {fileID: 0}
