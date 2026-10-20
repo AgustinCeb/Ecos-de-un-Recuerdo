@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cad706640ba6004bb29f8b5317bcaa5, type: 3}
   m_Name: TestQuest
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questId: 1
+  questId: 0
   questName: Recoleccion De Bayas
   description: Recolecta 6 bayas para el pueblo
   objetives:

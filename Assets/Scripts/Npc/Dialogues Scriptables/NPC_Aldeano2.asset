@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81642716c47bc7d42a1e9b5b7314af51, type: 3}
+  m_Name: NPC_Aldeano2
+  m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
+  npcName: Aldeano 2
+  npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
+  dialogeLines:
+  - Hola Forastero, buenos dias
+  - Que Necesitas?
+  - "Si sales por la puerta izquierda, vas hacia la monta\xF1a volcanica y si vas
+    hacia la derecha vas al cementerio pero ten cuidado con los mounstros"
+  - Si tienes Dudas habla con nuestro lider, Es el que esta en la iglecia Aqui a
+    mi derecha
+  - Ok Buena suerte
+  autoProgressLines: 0101000000
+  endDialogueLines: 0000010101
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Indicaciones
+    - Sobre la aldea
+    - Nada, Adios
+    nextDialogueIndexes: 020000000300000004000000
+    givesQuest: 000000
+  typingSpeed: 0.05
+  autoProgressDelay: 1.5
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  quest: {fileID: 0}

@@ -154,7 +154,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 210}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &14588514
 MonoBehaviour:
@@ -1622,8 +1622,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -37.51167}
-  m_SizeDelta: {x: 778.8571, y: 124.9768}
+  m_AnchoredPosition: {x: 22.9188, y: -37.51167}
+  m_SizeDelta: {x: 784.6946, y: 124.9768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &214534260 stripped
 MonoBehaviour:
@@ -1684,6 +1684,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &237989034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
+  m_PrefabInstance: {fileID: 8755176655550304346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &252090570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3837772071246586704, guid: c3655896f6e6ea442bd861c3099082a3, type: 3}
@@ -1705,6 +1710,7 @@ GameObject:
   - component: {fileID: 252184599}
   - component: {fileID: 252184598}
   - component: {fileID: 252184600}
+  - component: {fileID: 252184601}
   m_Layer: 0
   m_Name: MissionManager
   m_TagString: Untagged
@@ -1759,8 +1765,19 @@ MonoBehaviour:
   questListConten: {fileID: 14588513}
   questEntryPF: {fileID: 8221642148216601193, guid: e4bc019c748651a47ba5752ee2a4fa03, type: 3}
   objectiveTextPF: {fileID: 6662753134434381967, guid: 4642578351669fd4788b2a40696ba1bc, type: 3}
-  testQuest: {fileID: 11400000, guid: c48af00b13004fd4b944614a0524c62e, type: 2}
-  testQuestAmount: 1
+--- !u!114 &252184601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252184597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af7fbe4f7d956542b6dfd6a4acf42c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestController
+  activeQuest: []
 --- !u!1001 &255342088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1864,7 +1881,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_Name
-      value: NPC_Design_v1
+      value: Aldeano 2
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1909,7 +1926,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1271924891}
   m_SourcePrefab: {fileID: 100100000, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
 --- !u!1001 &269676969
 PrefabInstance:
@@ -2289,8 +2309,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7134914, z: 0, w: 0.700664}
-  m_LocalPosition: {x: 285.62814, y: 11.344423, z: 272.18585}
+  m_LocalRotation: {x: -0.049588654, y: 0.93093646, z: -0.13803716, w: -0.33443087}
+  m_LocalPosition: {x: 287.4545, y: 14.6, z: 274.39975}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2391,7 +2411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &330899159
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2460,7 +2480,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_Name
-      value: NPC_Design_v1 (3)
+      value: Cazador
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2525,7 +2545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &339596906
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2626,7 +2646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &340601099
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5650,6 +5670,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8493565661772298421, guid: ddf76ae8453194b4d9e10924f960dca2, type: 3}
   m_PrefabInstance: {fileID: 1004870576}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1039268418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c110f6e4298782942b86fe896a4ebec6, type: 3}
+  m_PrefabInstance: {fileID: 2071841561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1039268419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039268418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5e8356f61b2e747ae0058bc08346b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Npc
+  dialogeData: {fileID: 11400000, guid: 8502dd734e8ac78438543d6a554a51a7, type: 2}
+  dialogueUi: {fileID: 1506050568}
+--- !u!65 &1039268421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039268418}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.150981, y: 6.693308, z: 1}
+  m_Center: {x: 0.3080888, y: 3.4167547, z: -0.0000120649265}
 --- !u!224 &1039703835 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6165536575864265696, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
@@ -6405,6 +6465,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137687315}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1206419459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
+  m_PrefabInstance: {fileID: 267849969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1213557913
 GameObject:
   m_ObjectHideFlags: 0
@@ -6881,6 +6946,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
   m_PrefabInstance: {fileID: 267849969}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1271924891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206419459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5e8356f61b2e747ae0058bc08346b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Npc
+  dialogeData: {fileID: 11400000, guid: 43b052eb1fe3b164cb7647ed0034e5db, type: 2}
+  dialogueUi: {fileID: 1506050568}
 --- !u!114 &1298998274 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -6256714447961697772, guid: 9e9fde68546f35f419d5ac5b767dfdc0, type: 3}
@@ -9077,6 +9156,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
   m_PrefabInstance: {fileID: 8755176655550304346}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1663907983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237989034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5e8356f61b2e747ae0058bc08346b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Npc
+  dialogeData: {fileID: 11400000, guid: cb95841f8622185499d96d550ae9b020, type: 2}
+  dialogueUi: {fileID: 1506050568}
 --- !u!1001 &1697084376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10116,7 +10209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 525, y: -25}
+  m_AnchoredPosition: {x: 524.64734, y: -25}
   m_SizeDelta: {x: 200, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1774351832
@@ -11271,7 +11364,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_Name
-      value: NPC_001
+      value: Aldeano 1
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11437,7 +11530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c110f6e4298782942b86fe896a4ebec6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.87
+      value: 9.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c110f6e4298782942b86fe896a4ebec6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11478,7 +11571,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c110f6e4298782942b86fe896a4ebec6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1039268419}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c110f6e4298782942b86fe896a4ebec6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1039268421}
   m_SourcePrefab: {fileID: 100100000, guid: c110f6e4298782942b86fe896a4ebec6, type: 3}
 --- !u!1001 &2122803080
 PrefabInstance:
@@ -11675,7 +11774,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_Name
-      value: NPC_Design_v1 (2)
+      value: Alquimista
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12146,19 +12245,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_Name
-      value: NPC_Design_v1
+      value: Jefe de la Aldea
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.08
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.5526695
+      value: -4.88
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.53
+      value: 4.86
       objectReference: {fileID: 0}
     - target: {fileID: 6887339228693808922, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12191,7 +12290,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6115727925113789856, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1663907983}
   m_SourcePrefab: {fileID: 100100000, guid: 456922eda4d60384e85f125ea6f979e9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

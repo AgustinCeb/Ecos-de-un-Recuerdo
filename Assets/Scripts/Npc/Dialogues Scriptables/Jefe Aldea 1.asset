@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81642716c47bc7d42a1e9b5b7314af51, type: 3}
+  m_Name: Jefe Aldea 1
+  m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
+  npcName: Jefe Costero
+  npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
+  dialogeLines:
+  - Bienvenido Forastero, Estas en la aldea Costera
+  - Yo soy su lider Que necesitas?
+  - Que quieres saber?
+  - En esta alde vivimos pocos habitantes pero nos las arreglamos, igual unas manos
+    extras nunca estan de mas
+  - 'Si necesitas pociones ve con el alquimista, esta en la casa a mi derecha '
+  - El cazador vive a su lado y siempre necesita alguna ayuda y te recompenzara por
+    tus servicios
+  - Si vas por la puerta a mi derecha llegaras al cementerio, dicen que hay un tesoro
+    escondido en el centro pero esta custiodiado por mounstros
+  - Si vas alli ten cuidado, muchos de ellos atacan a distancia
+  - "Si vas por la puerta a mi Izquierda llegaras a la monta\xF1a volcanica, Dicen
+    que unos mounstros viven en su interior"
+  - Son un gupo diverso pero bien cordinado, si vas preparate bien podrias tener
+    problemas
+  - Al final del bosque se esconde un poderoso mounstro, si quieres avanzar hacia
+    el Lago Hielo tendras que derrotarlo
+  - "Para romper el sello, deberas recupera los fragmentos de llave que estan en
+    la monta\xF1a y el cementerio, crees poder hacerlo?"
+  - 'Muy bien, buena suerte '
+  - No hay problema, regresa cuando quieras
+  - una vez tengas los fragmentos, ve con el alquimista para forjar la llave
+  - Bien echo, ve con el alquimista para crear la llave y usala para romper el sello
+  autoProgressLines: 01010101010001000100010100000000
+  endDialogueLines: 00000000000100010001000001010101
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Informacion
+    - Mision
+    - Nada, solo pasabamos a saludar
+    nextDialogueIndexes: 020000000a0000000d000000
+    givesQuest: 000000
+  - dialogueIndex: 2
+    choices:
+    - Sobre la aldea
+    - Sobre El cementerio
+    - "Sobre La monta\xF1a"
+    nextDialogueIndexes: 030000000600000008000000
+    givesQuest: 000000
+  - dialogueIndex: 11
+    choices:
+    - Si
+    - No
+    nextDialogueIndexes: 0c0000000d000000
+    givesQuest: 0100
+  typingSpeed: 0.05
+  autoProgressDelay: 1.5
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  questInProgressIndex: 14
+  questCompletedIndex: 15
+  quest: {fileID: 11400000, guid: bbf7c587016f1174899eafdd1b469b4f, type: 2}

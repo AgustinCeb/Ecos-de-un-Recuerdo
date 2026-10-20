@@ -8,17 +8,9 @@ public class QuestUI : MonoBehaviour
     public GameObject questEntryPF;
     public GameObject objectiveTextPF;
 
-    public QuestData testQuest;
-    public int testQuestAmount;
-    private List<QuestProgress> testQuests = new();
 
     void Start()
     {
-        for (int i = 0; i< testQuestAmount; i++)
-        {
-            testQuests.Add(new QuestProgress(testQuest));
-        }
-        
         UpdateQuestUI();
     }
 
@@ -29,13 +21,13 @@ public class QuestUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach(var quest in testQuests)
+        foreach(var quest in QuestController.Instance.activeQuest)
         {
             GameObject entry = Instantiate(questEntryPF,questListConten);
             TMP_Text questNameText = entry.transform.Find("QuestName").GetComponent<TMP_Text>();
             Transform objectiveList = entry.transform.Find("QuestObjective");
 
-            questNameText.text = quest.quest.name;
+            questNameText.text = quest.quest.questName;
 
             foreach(var objective in quest.objetives)
             {

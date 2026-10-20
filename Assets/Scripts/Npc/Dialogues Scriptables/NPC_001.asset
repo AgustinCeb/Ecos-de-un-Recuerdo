@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81642716c47bc7d42a1e9b5b7314af51, type: 3}
   m_Name: NPC_001
   m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
-  npcName: Aldeano Feliz
+  npcName: Aldeano
   npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
   dialogeLines:
   - Hola Forastero, Estamos en la Aldea Costera
@@ -23,7 +23,7 @@ MonoBehaviour:
     hacia la derecha vas al cementerio pero ten cuidado con los mounstros"
   - Intenta hablar con nuestro lider, esta en la capilla, es ese edificio del centro.
     tambien puedes hablar con el alquimista, es ese de gorro blanco
-  autoProgressLines: 010100000000
+  autoProgressLines: 010101000000
   endDialogueLines: 000000010101
   choices:
   - dialogueIndex: 1
@@ -31,13 +31,18 @@ MonoBehaviour:
     - Si
     - No, Gracias
     nextDialogueIndexes: 0200000003000000
+    givesQuest: 0000
   - dialogueIndex: 2
     choices:
     - Indicaciones
-    - Lugares De Interes
+    - El Pueblo
     - Olvidalo
     nextDialogueIndexes: 040000000500000003000000
+    givesQuest: 0000
   typingSpeed: 0.05
   autoProgressDelay: 1.5
   voiceSound: {fileID: 0}
   voicePitch: 1
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  quest: {fileID: 0}

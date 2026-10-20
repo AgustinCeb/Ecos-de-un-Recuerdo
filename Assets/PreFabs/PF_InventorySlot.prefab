@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 7282799033145143825}
   - component: {fileID: 3169568525133414659}
   - component: {fileID: 7058528723715805660}
+  - component: {fileID: 1284808399335369146}
   m_Layer: 5
   m_Name: PF_InventorySlot
   m_TagString: Untagged
@@ -443,3 +444,15 @@ MonoBehaviour:
   _icon: {fileID: 4093080720838797185}
   _itemNameText: {fileID: 3047856386743406326}
   _quantityText: {fileID: 4245710235301319636}
+--- !u!225 &1284808399335369146
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069499377902739641}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
