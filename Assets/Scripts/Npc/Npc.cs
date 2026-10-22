@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Npc : MonoBehaviour, IInteractable
+public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
 {
     public Npc_DialogeData dialogeData;
     public DialogueControler dialogueUi;
@@ -13,6 +13,8 @@ public class Npc : MonoBehaviour, IInteractable
 
     private enum QuestState { NotStartet, InProgress, Completed };
     private QuestState questState = QuestState.NotStartet;
+
+    private Inventory2 interactingInventory;
 
     public string ActionText => "Hablar";
 
@@ -26,9 +28,23 @@ public class Npc : MonoBehaviour, IInteractable
         return !isDialogueActive; 
     }
 
+    public void interact(PlayerInteract player)
+    {
+        interactingInventory = player.GetComponent<Inventory2>();
+
+        if (interactingInventory == null)
+        {
+            Debug.Log("El jugador no tiene Inventario");
+            return;
+        }
+
+        Interact();
+    }
+
     public void Interact()
     {
         if (dialogeData == null) return;
+        
 
         if (isDialogueActive)
         {
@@ -159,7 +175,7 @@ public class Npc : MonoBehaviour, IInteractable
     {
         if (giveQuest)
         {
-            QuestController.Instance.AcceptQuest(dialogeData.quest);
+            QuestController.Instance.AcceptQuest(dialogeData.quest,interactingInventory);
             questState = QuestState.InProgress;
         }
 

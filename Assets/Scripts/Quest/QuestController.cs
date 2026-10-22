@@ -9,6 +9,8 @@ public class QuestController : MonoBehaviour
     public List<QuestProgress> activeQuest = new();
     private QuestUI questUI;
 
+    private Inventory2 subscribedInventory;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -18,14 +20,87 @@ public class QuestController : MonoBehaviour
 
     }
 
-    public void AcceptQuest(QuestData quest)
+    public void AcceptQuest(QuestData quest, Inventory2 inventory)
     {
-        if(IsQuestActive(quest.questId)) return;
+        if(quest == null || inventory == null)
+        {
+            Debug.LogWarning("No se pudo aceptar Falta Mision o Inventario");
+            return;
+        }
+
+        SubscribeToInventory(inventory);
+
+        if (IsQuestActive(quest.questId)) 
+        {
+            RefreshCollectObjectives();
+            return;
+        };
 
         activeQuest.Add(new QuestProgress(quest));
-        questUI.UpdateQuestUI();
+
+        RefreshCollectObjectives();
+
     }
 
-    public bool IsQuestActive(string questID) => activeQuest.Exists(q => q.QuestID == questID);
-    
+    private void SubscribeToInventory(Inventory2 inventory)
+    {
+        
+        if (subscribedInventory == inventory) return;
+
+        if(subscribedInventory != null)
+        {
+            subscribedInventory.OnInventoryChanged -= RefreshCollectObjectives;
+        }
+
+        subscribedInventory = inventory;
+
+        subscribedInventory.OnInventoryChanged += RefreshCollectObjectives;
+
+    }
+
+    private void RefreshCollectObjectives()
+    {
+        
+        if (subscribedInventory == null) return;
+
+        foreach(var quest in activeQuest)
+        {
+            foreach(var obj in quest.objetives)
+            {
+
+                if(obj.type != ObjectiveType.CollecItem) continue;
+
+                if(obj.requiredItem == null) continue;
+
+                int amount = subscribedInventory.GetItemCount(obj.requiredItem);
+
+                obj.currentAmount = Mathf.Min(amount, obj.requiredAmount);
+
+            }
+        }
+
+        questUI?.UpdateQuestUI();
+    }
+
+
+
+    public bool IsQuestActive(string questID) 
+    {
+        return activeQuest.Exists(q => q.QuestID == questID);
+    }
+
+    private void OnDestroy()
+    {
+        if(subscribedInventory != null)
+        {
+            subscribedInventory.OnInventoryChanged -= RefreshCollectObjectives;
+        }
+
+        if(Instance == this)
+        {
+            Instance = null;
+        }
+
+    }
+
 }

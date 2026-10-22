@@ -19,6 +19,9 @@ public class QuestObjectives
     public string objectiveID;
     public string description;
     public ObjectiveType type;
+
+    public ItemData requiredItem;
+
     public int requiredAmount;
     public int currentAmount;
 
@@ -47,6 +50,9 @@ public class QuestProgress
                 objectiveID = obj.objectiveID,
                 description = obj.description,
                 type = obj.type,
+
+                requiredItem = obj.requiredItem,
+
                 requiredAmount = obj.requiredAmount,
                 currentAmount = 0
             });

@@ -36,7 +36,8 @@ MonoBehaviour:
     la monta\xF1a y el cementerio, crees poder hacerlo?"
   - 'Muy bien, buena suerte '
   - No hay problema, regresa cuando quieras
-  - una vez tengas los fragmentos, ve con el alquimista para forjar la llave
+  - una vez tengas los fragmentos, ve con el alquimista para forjar la llave, si
+    tienes dudas consulta el cartel a mi derecha
   - Bien echo, ve con el alquimista para crear la llave y usala para romper el sello
   autoProgressLines: 01010101010001000100010100000000
   endDialogueLines: 00000000000100010001000001010101
@@ -45,14 +46,14 @@ MonoBehaviour:
     choices:
     - Informacion
     - Mision
-    - Nada, solo pasabamos a saludar
+    - Nada
     nextDialogueIndexes: 020000000a0000000d000000
     givesQuest: 000000
   - dialogueIndex: 2
     choices:
-    - Sobre la aldea
-    - Sobre El cementerio
-    - "Sobre La monta\xF1a"
+    - La Aldea
+    - El Cementerio
+    - "La Monta\xF1a"
     nextDialogueIndexes: 030000000600000008000000
     givesQuest: 000000
   - dialogueIndex: 11

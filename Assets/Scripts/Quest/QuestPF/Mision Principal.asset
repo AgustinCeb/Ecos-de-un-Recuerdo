@@ -19,10 +19,12 @@ MonoBehaviour:
   - objectiveID: 25
     description: Parte superior de la llave dorada
     type: 0
+    requiredItem: {fileID: 11400000, guid: a97a2bcea13ef204a960457cbef25621, type: 2}
     requiredAmount: 1
     currentAmount: 0
   - objectiveID: 26
     description: Parte Inferior de la llave dorada
     type: 0
+    requiredItem: {fileID: 11400000, guid: 610e7f0f13d54ff47999fcadb3782e25, type: 2}
     requiredAmount: 1
     currentAmount: 0

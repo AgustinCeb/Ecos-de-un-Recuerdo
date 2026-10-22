@@ -55,12 +55,15 @@ public class PlayerInteract : NetworkBehaviour
 
     public void OnInteract(InputValue Value)
     {
+        if (!IsOwner || _interactObject == null ) return;
 
-        if (_interactObject != null)
+        if (_interactObject is IPlayerInteractable playerInteractable)
+        {
+            playerInteractable.interact(this);
+        }
+        else
         {
             _interactObject.Interact();
-
-
         }
 
     }
