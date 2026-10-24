@@ -8,6 +8,9 @@ public class QuestData : ScriptableObject
     public string questId;
     public string questName;
     public string description;
+
+    public bool isRepeatable;
+
     public List<QuestObjectives> objetives;
 
 

@@ -36,11 +36,14 @@ MonoBehaviour:
     la monta\xF1a y el cementerio, crees poder hacerlo?"
   - 'Muy bien, buena suerte '
   - No hay problema, regresa cuando quieras
-  - una vez tengas los fragmentos, ve con el alquimista para forjar la llave, si
-    tienes dudas consulta el cartel a mi derecha
-  - Bien echo, ve con el alquimista para crear la llave y usala para romper el sello
-  autoProgressLines: 01010101010001000100010100000000
-  endDialogueLines: 00000000000100010001000001010101
+  - una vez tengas los fragmentos, traelos para reparar la llave, si tienes dudas
+    consulta el cartel a mi derecha
+  - Bien echo, aqui tienes la llave Reparada y usala para romper el sello, en el
+    interior del bosque
+  - Ya tienes la llave, dirigite al extremo del bosque para romper el sello, te deseo
+    suerte
+  autoProgressLines: 0101010101000100010001010000000000
+  endDialogueLines: 0000000000010001000100000101010101
   choices:
   - dialogueIndex: 1
     choices:
@@ -68,4 +71,5 @@ MonoBehaviour:
   voicePitch: 1
   questInProgressIndex: 14
   questCompletedIndex: 15
+  principalQuestComplete: 16
   quest: {fileID: 11400000, guid: bbf7c587016f1174899eafdd1b469b4f, type: 2}

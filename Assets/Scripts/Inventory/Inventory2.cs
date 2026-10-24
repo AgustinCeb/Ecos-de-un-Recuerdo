@@ -62,4 +62,53 @@ public class Inventory2 : NetworkBehaviour
         return total;
     }
 
+    public bool RemoveItem(ItemData itemData, int amount)
+    {
+        if (itemData == null || amount <= 0)
+        {
+            return false;
+        }
+
+        // Comprobar que haya suficientes unidades.
+        if (GetItemCount(itemData) < amount)
+        {
+            return false;
+        }
+
+        int remaining = amount;
+
+        // Recorrer desde el final para poder eliminar slots.
+        for (int i = _slots.Count - 1; i >= 0; i--)
+        {
+            if (_slots[i].ItemData != itemData)
+            {
+                continue;
+            }
+
+            int removeAmount = Mathf.Min(
+                _slots[i].Quantity,
+                remaining
+            );
+
+            _slots[i].Quantity -= removeAmount;
+            remaining -= removeAmount;
+
+            // Eliminar el slot si quedó vacío.
+            if (_slots[i].Quantity <= 0)
+            {
+                _slots.RemoveAt(i);
+            }
+
+            if (remaining <= 0)
+            {
+                break;
+            }
+        }
+
+        // Avisar a la UI y al sistema de misiones.
+        OnInventoryChanged?.Invoke();
+
+        return true;
+    }
+
 }

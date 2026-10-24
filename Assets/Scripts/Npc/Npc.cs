@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -112,7 +113,7 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
         {
             dialogueIndex = dialogeData.questCompletedIndex;
         }
-
+        
         isDialogueActive = true;
        
 
@@ -150,8 +151,11 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
         if (dialogeData.quest == null) return;
 
         string questID = dialogeData.quest.questId;
-
-        if (QuestController.Instance.IsQuestActive(questID))
+        if (QuestController.Instance.IsQuestCompleted(questID) || QuestController.Instance.IsQuestHandedIn(questID))
+        {
+            questState = QuestState.Completed;
+        }
+        else if (QuestController.Instance.IsQuestActive(questID))
         {
             questState= QuestState.InProgress;
         }
@@ -160,6 +164,7 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
             questState = QuestState.NotStartet;
         }
     }
+
 
     void DisplayChoices(DialogueChoice choice)
     {
@@ -175,11 +180,27 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
     {
         if (giveQuest)
         {
-            QuestController.Instance.AcceptQuest(dialogeData.quest,interactingInventory);
-            questState = QuestState.InProgress;
+            QuestData quest = dialogeData.quest;
+
+            if (QuestController.Instance.IsPrincipalQuestComplete(quest))
+            {
+                dialogueIndex = dialogeData.principalQuestComplete;
+
+            }
+            else
+            {
+                QuestController.Instance.AcceptQuest(dialogeData.quest,interactingInventory);
+                questState = QuestState.InProgress;
+                dialogueIndex = nextIndex;
+            }
+
+        }
+        else
+        {
+            dialogueIndex = nextIndex;
         }
 
-        dialogueIndex = nextIndex;
+        
         dialogueUi.ClearChoices();
         DisplayCurrentLine();
     }
@@ -190,13 +211,24 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
         StartCoroutine(TypeLine());
     }
 
+    
     public void EndDialogue()
     {
+        if (questState == QuestState.Completed && !QuestController.Instance.IsQuestHandedIn(dialogeData.quest.questId))
+        {
+            HandleQuestCompletion(dialogeData.quest);
+        }
+
         StopAllCoroutines();
         isDialogueActive = false;
         dialogueUi.SetDialogueText("");
         dialogueUi.ShowDialogueUi(false);
 
+    }
+
+    void HandleQuestCompletion(QuestData quest)
+    {
+        QuestController.Instance.HandInQuest(quest.questId);
     }
 
 }

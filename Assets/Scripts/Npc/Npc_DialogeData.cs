@@ -25,6 +25,7 @@ public class Npc_DialogeData : ScriptableObject
     [Header("Quest Options")]
     public int questInProgressIndex;
     public int questCompletedIndex;
+    public int principalQuestComplete;
     public QuestData quest;
 
 }
