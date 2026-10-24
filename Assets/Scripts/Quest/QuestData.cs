@@ -13,6 +13,7 @@ public class QuestData : ScriptableObject
 
     public List<QuestObjectives> objetives;
 
+    public List<QuestReward> questReward;
 
 }
 
@@ -68,3 +69,14 @@ public class QuestProgress
     public string QuestID => quest.questId;
 
 }
+
+[System.Serializable]
+
+public class QuestReward
+{
+    public RewardType type;
+    public int rewardID; //item ID
+    public int amount = 1;
+}
+
+public enum RewardType { Item, Exp, Custom }

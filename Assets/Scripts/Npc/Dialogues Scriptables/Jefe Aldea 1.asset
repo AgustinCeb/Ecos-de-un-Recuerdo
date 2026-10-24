@@ -38,8 +38,8 @@ MonoBehaviour:
   - No hay problema, regresa cuando quieras
   - una vez tengas los fragmentos, traelos para reparar la llave, si tienes dudas
     consulta el cartel a mi derecha
-  - Bien echo, aqui tienes la llave Reparada y usala para romper el sello, en el
-    interior del bosque
+  - Bien echo, aqui tienes la llave Reparada, usala para romper el sello en el interior
+    del bosque
   - Ya tienes la llave, dirigite al extremo del bosque para romper el sello, te deseo
     suerte
   autoProgressLines: 0101010101000100010001010000000000

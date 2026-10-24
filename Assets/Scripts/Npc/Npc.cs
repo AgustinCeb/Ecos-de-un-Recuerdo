@@ -15,7 +15,9 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
     private enum QuestState { NotStartet, InProgress, Completed };
     private QuestState questState = QuestState.NotStartet;
 
-    private Inventory2 interactingInventory;
+    private Inventory playerInventory1;
+    private Inventory2 playerInventory2;
+    private Inventory3 playerInventory3;
 
     public string ActionText => "Hablar";
 
@@ -31,9 +33,9 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
 
     public void interact(PlayerInteract player)
     {
-        interactingInventory = player.GetComponent<Inventory2>();
+        playerInventory2 = player.GetComponent<Inventory2>();
 
-        if (interactingInventory == null)
+        if (playerInventory2 == null)
         {
             Debug.Log("El jugador no tiene Inventario");
             return;
@@ -189,7 +191,7 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
             }
             else
             {
-                QuestController.Instance.AcceptQuest(dialogeData.quest,interactingInventory);
+                QuestController.Instance.AcceptQuest(dialogeData.quest,playerInventory2);
                 questState = QuestState.InProgress;
                 dialogueIndex = nextIndex;
             }
@@ -228,6 +230,8 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
 
     void HandleQuestCompletion(QuestData quest)
     {
+        //QuestReward
+        RewardsController.Instance.GiveQuestRewards(quest, playerInventory1, playerInventory2, playerInventory3);
         QuestController.Instance.HandInQuest(quest.questId);
     }
 
