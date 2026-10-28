@@ -6024,7 +6024,7 @@ MonoBehaviour:
     m_ActionName: 'PlayerUI/Inventory[/Keyboard/i]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 157f2aca-5873-4e57-a19a-31bc4f73bbe1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &6228621920988402086

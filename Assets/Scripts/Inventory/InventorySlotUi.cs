@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlotUi : MonoBehaviour
+public class InventorySlotUi : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _itemNameText;
@@ -11,8 +11,11 @@ public class InventorySlotUi : MonoBehaviour
 
     private InventorySlot _currentSlot;
 
+    
     public void SetSlot(InventorySlot slot) 
     {
+        _currentSlot = slot;
+
         if (slot == null)
         {
             _icon.enabled = false;
@@ -27,6 +30,7 @@ public class InventorySlotUi : MonoBehaviour
         _quantityText.text = slot.Quantity.ToString();
 
     }
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
