@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]float attackMaxCD;
     [SerializeField]float attackInitCD;
     [SerializeField] bool isRangedEnemy = false;
+    [SerializeField] MeleeAnimation animController;
 
 
     private void Awake()
@@ -36,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (playerObjective != null)
         {
+            animController.SetState(1);
             Vector3 direction = playerObjective.transform.position - transform.position;
             direction.y = 0;
             transform.rotation = Quaternion.LookRotation(direction);
@@ -71,9 +73,12 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(direction);
         if (!playerInAttack) attackCD = attackInitCD;
         attackCD -= Time.deltaTime;
+        if(playerInAttack) animController.SetState(0);
         if (attackCD <= 0)
         {
+            animController.AnimAttack();
             if (isRangedEnemy) GetComponent<RangedAttack>().setTarget(playerObjective.transform.position);
+            
             myAttack.EnemyAttack();
             attackCD = attackMaxCD;
         }

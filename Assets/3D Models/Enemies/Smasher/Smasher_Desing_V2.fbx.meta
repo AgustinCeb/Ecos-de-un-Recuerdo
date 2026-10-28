@@ -57,7 +57,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -118,7 +118,42 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Smasher_Desing_V2(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Smasher_Desing_V2(Clone)
+      position: {x: 1.5011725e-18, y: 1.918196, z: 3.3332726e-34}
+      rotation: {x: 0.5, y: 0.49999997, z: 0.5, w: -0.5}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Plane-Hair
+      parentName: Smasher_Desing_V2(Clone)
+      position: {x: -0.021847298, y: 4.2106447, z: -0.029283762}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 18.061533, y: 18.061533, z: 18.061533}
+    - name: Shoes
+      parentName: Smasher_Desing_V2(Clone)
+      position: {x: 1.5011725e-18, y: 1.918196, z: 3.3332726e-34}
+      rotation: {x: 0.5, y: 0.49999997, z: 0.5, w: -0.5}
+      scale: {x: 100, y: 100, z: 100}
+    - name: body
+      parentName: Smasher_Desing_V2(Clone)
+      position: {x: 1.5011725e-18, y: 1.918196, z: 3.3332726e-34}
+      rotation: {x: 0.5, y: 0.49999997, z: 0.5, w: -0.5}
+      scale: {x: 100, y: 100, z: 99.99996}
+    - name: ojo1
+      parentName: Smasher_Desing_V2(Clone)
+      position: {x: 0.23131768, y: 3.5485463, z: -0.48358008}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 11.8139, y: 11.8139, z: 11.8139}
+    - name: ojo2
+      parentName: Smasher_Desing_V2(Clone)
+      position: {x: -0.18807241, y: 3.5552554, z: -0.47589552}
+      rotation: {x: 0.17781696, y: 0.054871343, z: 0.5357823, w: 0.82359433}
+      scale: {x: 52.87042, y: 52.870415, z: 52.870415}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -129,13 +164,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
