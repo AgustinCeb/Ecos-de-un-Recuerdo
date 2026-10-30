@@ -444,6 +444,7 @@ MonoBehaviour:
   _icon: {fileID: 4093080720838797185}
   _itemNameText: {fileID: 3047856386743406326}
   _quantityText: {fileID: 4245710235301319636}
+  _contextMenuPrefab: {fileID: 3969583959733147706, guid: 2075fa1d042f05b4692de41b158cd70e, type: 3}
 --- !u!225 &1284808399335369146
 CanvasGroup:
   m_ObjectHideFlags: 0
