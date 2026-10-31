@@ -122,7 +122,7 @@ public class InventoryUi : MonoBehaviour
             InventorySlotUi slotUI = slot.GetComponent<InventorySlotUi>();
 
             slotUI.SetInfoPanel(_itemInfoUI);
-            slotUI.SetContextReferences(_runeEquipment, this);
+            slotUI.SetContextReferences(_runeEquipment, this, _inventory3);
 
             uiSolts.Add(slotUI);
 

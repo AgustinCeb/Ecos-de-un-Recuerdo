@@ -41,6 +41,14 @@ public class PlayerStats : MonoBehaviour
             LevelStats = statValuesPerLevel.levels[playerLevel-1];
             requiredXP = LevelStats.requiredExpForNextLevel;
 
+        //Recarga la vida al subir de nivel
+        PlayerHealt playerHealt = GetComponent<PlayerHealt>();
+
+        if (playerHealt != null)
+        {
+            playerHealt.RestoreHealth();
+        }
+
         // Recargar maná al subir de nivel
         PlayerMana playerMana = GetComponent<PlayerMana>();
 

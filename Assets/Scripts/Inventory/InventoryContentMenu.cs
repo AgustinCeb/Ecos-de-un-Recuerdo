@@ -20,12 +20,15 @@ public class InventoryContentMenu : MonoBehaviour
     private ItemData.RuneSlotType _runeSlot;
     private bool _isUnequipMenu;
 
-    public void Show(ItemData itemData, Vector2 position, ItemInfoUI infoUI, RuenEquip runeEquipment, InventoryUi inventoryUi)
+    private Inventory3 _inventory3;
+
+    public void Show(ItemData itemData, Vector2 position, ItemInfoUI infoUI, RuenEquip runeEquipment, InventoryUi inventoryUi, Inventory3 inventory3)
     {
         _currentItem = itemData;
         _itemInfoUI = infoUI;
         _runeEquipment = runeEquipment;
         _inventoryUi = inventoryUi;
+        _inventory3 = inventory3;
         _isUnequipMenu = false;
 
         transform.position = position;
@@ -114,6 +117,22 @@ public class InventoryContentMenu : MonoBehaviour
                 Hide();
             }
         }
+
+        if (_currentItem.Type == ItemData.ItemType.Consumable)
+        {
+            if (_inventory3 == null)
+            {
+                Debug.LogError("No se encontró Inventory3.");
+                return;
+            }
+
+            _inventory3.UsePotionServerRpc(_currentItem.ItemID);
+
+            _inventoryUi.UpdateUI();
+
+            Hide();
+        }
+
     }
 
     private void ShowInfo()

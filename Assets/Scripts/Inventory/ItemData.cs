@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Progress;
 [CreateAssetMenu(fileName ="ItemData",menuName ="Inventory/NewItem")]
 
 
@@ -38,6 +37,13 @@ public class ItemData : ScriptableObject
         Percentage
     }
 
+    public enum ConsumableEffectType
+    {
+        None,
+        Health,
+        Mana
+    }
+
     [Header("Base Info")]
     [SerializeField] private string _itemName;
     [SerializeField] private Sprite _itemIcon;
@@ -59,6 +65,9 @@ public class ItemData : ScriptableObject
     [SerializeField] private float _effectValue;
     [SerializeField] private RuneEffectMode _effectMode;
 
+    [Header("Consumable Settings")]
+    [SerializeField] private ConsumableEffectType _consumableEffect;
+    [SerializeField] private int _consumableEffectValue;
 
     public string ItemName => _itemName;
     public Sprite ItemIcon => _itemIcon;
@@ -73,5 +82,7 @@ public class ItemData : ScriptableObject
     public float EffectValue => _effectValue;
     public RuneEffectMode EffectMode => _effectMode;
 
+    public ConsumableEffectType ConsumableEffect => _consumableEffect;
+    public int ConsumableEffectValue => _consumableEffectValue;
 
 }

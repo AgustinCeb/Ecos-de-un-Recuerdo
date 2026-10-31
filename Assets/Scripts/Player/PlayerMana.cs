@@ -30,7 +30,23 @@ public class PlayerMana : NetworkBehaviour
 
     public void RestoreMana()
     {
+        //Restaura al subir de Nivel
         Mana.Value = GetComponent<PlayerStats>().getMaxMana();
+    }
+
+    public bool RestoreMana(int amount)
+    {
+        //Restaura por Pocion
+        if (!IsServer) return false;
+
+        int max = GetComponent<PlayerStats>().getMaxMana();
+
+        if (Mana.Value >= max)
+            return false;
+
+        Mana.Value = Mathf.Min(Mana.Value + amount, max);
+
+        return true;
     }
 
     public bool TryUseMana(int amount)
