@@ -14,10 +14,16 @@ public class InventoryContentMenu : MonoBehaviour
     private ItemInfoUI _itemInfoUI;
     private ItemData _currentItem;
 
-    public void Show(ItemData itemData, Vector2 position, ItemInfoUI infoUI)
+    private RuenEquip _runeEquipment;
+    private InventoryUi _inventoryUi;
+
+    public void Show(ItemData itemData, Vector2 position, ItemInfoUI infoUI, RuenEquip runeEquipment, InventoryUi inventoryUi)
     {
         _currentItem = itemData;
         _itemInfoUI = infoUI;
+
+        _runeEquipment = runeEquipment;
+        _inventoryUi = inventoryUi;
 
         transform.position = position;
 
@@ -34,6 +40,9 @@ public class InventoryContentMenu : MonoBehaviour
             _actionText.text = "Usar";
         }
 
+        _actionButton.onClick.RemoveAllListeners();
+        _actionButton.onClick.AddListener(ExecuteAction);
+
         _infoButton.onClick.RemoveAllListeners();
         _infoButton.onClick.AddListener(ShowInfo);
 
@@ -41,6 +50,29 @@ public class InventoryContentMenu : MonoBehaviour
         _exitButton.onClick.AddListener(Hide);
 
         gameObject.SetActive(true);
+    }
+
+    private void ExecuteAction()
+    {
+        if (_currentItem == null)
+            return;
+
+        if (_currentItem.Type == ItemData.ItemType.Equipment)
+        {
+            if (_runeEquipment == null)
+            {
+                Debug.LogError("No se encontró RuneEquipment.");
+                return;
+            }
+
+            bool equipped = _runeEquipment.EquipRune(_currentItem);
+
+            if (equipped)
+            {
+                _inventoryUi.UpdateUI();
+                Hide();
+            }
+        }
     }
 
     private void ShowInfo()

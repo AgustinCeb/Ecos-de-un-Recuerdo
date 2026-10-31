@@ -101,4 +101,14 @@ public class PlayerStats : MonoBehaviour
         exDefense += addDef;
         exAgility += addAgi;
     }
+
+    public void SetRuneStats(float hp, float mana, float damage, float defense, float agility)
+    {
+        exMaxHp = hp;
+        exMaxMana = mana;
+        exDamage = damage;
+        exDefense = defense;
+        exAgility = agility;
+    }
+
 }

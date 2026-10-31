@@ -24,6 +24,8 @@ public class InventoryUi : MonoBehaviour
     [Header("Panel de información")]
     [SerializeField] private ItemInfoUI _itemInfoUI;
 
+    private RuenEquip _runeEquipment;
+    
     private bool _inventoryFound;
 
     private List<InventorySlotUi> _uiSlots1 = new();
@@ -49,11 +51,10 @@ public class InventoryUi : MonoBehaviour
                 if (inventory.IsOwner)
                 {
                     _inventory = inventory;
-                    
+                    _runeEquipment = inventory.GetComponent<RuenEquip>();
                     break;
                 }
                 
-
             }
 
             foreach (Inventory2 inventory2 in inventory2s)
@@ -79,11 +80,18 @@ public class InventoryUi : MonoBehaviour
 
                 }
 
-
             }
 
             if (_inventory != null && _inventory2 != null && _inventory3 != null)
             {
+                
+                if (_runeEquipment == null)
+                {
+                    Debug.LogError("No se encontró RuneEquipment en el jugador propietario.");
+                    return;
+                }
+
+
                 _inventoryFound = true;
 
                 CreateSlot(_content1,_uiSlots1);
@@ -107,6 +115,7 @@ public class InventoryUi : MonoBehaviour
             InventorySlotUi slotUI = slot.GetComponent<InventorySlotUi>();
 
             slotUI.SetInfoPanel(_itemInfoUI);
+            slotUI.SetContextReferences(_runeEquipment, this);
 
             uiSolts.Add(slotUI);
 

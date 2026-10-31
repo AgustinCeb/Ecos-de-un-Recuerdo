@@ -16,6 +16,8 @@ public class InventorySlotUi : MonoBehaviour, IPointerClickHandler
     [Header("Panel de informacion")]
     [SerializeField] private ItemInfoUI _itemInfoUI;
 
+    private RuenEquip _runeEquipment;
+    private InventoryUi _inventoryUi;
 
     private InventorySlot _currentSlot;
 
@@ -45,6 +47,12 @@ public class InventorySlotUi : MonoBehaviour, IPointerClickHandler
         _itemInfoUI = infoUI;
     }
 
+    public void SetContextReferences(RuenEquip runeEquipment, InventoryUi inventoryUi)
+    {
+        _runeEquipment = runeEquipment;
+        _inventoryUi = inventoryUi;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (_currentSlot == null)
@@ -67,7 +75,7 @@ public class InventorySlotUi : MonoBehaviour, IPointerClickHandler
                 _contextMenu.Hide();
             }
 
-            _contextMenu.Show(_currentSlot.ItemData, eventData.position, _itemInfoUI);
+            _contextMenu.Show(_currentSlot.ItemData, eventData.position, _itemInfoUI,_runeEquipment, _inventoryUi);
         }
     }
 
