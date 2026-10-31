@@ -17,13 +17,16 @@ public class InventoryContentMenu : MonoBehaviour
     private RuenEquip _runeEquipment;
     private InventoryUi _inventoryUi;
 
+    private ItemData.RuneSlotType _runeSlot;
+    private bool _isUnequipMenu;
+
     public void Show(ItemData itemData, Vector2 position, ItemInfoUI infoUI, RuenEquip runeEquipment, InventoryUi inventoryUi)
     {
         _currentItem = itemData;
         _itemInfoUI = infoUI;
-
         _runeEquipment = runeEquipment;
         _inventoryUi = inventoryUi;
+        _isUnequipMenu = false;
 
         transform.position = position;
 
@@ -40,6 +43,31 @@ public class InventoryContentMenu : MonoBehaviour
             _actionText.text = "Usar";
         }
 
+        ConfigureButtons();
+        gameObject.SetActive(true);
+    }
+
+    public void ShowUnequip(ItemData itemData, ItemData.RuneSlotType runeSlot, Vector2 position, ItemInfoUI infoUI, RuenEquip runeEquipment, InventoryUi inventoryUi)
+    {
+        _currentItem = itemData;
+        _runeSlot = runeSlot;
+        _itemInfoUI = infoUI;
+        _runeEquipment = runeEquipment;
+        _inventoryUi = inventoryUi;
+        _isUnequipMenu = true;
+
+        transform.position = position;
+
+        _actionButton.gameObject.SetActive(true);
+        _actionText.text = "Desequipar";
+
+        ConfigureButtons();
+        gameObject.SetActive(true);
+    }
+
+
+    private void ConfigureButtons()
+    {
         _actionButton.onClick.RemoveAllListeners();
         _actionButton.onClick.AddListener(ExecuteAction);
 
@@ -48,14 +76,26 @@ public class InventoryContentMenu : MonoBehaviour
 
         _exitButton.onClick.RemoveAllListeners();
         _exitButton.onClick.AddListener(Hide);
-
-        gameObject.SetActive(true);
     }
 
     private void ExecuteAction()
     {
-        if (_currentItem == null)
+        if (_currentItem == null || _runeEquipment == null)
             return;
+
+        if (_isUnequipMenu)
+        {
+            bool unequipped = _runeEquipment.UnequipRune(_runeSlot);
+
+            if (unequipped)
+            {
+                _inventoryUi.UpdateUI();
+                _inventoryUi.RefreshEquipUI();
+                Hide();
+            }
+
+            return;
+        }
 
         if (_currentItem.Type == ItemData.ItemType.Equipment)
         {
@@ -70,6 +110,7 @@ public class InventoryContentMenu : MonoBehaviour
             if (equipped)
             {
                 _inventoryUi.UpdateUI();
+                _inventoryUi.RefreshEquipUI();
                 Hide();
             }
         }
@@ -78,7 +119,10 @@ public class InventoryContentMenu : MonoBehaviour
     private void ShowInfo()
     {
         Hide();
-        _itemInfoUI.Show(_currentItem);
+        if(_itemInfoUI != null)
+        {
+            _itemInfoUI.Show(_currentItem);
+        }
     }
 
     public void Hide()

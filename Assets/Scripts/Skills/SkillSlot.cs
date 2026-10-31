@@ -78,26 +78,21 @@ public class SkillSlot : NetworkBehaviour
             return;
         }
 
-        
-        if (_slot1.Skill == Skilldata.SkillType.Attack)
-        {
-            if (_playerMana.TryUseMana(_slot1.SkillCost))
-            {
+        UseSkill1ServerRpc();
 
-                UseSkill1ServerRpc();
+        _coolDownSkill1 = _slot1.SkillCooldown;
 
-                _coolDownSkill1 = _slot1.SkillCooldown;
-            }
-            else 
-            {
-                Debug.Log("Mana Insuficiente");
-            }
-        }
-
+       
     }
     [ServerRpc]
     private void UseSkill1ServerRpc() 
     {
+        if (!_playerMana.TryUseMana(_slot1.SkillCost))
+        {
+            Debug.Log("Mana Insuficiente");
+            return;
+        }
+
         GameObject obj = Instantiate(_slot1.SkillPrefab, transform.position, transform.rotation);
 
         obj.GetComponent<NetworkObject>().Spawn();
@@ -121,24 +116,20 @@ public class SkillSlot : NetworkBehaviour
             return;
         }
 
-        if (_slot2.Skill == Skilldata.SkillType.Buff)
-        {
-            if (_playerMana.TryUseMana(_slot2.SkillCost))
-            {
-                UseSkill2ServerRpc();
+        UseSkill2ServerRpc();
 
-                _coolDownSkill2 = _slot2.SkillCooldown;
-            }
-            else
-            {
-                Debug.Log("Mana Insuficiente");
-            }
-        }
+        _coolDownSkill2 = _slot2.SkillCooldown;
 
     }
     [ServerRpc]
     private void UseSkill2ServerRpc()
     {
+
+        if (!_playerMana.TryUseMana(_slot2.SkillCost))
+        {
+            Debug.Log("Mana Insuficiente");
+            return;
+        }
 
         GameObject obj = Instantiate(_slot2.SkillPrefab, transform.position, transform.rotation);
 
@@ -170,25 +161,20 @@ public class SkillSlot : NetworkBehaviour
             return;
         }
 
-        if (_slot3.Skill == Skilldata.SkillType.Ultimate)
-        {
-            if (_playerMana.TryUseMana(_slot3.SkillCost))
-            {
-                UseSkill3ServerRpc();
+        UseSkill3ServerRpc();
 
-                _coolDownSkill3 = _slot3.SkillCooldown;
-            }
-            else
-            {
-                Debug.Log("Mana Insuficiente");
-            }
-
-        }
+        _coolDownSkill3 = _slot3.SkillCooldown;
 
     }
     [ServerRpc]
     private void UseSkill3ServerRpc()
     {
+        if (!_playerMana.TryUseMana(_slot3.SkillCost))
+        {
+            Debug.Log("Mana Insuficiente");
+            return;
+        }
+
         GameObject obj = Instantiate(_slot3.SkillPrefab, transform.position, transform.rotation);
 
         obj.GetComponent<NetworkObject>().Spawn();

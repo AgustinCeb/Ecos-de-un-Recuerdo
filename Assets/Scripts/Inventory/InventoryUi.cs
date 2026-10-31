@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,6 +23,10 @@ public class InventoryUi : MonoBehaviour
     [Header("Panel de información")]
     [SerializeField] private ItemInfoUI _itemInfoUI;
 
+    [Header("Equipamiento")]
+    [SerializeField] private RuneEquipUI _runeEquipUI;
+
+
     private RuenEquip _runeEquipment;
     
     private bool _inventoryFound;
@@ -36,6 +39,7 @@ public class InventoryUi : MonoBehaviour
     private void OnEnable()
     {
         FindInventories();
+        RefreshEquipUI();
     }
     public void FindInventories()
     {
@@ -91,14 +95,17 @@ public class InventoryUi : MonoBehaviour
                     return;
                 }
 
-
                 _inventoryFound = true;
+
+                if (_runeEquipUI != null)
+                    _runeEquipUI.SetRuneEquipment(_runeEquipment);
 
                 CreateSlot(_content1,_uiSlots1);
                 CreateSlot(_content2, _uiSlots2);
                 CreateSlot(_content3, _uiSlots3);
 
                 UpdateUI();
+                RefreshEquipUI();
 
             }
 
@@ -132,6 +139,12 @@ public class InventoryUi : MonoBehaviour
         UpdateSlots(_inventory2.Slots, _uiSlots2);
         UpdateSlots(_inventory3.Slots, _uiSlots3);
 
+    }
+
+    public void RefreshEquipUI()
+    {
+        if (_runeEquipUI != null)
+            _runeEquipUI.RefreshUI();
     }
 
     private void UpdateSlots(List<InventorySlot> inventorySlots,List<InventorySlotUi> uiSlots)

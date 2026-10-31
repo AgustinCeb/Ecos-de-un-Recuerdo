@@ -9,7 +9,16 @@ public class ExpOrb : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerStats.Instance.AddXP(expValue);
+            if (!other.CompareTag("Player"))
+                return;
+
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+
+            if (playerStats == null)
+                return;
+
+            playerStats.AddXP(expValue);
+
             Destroy(gameObject);    
         }
     }

@@ -5,10 +5,13 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance;
     int playerLevel;
+
     [SerializeField] StatsPerLevel statValuesPerLevel;
+
     int requiredXP;
     int heldXP;
     LevelStats LevelStats;
+
     float exMaxHp;
     float exMaxMana;
     float exDamage;
@@ -19,10 +22,6 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
         InitializeXP();
     }
     public void AddXP(int addXp)

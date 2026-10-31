@@ -53,6 +53,25 @@ public class RuenEquip : MonoBehaviour
         return true;
     }
 
+    public bool UnequipRune(ItemData.RuneSlotType slot)
+    {
+        ItemData rune = GetRuneInSlot(slot);
+
+        if (rune == null)
+            return false;
+
+        // Devolver la runa al inventario.
+        _inventory.addItem(rune, 1);
+
+        // Liberar la ranura.
+        SetRuneInSlot(slot, null);
+
+        // Actualizar estadísticas.
+        RecalculateStats();
+
+        return true;
+    }
+
     private ItemData GetRuneInSlot(ItemData.RuneSlotType slot)
     {
         switch (slot)

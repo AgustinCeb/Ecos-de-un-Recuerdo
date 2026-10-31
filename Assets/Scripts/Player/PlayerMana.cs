@@ -35,6 +35,8 @@ public class PlayerMana : NetworkBehaviour
 
     public bool TryUseMana(int amount)
     {
+        if (!IsServer) return false;
+
         if (Mana.Value < amount)
             return false;
 
