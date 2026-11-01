@@ -1,8 +1,9 @@
 using TMPro;
-using UnityEngine;
-using UnityEngine.InputSystem;
 using Unity.Netcode;
 using Unity.Services.Matchmaker.Models;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteract : NetworkBehaviour
 {
@@ -15,19 +16,39 @@ public class PlayerInteract : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        GameObject panel = GameObject.Find("Interaction_UI");
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (panel != null)
+        if (SceneManager.GetActiveScene().name == "Game")
         {
-            _actionText = panel.GetComponentInChildren<TextMeshProUGUI>();
+            InitializeUI();
         }
 
     }
 
-   
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!IsOwner || scene.name != "Game") return;
+
+        InitializeUI();
+    }
+
+    private void InitializeUI()
+    {
+        GameObject panel = GameObject.Find("Interaction_UI");
+
+        if (panel != null)
+        {
+            _actionText = panel.GetComponentInChildren<TextMeshProUGUI>(true);
+        }
+
+        if (_actionText == null)
+            Debug.LogError("No se encontró ActionText en Interaction_UI.");
+    }
 
     private void Update()
     {
+        if (!IsOwner) return;
+
         Collider[] CloserObj = Physics.OverlapSphere(transform.position, _interacRange);
 
         _interactObject = null;
@@ -45,7 +66,10 @@ public class PlayerInteract : NetworkBehaviour
 
         if(!IsOwner) return;
 
+        if (_actionText == null) return;
+
         _actionText.gameObject.SetActive(_interactObject !=null);
+
         if(_interactObject != null)
         {
             _actionText.text = _interactObject.ActionText;
@@ -66,6 +90,11 @@ public class PlayerInteract : NetworkBehaviour
             _interactObject.Interact();
         }
 
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 }

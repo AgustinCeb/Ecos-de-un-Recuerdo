@@ -1,6 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class SkillSlot : NetworkBehaviour
 {
@@ -25,22 +26,43 @@ public class SkillSlot : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        SkillUi skillUi = FindFirstObjectByType<SkillUi>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if(skillUi != null)
+        if (SceneManager.GetActiveScene().name == "Game")
         {
-            skillUi.SetSkill(_slot1,_slot2,_slot3);
-
-            _lastLevel = _playerStats._playerLevel;
-
-            _skillUi = skillUi;
-
-            UpdateSkillUnlocks();
+            InitializeSkillUI();
         }
 
     }
-    
-    
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!IsOwner || scene.name != "Game") return;
+
+        InitializeSkillUI();
+    }
+
+    private void InitializeSkillUI()
+    {
+        SkillUi skillUi = FindFirstObjectByType<SkillUi>(FindObjectsInactive.Include);
+
+        if (skillUi == null)
+        {
+            Debug.LogError("No se encontró SkillUi en la escena Game.");
+            return;
+        }
+
+        _skillUi = skillUi;
+
+        _skillUi.SetSkill(_slot1, _slot2, _slot3);
+
+        _lastLevel = _playerStats._playerLevel;
+
+        UpdateSkillUnlocks();
+
+        Debug.Log("SkillUi inicializada correctamente.");
+    }
+
     private void UpdateSkillUnlocks()
     {
         bool skill1Unlocked = _playerStats._playerLevel >= 3;
@@ -208,6 +230,11 @@ public class SkillSlot : NetworkBehaviour
         {
             _coolDownSkill3 -= Time.deltaTime;
         }
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 }
