@@ -12,17 +12,62 @@ public class ItemData : ScriptableObject
         Material,
 
     }
-    //Base Info
+
+    public enum RuneSlotType
+    {
+        None,
+        Feet,
+        Head,
+        Body
+    }
+
+    public enum RuneEffectType
+    {
+        None,
+        MaxHealth,
+        MaxMana,
+        Damage,
+        Defense,
+        Agility
+    }
+
+    public enum RuneEffectMode
+    {
+        Flat,
+        Percentage
+    }
+
+    public enum ConsumableEffectType
+    {
+        None,
+        Health,
+        Mana
+    }
+
+    [Header("Base Info")]
     [SerializeField] private string _itemName;
     [SerializeField] private Sprite _itemIcon;
     [SerializeField] private string _itemDescription;
-    //Item ID
+    
+    [Header("Item ID")]
     [SerializeField] private int    _itemID;
-    //Item Type
+    
+    [Header("Item Type")]
     [SerializeField] private ItemType _itemType;
-    //Item Stack
+    
+    [Header("Item Stack")]
     [SerializeField] private bool _isStackable;
     [SerializeField] private int _maxStack = 1;
+
+    [Header("Rune Settings")]
+    [SerializeField] private RuneSlotType _runeSlot;
+    [SerializeField] private RuneEffectType _runeEffect;
+    [SerializeField] private float _effectValue;
+    [SerializeField] private RuneEffectMode _effectMode;
+
+    [Header("Consumable Settings")]
+    [SerializeField] private ConsumableEffectType _consumableEffect;
+    [SerializeField] private int _consumableEffectValue;
 
     public string ItemName => _itemName;
     public Sprite ItemIcon => _itemIcon;
@@ -31,6 +76,13 @@ public class ItemData : ScriptableObject
     public ItemType Type => _itemType;
     public bool IsStackable => _isStackable;
     public int MaxStack => _maxStack;
-    
+
+    public RuneSlotType RuneSlot => _runeSlot;
+    public RuneEffectType RuneEffect => _runeEffect;
+    public float EffectValue => _effectValue;
+    public RuneEffectMode EffectMode => _effectMode;
+
+    public ConsumableEffectType ConsumableEffect => _consumableEffect;
+    public int ConsumableEffectValue => _consumableEffectValue;
 
 }

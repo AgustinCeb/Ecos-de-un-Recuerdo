@@ -15,7 +15,13 @@ MonoBehaviour:
   _itemName: Manzana
   _itemIcon: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
   _itemDescription: Manzana que se usa para hace pociones
-  _itemID: 7
+  _itemID: 8
   _itemType: 2
   _isStackable: 1
   _maxStack: 50
+  _runeSlot: 0
+  _runeEffect: 0
+  _effectValue: 0
+  _effectMode: 0
+  _consumableEffect: 0
+  _consumableEffectValue: 0

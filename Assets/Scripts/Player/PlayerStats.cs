@@ -5,10 +5,13 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance;
     int playerLevel;
+
     [SerializeField] StatsPerLevel statValuesPerLevel;
+
     int requiredXP;
     int heldXP;
     LevelStats LevelStats;
+
     float exMaxHp;
     float exMaxMana;
     float exDamage;
@@ -19,10 +22,6 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
         InitializeXP();
     }
     public void AddXP(int addXp)
@@ -41,6 +40,14 @@ public class PlayerStats : MonoBehaviour
             playerLevel++;
             LevelStats = statValuesPerLevel.levels[playerLevel-1];
             requiredXP = LevelStats.requiredExpForNextLevel;
+
+        //Recarga la vida al subir de nivel
+        PlayerHealt playerHealt = GetComponent<PlayerHealt>();
+
+        if (playerHealt != null)
+        {
+            playerHealt.RestoreHealth();
+        }
 
         // Recargar maná al subir de nivel
         PlayerMana playerMana = GetComponent<PlayerMana>();
@@ -101,4 +108,14 @@ public class PlayerStats : MonoBehaviour
         exDefense += addDef;
         exAgility += addAgi;
     }
+
+    public void SetRuneStats(float hp, float mana, float damage, float defense, float agility)
+    {
+        exMaxHp = hp;
+        exMaxMana = mana;
+        exDamage = damage;
+        exDefense = defense;
+        exAgility = agility;
+    }
+
 }

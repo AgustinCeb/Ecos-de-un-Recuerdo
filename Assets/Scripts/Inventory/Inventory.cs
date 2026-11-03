@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Inventory : NetworkBehaviour
 {
+    [Header("Rune Inventory Max Slots")]
     [SerializeField] private int _maxSlot = 18;
 
     private List<InventorySlot> _slots = new List<InventorySlot>();
@@ -41,4 +42,37 @@ public class Inventory : NetworkBehaviour
         }
 
     }
+
+    public bool HasItem(ItemData itemData)
+    {
+        foreach (var slot in _slots)
+        {
+            if (slot.ItemData == itemData && slot.Quantity > 0)
+                return true;
+        }
+
+        return false;
+    }
+
+    public bool RemoveItem(ItemData itemData, int amount = 1)
+    {
+        if (itemData == null || amount <= 0)
+            return false;
+
+        foreach (var slot in _slots)
+        {
+            if (slot.ItemData != itemData || slot.Quantity < amount)
+                continue;
+
+            slot.Quantity -= amount;
+
+            if (slot.Quantity <= 0)
+                _slots.Remove(slot);
+
+            return true;
+        }
+
+        return false;
+    }
+
 }

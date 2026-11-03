@@ -5,13 +5,26 @@ using UnityEngine.UI;
 
 public class InventorySlotUi : MonoBehaviour, IPointerClickHandler
 {
+    [Header("Datos Principales")]
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _itemNameText;
     [SerializeField] private TextMeshProUGUI _quantityText;
 
+    [Header("Menu De Acciones")]
+    [SerializeField] private InventoryContentMenu _contextMenuPrefab;
+
+    [Header("Panel de informacion")]
+    [SerializeField] private ItemInfoUI _itemInfoUI;
+
+    private RuenEquip _runeEquipment;
+    private InventoryUi _inventoryUi;
+
     private InventorySlot _currentSlot;
 
-    
+    private static InventoryContentMenu _contextMenu;
+
+    private Inventory3 _inventory3;
+
     public void SetSlot(InventorySlot slot) 
     {
         _currentSlot = slot;
@@ -31,6 +44,17 @@ public class InventorySlotUi : MonoBehaviour, IPointerClickHandler
 
     }
 
+    public void SetInfoPanel(ItemInfoUI infoUI)
+    {
+        _itemInfoUI = infoUI;
+    }
+
+    public void SetContextReferences(RuenEquip runeEquipment, InventoryUi inventoryUi, Inventory3 inventory3)
+    {
+        _runeEquipment = runeEquipment;
+        _inventoryUi = inventoryUi;
+        _inventory3 = inventory3;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -39,9 +63,22 @@ public class InventorySlotUi : MonoBehaviour, IPointerClickHandler
 
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            Debug.Log("Clic derecho sobre: " + _currentSlot.ItemData.ItemName);
+            if (_contextMenu == null)
+            {
+                Canvas canvas = GetComponentInParent<Canvas>();
 
-            // En el siguiente paso abriremos el menú contextual.
+                if (canvas == null)
+                {
+                    Debug.LogError("No se encontró el Canvas del inventario.");
+                    return;
+                }
+
+                _contextMenu = Instantiate(_contextMenuPrefab, canvas.transform);
+
+                _contextMenu.Hide();
+            }
+
+            _contextMenu.Show(_currentSlot.ItemData, eventData.position, _itemInfoUI,_runeEquipment, _inventoryUi, _inventory3);
         }
     }
 

@@ -12,13 +12,38 @@ public class PlayerHealt : NetworkBehaviour
 
     public NetworkVariable<bool> ShieldActivate = new(false);
 
-    private void Update()
+    public override void OnNetworkSpawn()
     {
         if (!IsServer)return;
 
         int startingMaxHp = maxHealth;
         maxHealth = GetComponent<PlayerStats>().getHealthPoints();
-        if (startingMaxHp != maxHealth) Healt.Value = maxHealth;
+        
+    }
+
+    private void Update()
+    {
+        if (!IsServer) return;
+
+        int newMaxHealth = GetComponent<PlayerStats>().getHealthPoints();
+
+        if (newMaxHealth != maxHealth)
+        {
+            maxHealth = newMaxHealth;
+
+            // Solo reducir la vida si supera el nuevo máximo.
+            if (Healt.Value > maxHealth)
+            {
+                Healt.Value = maxHealth;
+            }
+        }
+    }
+
+    public void RestoreHealth()
+    {
+        if (!IsServer) return;
+
+        Healt.Value = maxHealth;
     }
 
     public void TakeDamagePlayer(int enemyDamage)
@@ -53,4 +78,18 @@ public class PlayerHealt : NetworkBehaviour
 
 
     }
+
+    public bool HealPlayer(int amount)
+    {
+        if (!IsServer) return false;
+
+
+        if (Healt.Value >= maxHealth)
+            return false;
+
+        Healt.Value = Mathf.Min(Healt.Value + amount, maxHealth);
+
+        return true;
+    }
+
 }
