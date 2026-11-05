@@ -11,15 +11,15 @@ public class CastigoData : NetworkBehaviour
     //SFX
     [SerializeField] private AudioClip _skillSound;
 
-    private Rigidbody _rb;
+    private Transform _rb;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody>();
-        _rb.linearVelocity = Vector3.down * _fallVelocity;
+        _rb = GetComponent<Transform>();
+        //_rb.linearVelocity = Vector3.down * _fallVelocity;
 
         transform.position += transform.forward * _posisionF;
-        transform.position += transform.up * _posisionUp;
+        //transform.position += transform.up * _posisionUp;
         SFXManager.instance.PlaySFX(_skillSound, transform, 1f, 1f);
 
     }

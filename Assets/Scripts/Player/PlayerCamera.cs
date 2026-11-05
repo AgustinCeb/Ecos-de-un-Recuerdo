@@ -33,8 +33,8 @@ public class PlayerCamera : NetworkBehaviour
         {
             _freelook.gameObject.SetActive(true);
 
-            _freelook.Follow = _target;
-            _freelook.LookAt = _target;
+            //_freelook.Follow = _target;
+            //_freelook.LookAt = _target;
 
         }
         else

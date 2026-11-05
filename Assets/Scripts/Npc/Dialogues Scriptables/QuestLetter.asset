@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuestLetter
   m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
   npcName: Blaze
-  npcPortrait: {fileID: 0}
+  npcPortrait: {fileID: -668044383, guid: aeaf391c80985d34692a2032ea4a0f2b, type: 3}
   dialogeLines:
   - Veamos que mision quieres que leea?
   - Dice que tenemos que recolecter 5 bayas de los arbustor rojos que hay por el
@@ -63,4 +63,5 @@ MonoBehaviour:
   voicePitch: 1
   questInProgressIndex: 0
   questCompletedIndex: 0
+  principalQuestComplete: 0
   quest: {fileID: 0}

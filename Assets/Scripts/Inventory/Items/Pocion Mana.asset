@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pocion Mana
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   _itemName: Pocion Mana
-  _itemIcon: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
+  _itemIcon: {fileID: 21300000, guid: 0e8c470c2a4f06948b29661d4039cf8e, type: 3}
   _itemDescription: Pocion que Restaura 50 Mana
   _itemID: 7
   _itemType: 0

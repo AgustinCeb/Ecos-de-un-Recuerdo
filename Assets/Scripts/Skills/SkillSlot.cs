@@ -162,8 +162,15 @@ public class SkillSlot : NetworkBehaviour
             proteccion.SetOwner(GetComponent<PlayerHealt>());
         }
 
-        obj.GetComponent<NetworkObject>().Spawn();
+        //obj.GetComponent<NetworkObject>().Spawn();
+        NetworkObject shieldObject = obj.GetComponent<NetworkObject>();
 
+        shieldObject.Spawn();
+
+        shieldObject.TrySetParent(NetworkObject, false);
+
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localRotation = Quaternion.identity;
     }
 
     public void OnSkill3()

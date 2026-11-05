@@ -1,6 +1,5 @@
 using UnityEngine;
 using Unity.Netcode;
-using UnityEditorInternal;
 
 public class PlayerHealt : NetworkBehaviour
 {

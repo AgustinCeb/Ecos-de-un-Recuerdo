@@ -2,7 +2,6 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using static ItemData;
-using static UnityEditor.Progress;
 
 public class PlayerPickup : NetworkBehaviour
 {
