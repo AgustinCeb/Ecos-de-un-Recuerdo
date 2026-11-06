@@ -10,8 +10,12 @@ public class LiberacionData : NetworkBehaviour
 
     private int _skillDamage;
 
-    private void Start()
+    private NetworkObject _playerObject;
+
+    public override void OnNetworkSpawn()
     {
+        if (!IsServer) return;
+
         Collider[] hits = Physics.OverlapSphere(transform.position, 5f);
 
         _skillDamage = _skillUlti.SkillDamage;
@@ -25,16 +29,34 @@ public class LiberacionData : NetworkBehaviour
             }
         }
 
+        StartCoroutine(EsperarActivacion());
+
+    }
+
+    private System.Collections.IEnumerator EsperarActivacion()
+    {
+        yield return new WaitForSeconds(1f);
+
+        _playerObject = transform.parent.GetComponent<NetworkObject>();
+
         CreateArea();
 
         NetworkObject.Despawn();
-
     }
 
     private void CreateArea()
     {
         GameObject area = Instantiate(_areaPF,transform.position,Quaternion.identity);
-        area.GetComponent<NetworkObject>().Spawn();
+        
+        NetworkObject areaObject = area.GetComponent<NetworkObject>();
+
+        areaObject.Spawn();
+
+        areaObject.TrySetParent(_playerObject, false);
+
+        area.transform.localPosition = Vector3.zero;
+        area.transform.localRotation = Quaternion.identity;
+
     }
 
 }
