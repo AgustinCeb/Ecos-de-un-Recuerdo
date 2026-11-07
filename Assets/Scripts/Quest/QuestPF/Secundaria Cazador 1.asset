@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cad706640ba6004bb29f8b5317bcaa5, type: 3}
+  m_Name: Secundaria Cazador 1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestData
+  questId: 3
+  questName: Festival de Cazeria
+  description: Consigue 5 Retazos de tela y 5 Escencias rojas
+  isRepeatable: 1
+  objetives:
+  - objectiveID: 9
+    description: Escencia Roja
+    type: 0
+    requiredItem: {fileID: 11400000, guid: 6992e955065b18c4d8b76e2e87f9e746, type: 2}
+    requiredAmount: 5
+    currentAmount: 0
+  - objectiveID: 10
+    description: Retazo de Tela
+    type: 0
+    requiredItem: {fileID: 11400000, guid: 360da10bcbcc0864784272c90ce5d713, type: 2}
+    requiredAmount: 5
+    currentAmount: 0
+  questReward:
+  - type: 0
+    rewardID: 7
+    amount: 1

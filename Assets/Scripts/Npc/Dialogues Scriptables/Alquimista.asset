@@ -24,8 +24,10 @@ MonoBehaviour:
   - Necesito que me traigas, Algunos materiales 5 manzanas rojas y 5 manzanas azules,
     podras?
   - Ok Buena suerte
-  autoProgressLines: 010100000100
-  endDialogueLines: 000001010001
+  - Traeme las manzanas y te dare una recompenza ;)
+  - Gracias estas manzanas son perfectas, Ten por tus servicios :)
+  autoProgressLines: 0101000001000000
+  endDialogueLines: 0000010100010101
   choices:
   - dialogueIndex: 0
     choices:
@@ -51,7 +53,7 @@ MonoBehaviour:
   autoProgressDelay: 1.5
   voiceSound: {fileID: 0}
   voicePitch: 1
-  questInProgressIndex: 0
-  questCompletedIndex: 0
+  questInProgressIndex: 6
+  questCompletedIndex: 7
   principalQuestComplete: 0
-  quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: 6094a2cb664a091469687ca3f01aafd6, type: 2}

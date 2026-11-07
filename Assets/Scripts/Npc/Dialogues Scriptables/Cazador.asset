@@ -26,11 +26,13 @@ MonoBehaviour:
     En el santuario del bosque
   - 'Por lo que Escuche Ataca Cuerpo a Cuerpo y A distancia, Ten mucho cuidado por
     que es un enemigo muy fuerte '
-  - Necesito que me Traigas 10 Escencias, Se obtiene al matar mounstros, Crees poder
-    hacerlo?
+  - Necesito que me Traigas 5 Retazos de tela y 5 Ecencias Rojas,las sueltan los
+    mounstros,Aceptas?
   - Ok Buena Suerte
-  autoProgressLines: 01000100010001000100
-  endDialogueLines: 00000001000100010001
+  - Ten cuidado hay afuera
+  - Bien Hecho, sin duda eres un cazador nato, aqui tienes tu recompenza
+  autoProgressLines: 010001000100010001000000
+  endDialogueLines: 000000010001000100010101
   choices:
   - dialogueIndex: 0
     choices:
@@ -47,7 +49,7 @@ MonoBehaviour:
     - Nada
     nextDialogueIndexes: 02000000040000000600000000000000
     givesQuest: 00000000
-  - dialogueIndex: 1
+  - dialogueIndex: 8
     choices:
     - Si
     - No
@@ -57,7 +59,7 @@ MonoBehaviour:
   autoProgressDelay: 1.5
   voiceSound: {fileID: 0}
   voicePitch: 1
-  questInProgressIndex: 0
-  questCompletedIndex: 0
+  questInProgressIndex: 10
+  questCompletedIndex: 11
   principalQuestComplete: 0
-  quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: 80039024819d6b74290ff5aca2315b61, type: 2}

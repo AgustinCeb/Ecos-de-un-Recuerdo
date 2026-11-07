@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5950da261acb6945b67b6d80272e596, type: 3}
+  m_Name: Escencia Roja
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  _itemName: Escencia Roja
+  _itemIcon: {fileID: 21300000, guid: 76cf989ee5b0b9949878684f79cbb038, type: 3}
+  _itemDescription: Orbe que enciera la escencia de un mounstro
+  _itemID: 9
+  _itemType: 2
+  _isStackable: 1
+  _maxStack: 50
+  _runeSlot: 0
+  _runeEffect: 0
+  _effectValue: 0
+  _effectMode: 0
+  _consumableEffect: 0
+  _consumableEffectValue: 0

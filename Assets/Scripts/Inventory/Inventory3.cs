@@ -4,6 +4,7 @@ using Unity.Netcode;
 
 public class Inventory3 : NetworkBehaviour
 {
+    [Header("Max Slots Pociones")]
     [SerializeField] private int _maxSlot = 18;
 
     private List<InventorySlot> _slots = new List<InventorySlot>();

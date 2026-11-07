@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b9a9676a3e96084aa6444c7d240a572, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1574609491308375447}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b9a9676a3e96084aa6444c7d240a572, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3487967360239988451}
   m_SourcePrefab: {fileID: 100100000, guid: 3b9a9676a3e96084aa6444c7d240a572, type: 3}
 --- !u!1 &2643482843407846268 stripped
 GameObject:
@@ -127,4 +130,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a87f8f144210d45a573e237c4fa91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MissionCollectible
+  IsEmpty: 0
   _emptyTreePF: {fileID: 7486373088697263756, guid: 9d6b7596739f2c14c8b686eeafd240e1, type: 3}
+--- !u!114 &-3487967360239988451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643482843407846268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0

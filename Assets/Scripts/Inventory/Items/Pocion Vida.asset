@@ -18,7 +18,7 @@ MonoBehaviour:
   _itemID: 6
   _itemType: 0
   _isStackable: 1
-  _maxStack: 5
+  _maxStack: 10
   _runeSlot: 0
   _runeEffect: 0
   _effectValue: 0

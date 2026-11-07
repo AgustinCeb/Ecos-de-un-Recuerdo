@@ -13,6 +13,10 @@ public class RewardsController : MonoBehaviour
 
     public void GiveQuestRewards(QuestData quest, Inventory inventory, Inventory2 inventory2, Inventory3 inventory3)
     {
+        Debug.Log("Inventory: " + (inventory != null));
+        Debug.Log("Inventory2: " + (inventory2 != null));
+        Debug.Log("Inventory3: " + (inventory3 != null));
+
         if (quest?.questReward == null) return;
 
         foreach (var reward in quest.questReward)
@@ -54,7 +58,7 @@ public class RewardsController : MonoBehaviour
                 break;
 
             case ItemData.ItemType.Consumable: 
-                inventory2.addItem(itemReward, amount); 
+                inventory3.addItem(itemReward, amount); 
                 break;
 
         }

@@ -31,7 +31,9 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
 
     public void interact(PlayerInteract player)
     {
+        playerInventory1 = player.GetComponent<Inventory>();
         playerInventory2 = player.GetComponent<Inventory2>();
+        playerInventory3 = player.GetComponent<Inventory3>();
 
         if (playerInventory2 == null)
         {

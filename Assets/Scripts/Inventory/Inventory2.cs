@@ -6,6 +6,7 @@ using System;
 
 public class Inventory2 : NetworkBehaviour
 {
+    [Header("Max Slots Materiales")]
     [SerializeField] private int _maxSlot = 18;
 
     private List<InventorySlot> _slots = new List<InventorySlot>();
