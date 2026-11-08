@@ -19,19 +19,19 @@ MonoBehaviour:
     defense: 5
     Maxmana: 50
     agility: 0
-  - requiredExpForNextLevel: 200
+  - requiredExpForNextLevel: 100
     maxHealth: 110
     damage: 7
     defense: 7
     Maxmana: 60
     agility: 0
-  - requiredExpForNextLevel: 400
+  - requiredExpForNextLevel: 200
     maxHealth: 120
     damage: 10
     defense: 10
     Maxmana: 70
     agility: 0
-  - requiredExpForNextLevel: 200
+  - requiredExpForNextLevel: 400
     maxHealth: 130
     damage: 12
     defense: 12

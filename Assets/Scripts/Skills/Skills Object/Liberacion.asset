@@ -16,7 +16,7 @@ MonoBehaviour:
   _skillIcon: {fileID: 21300000, guid: b054c6613e0d41c43ba639d593e7e8b2, type: 3}
   _skillDescription: 
   _skillDamage: 50
-  _skillCooldown: 80
+  _skillCooldown: 20
   _skillCost: 50
   _skillPrefab: {fileID: 3075409219400922338, guid: 1d76440470bcde54e974a48bbf5ff530, type: 3}
   _skillId: 3
