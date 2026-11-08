@@ -117,8 +117,12 @@ public class SkillSlot : NetworkBehaviour
 
         GameObject obj = Instantiate(_slot1.SkillPrefab, transform.position, transform.rotation);
 
+        CastigoData skill = obj.GetComponent<CastigoData>();
+
+        skill.Initialize(GetComponent<PlayerMove>());
+
         obj.GetComponent<NetworkObject>().Spawn();
-         
+
     }
 
     public void OnSkill2()

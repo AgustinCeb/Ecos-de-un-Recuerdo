@@ -60,6 +60,7 @@ public class PlayerMove : NetworkBehaviour
 
 
     public Vector2 MoveInput => _moveInput;
+    public Transform Direction => _direction;
 
     private void Start()
     {
