@@ -323,7 +323,7 @@ MonoBehaviour:
   attackRange: 2
   attackMaxCD: 1
   attackInitCD: 0.3
-  isRangedEnemy: 0
+  isRangedEnemy: 1
   animController: {fileID: 6086631976846648264}
 --- !u!114 &3517312035260466364
 MonoBehaviour:
@@ -383,6 +383,7 @@ MonoBehaviour:
       MaxSecondsBetweenUpdates: 0
     m_InternalValue: 1
   expOrb: {fileID: 248927684995472292, guid: 14ce02e110b3c364db60bf1203349faa, type: 3}
+  itemDroop: {fileID: 432163681500636757, guid: fcc9a5516765fe849bef29b5c07d0194, type: 3}
 --- !u!114 &3726373263411155859
 MonoBehaviour:
   m_ObjectHideFlags: 0

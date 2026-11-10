@@ -258,6 +258,7 @@ MonoBehaviour:
       MaxSecondsBetweenUpdates: 0
     m_InternalValue: 1
   expOrb: {fileID: 248927684995472292, guid: 14ce02e110b3c364db60bf1203349faa, type: 3}
+  itemDroop: {fileID: 6516282604195358936, guid: b17c95bf40a990241892e427a6d79a0c, type: 3}
 --- !u!114 &983498803658873148
 MonoBehaviour:
   m_ObjectHideFlags: 0
