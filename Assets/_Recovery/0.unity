@@ -706,11 +706,6 @@ Transform:
   - {fileID: 293838554}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &252090570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3837772071246586704, guid: c3655896f6e6ea442bd861c3099082a3, type: 3}
-  m_PrefabInstance: {fileID: 1236985581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &252090571 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3829392904781626897, guid: c3655896f6e6ea442bd861c3099082a3, type: 3}
@@ -745,11 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02d49ad9878d8e4093a03722e6b3422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  missionUI: {fileID: 342017169}
-  progressText: {fileID: 665082156}
-  progressSlider: {fileID: 2042719417}
-  maxBerries: 5
-  completedMissionUI: {fileID: 252090570}
 --- !u!4 &252184599
 Transform:
   m_ObjectHideFlags: 0
@@ -4959,6 +4949,8 @@ MonoBehaviour:
   _content2: {fileID: 1072941955}
   _content3: {fileID: 1213557914}
   _maxSlots: 18
+  _itemInfoUI: {fileID: 0}
+  _runeEquipUI: {fileID: 0}
 --- !u!1001 &1323751736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7534,6 +7526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   menu: {fileID: 0}
+  _skillUI: {fileID: 0}
 --- !u!1001 &1785860305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9112,19 +9105,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 919809664005308168, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919809664005308168, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919809664005308168, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 1219824868909717041, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
       propertyPath: m_Name
       value: Crafting Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219824868909717041, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5659987870450565202, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
       propertyPath: m_Pivot.x
@@ -9208,11 +9205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934301162207869156, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5934301162207869156, guid: a69c59d085e8a004b8b57d9675e1d58c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

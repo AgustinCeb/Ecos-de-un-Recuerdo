@@ -299,18 +299,18 @@
             "id": "0046c592-1fb3-4e4b-94a1-bd48196f21ce",
             "actions": [
                 {
-                    "name": "Inventory",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "150f39ca-8473-4357-b355-5a17af1bdac6",
+                    "id": "208fee01-fa5c-42d4-a747-2fceddc05118",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "New action",
+                    "name": "Inventory",
                     "type": "Button",
-                    "id": "b7dbeb31-564e-49d8-93c4-7ef2788c1987",
+                    "id": "150f39ca-8473-4357-b355-5a17af1bdac6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -320,23 +320,23 @@
             "bindings": [
                 {
                     "name": "",
+                    "id": "9ab15e75-5ee3-4c56-9c50-9a539c88b396",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c1339a75-853f-414f-860f-455628695693",
                     "path": "<Keyboard>/i",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dd70e302-4863-4cda-8b8e-af6d8472d086",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

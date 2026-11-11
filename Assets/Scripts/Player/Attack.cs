@@ -9,13 +9,21 @@ public class Attack : MonoBehaviour
     //SFX
     [SerializeField] private AudioClip _attackSound;
 
+    [SerializeField] private Animator _animator;
+
     private void Start()
     {
         _sword.SetActive(false);
     }
 
    
-    private void OnAttack()
+    public void OnAttack()
+    {
+        _animator.SetTrigger("Attack");
+
+    }
+
+    public void PlayerAttack()
     {
         CancelInvoke(nameof(HideSword));
         SFXManager.instance.PlaySFX(_attackSound, transform, 1f, 1f);

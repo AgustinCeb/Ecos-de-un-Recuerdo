@@ -13,6 +13,8 @@ public class SkillSlot : NetworkBehaviour
 
     [SerializeField] private PlayerStats _playerStats;
 
+    [SerializeField] private Animator _animator;
+
     private SkillUi _skillUi;
     private int _lastLevel;
 
@@ -21,6 +23,7 @@ public class SkillSlot : NetworkBehaviour
     private float _coolDownSkill2;
     private float _coolDownSkill3;
    
+
 
     public override void OnNetworkSpawn()
     {
@@ -82,8 +85,13 @@ public class SkillSlot : NetworkBehaviour
 
     }
 
-
     public void OnSkill1()
+    {
+        _animator.SetTrigger("Rayo");
+
+    }
+
+    public void Skill1()
     {
         if (!IsOwner) return;
 
@@ -102,6 +110,7 @@ public class SkillSlot : NetworkBehaviour
 
         UseSkill1ServerRpc();
 
+        
         _coolDownSkill1 = _slot1.SkillCooldown;
 
        
@@ -126,6 +135,11 @@ public class SkillSlot : NetworkBehaviour
     }
 
     public void OnSkill2()
+    {
+        _animator.SetTrigger("Escudo");
+    }
+
+    public void Skill2()
     {
         if (!IsOwner) return;
 
@@ -177,6 +191,11 @@ public class SkillSlot : NetworkBehaviour
     }
 
     public void OnSkill3()
+    {
+        _animator.SetTrigger("Ulti");
+    }
+
+    public void Skill3()
     {
         if (!IsOwner) return;
 

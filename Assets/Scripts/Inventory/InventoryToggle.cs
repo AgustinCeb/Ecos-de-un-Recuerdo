@@ -10,7 +10,7 @@ public class InventoryToggle : NetworkBehaviour
 
     [SerializeField] private InventoryUi _inventoryUi;
 
-    [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private PlayertInputState _inputState;
 
     [SerializeField] private GameObject _skillUi;
 
@@ -43,6 +43,8 @@ public class InventoryToggle : NetworkBehaviour
 
         SkillUi skill = FindFirstObjectByType<SkillUi>(FindObjectsInactive.Include);
 
+        _inputState = GetComponent<PlayertInputState>();
+
         if (_inventoryUi != null)
             _inventoryMenu = _inventoryUi.gameObject;
 
@@ -68,7 +70,7 @@ public class InventoryToggle : NetworkBehaviour
         {
 
             _inventoryUi.UpdateUI();
-            _playerInput.SwitchCurrentActionMap("PlayerUI");
+            _inputState.SetUIInput(true);
             _skillUi.transform.parent.gameObject.SetActive(false);
 
             
@@ -76,7 +78,7 @@ public class InventoryToggle : NetworkBehaviour
 
         else
         {
-            _playerInput.SwitchCurrentActionMap("Player");
+            _inputState.SetUIInput(false);
             _skillUi?.transform.parent.gameObject.SetActive(true);
         }
 

@@ -1,14 +1,20 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
 {
+    [Header("Npc Data")]
     public Npc_DialogeData dialogeData;
     public DialogueControler dialogueUi;
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
+
+    [Header("Skill UI")]
+    [SerializeField] private GameObject _skillUI;
+
 
     private enum QuestState { NotStartet, InProgress, Completed };
     private QuestState questState = QuestState.NotStartet;
@@ -16,6 +22,8 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
     private Inventory playerInventory1;
     private Inventory2 playerInventory2;
     private Inventory3 playerInventory3;
+
+    private PlayertInputState _inputState;
 
     public string ActionText => "Hablar";
 
@@ -35,6 +43,11 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
         playerInventory2 = player.GetComponent<Inventory2>();
         playerInventory3 = player.GetComponent<Inventory3>();
 
+        _inputState = player.GetComponent<PlayertInputState>();
+
+       
+
+
         if (playerInventory2 == null)
         {
             Debug.Log("El jugador no tiene Inventario");
@@ -48,6 +61,8 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
     {
         if (dialogeData == null) return;
         
+        _skillUI.SetActive(false);
+        _inputState.SetUIInput(true);
 
         if (isDialogueActive)
         {
@@ -216,6 +231,9 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
     
     public void EndDialogue()
     {
+        _skillUI.SetActive(true);
+        _inputState.SetUIInput(false);
+
         if (questState == QuestState.Completed && !QuestController.Instance.IsQuestHandedIn(dialogeData.quest.questId))
         {
             HandleQuestCompletion(dialogeData.quest);
