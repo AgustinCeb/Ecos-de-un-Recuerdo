@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartHost()
     {
+
         NetworkManager.Singleton.StartHost();
         NetworkManager.Singleton.SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
@@ -21,7 +22,7 @@ public class MenuManager : MonoBehaviour
         transport.ConnectionData.Address = _ipInput.text;
 
         NetworkManager.Singleton.StartClient();
-
+        
     }
 
     public void ExitGame()
