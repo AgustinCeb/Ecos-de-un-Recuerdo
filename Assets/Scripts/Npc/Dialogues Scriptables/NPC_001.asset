@@ -15,14 +15,16 @@ MonoBehaviour:
   npcName: Aldeano
   npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
   dialogeLines:
-  - Hola Forastero, Estamos en la Aldea Costera
-  - Necesitas Ayuda?
-  - Que Quieres Saber?
-  - Ok Suerte
-  - "Si sales por la puerta izquierda, vas hacia la monta\xF1a volcanica y si vas
-    hacia la derecha vas al cementerio pero ten cuidado con los mounstros"
-  - Intenta hablar con nuestro lider, esta en la capilla, es ese edificio del centro.
-    tambien puedes hablar con el alquimista, es ese de gorro blanco
+  - Hola, forastero. Estamos en la Aldea Costera.
+  - "\xBFNecesitas ayuda?"
+  - "\xBFQu\xE9 quieres saber?"
+  - "\xA1Ok, suerte!"
+  - "Si sales por la puerta de la izquierda, llegar\xE1s a la monta\xF1a volc\xE1nica.
+    Si vas hacia la derecha, llegar\xE1s al cementerio, pero ten cuidado con los
+    monstruos."
+  - "Intenta hablar con nuestro l\xEDder. Est\xE1 en la capilla, ese edificio del
+    centro. Tambi\xE9n puedes hablar con el alquimista, el que lleva un gorro con
+    estrellas."
   autoProgressLines: 010101000000
   endDialogueLines: 000000010101
   choices:
@@ -45,4 +47,5 @@ MonoBehaviour:
   voicePitch: 1
   questInProgressIndex: 0
   questCompletedIndex: 0
+  principalQuestComplete: 0
   quest: {fileID: 0}

@@ -15,17 +15,18 @@ MonoBehaviour:
   npcName: Alquimista
   npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
   dialogeLines:
-  - Hola Forastero, Soy el Alquimista, Que necesitas?
-  - Sobre que quieres saber?
-  - Las pociones que puedes crear son, La pocion roja que te curara y La pocion Azul
-    que restablece el mana
-  - Los materiales que hay por la zona son, Manzanas rojas y manzanas azules, no
-    te procupes por las botellas tengo de sobra
-  - Necesito que me traigas, Algunos materiales 5 manzanas rojas y 5 manzanas azules,
-    podras?
-  - Ok Buena suerte
-  - Traeme las manzanas y te dare una recompenza ;)
-  - Gracias estas manzanas son perfectas, Ten por tus servicios :)
+  - "Hola, forastero. Soy el alquimista. \xBFQu\xE9 necesitas?"
+  - "\xBFSobre qu\xE9 quieres saber?"
+  - "Las pociones que puedo crear son la poci\xF3n roja, que te curar\xE1, y la poci\xF3n
+    azul, que restablecer\xE1 tu man\xE1."
+  - Los materiales que puedes encontrar por la zona son manzanas rojas y manzanas
+    azules. No te preocupes por las botellas, tengo de sobra.
+  - "Necesito que me traigas algunos materiales: 5 manzanas rojas y 5 manzanas azules.
+    \xBFPodr\xE1s hacerlo?"
+  - "\xA1Ok, buena suerte!"
+  - "\xA1Tr\xE1eme las manzanas y te dar\xE9 una recompensa! ;)"
+  - "\xA1Gracias! Estas manzanas son perfectas. Toma, esto es por tus servicios.
+    :)"
   autoProgressLines: 0101000001000000
   endDialogueLines: 0000010100010101
   choices:

@@ -15,22 +15,24 @@ MonoBehaviour:
   npcName: Cazador
   npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
   dialogeLines:
-  - Hola Forastero, soy el cazador de esta aldea, en que puedo ayudarte
-  - Tengo conocimiento sobre las creaturas de este bosque, sobre que quieres saber?
-  - Las nostalgias son creaturas que se mueven en grupo, no son muy fuertes por si
-    solo pero no te confies
-  - Buscaran Atacarte Cuerpo a cuerpo, Evita que te rodeen y estaras bien
-  - "Los Sentimientos son creaturas peque\xF1as con poca movilidad y echos de fuego"
-  - Buscaran Atacarte A Distancia, No los pierdas de vista y si puedes matalos primero
-  - Las Culpas son creaturas muy raras de ver por el bosque, solo hay uno Encerrado
-    En el santuario del bosque
-  - 'Por lo que Escuche Ataca Cuerpo a Cuerpo y A distancia, Ten mucho cuidado por
-    que es un enemigo muy fuerte '
-  - Necesito que me Traigas 5 Retazos de tela y 5 Ecencias Rojas,las sueltan los
-    mounstros,Aceptas?
-  - Ok Buena Suerte
-  - Ten cuidado hay afuera
-  - Bien Hecho, sin duda eres un cazador nato, aqui tienes tu recompenza
+  - "Hola, forastero. Soy el cazador de esta aldea. \xBFEn qu\xE9 puedo ayudarte?"
+  - "Tengo conocimientos sobre las criaturas de este bosque. \xBFSobre qu\xE9 quieres
+    saber?"
+  - "Las Nostalgias son criaturas que se mueven en grupo. No son muy fuertes por
+    s\xED solas, pero no te conf\xEDes."
+  - "Buscar\xE1n atacarte cuerpo a cuerpo. Evita que te rodeen y estar\xE1s bien."
+  - "Los Sentimientos son criaturas peque\xF1as, con poca movilidad y hechas de fuego."
+  - "Buscar\xE1n atacarte a distancia. No los pierdas de vista y, si puedes, elim\xEDnalos
+    primero."
+  - Las Culpas son criaturas muy raras de ver en el bosque. Solo hay una encerrada
+    en el santuario del bosque.
+  - "Por lo que escuch\xE9, ataca cuerpo a cuerpo y a distancia. Ten mucho cuidado,
+    porque es un enemigo muy fuerte."
+  - "Necesito que me traigas 5 retazos de tela y 5 esencias rojas. Las sueltan los
+    monstruos. \xBFAceptas?"
+  - "\xA1Ok, buena suerte!"
+  - "Ten cuidado ah\xED afuera."
+  - "\xA1Bien hecho! Sin duda, eres un cazador nato. Aqu\xED tienes tu recompensa."
   autoProgressLines: 010001000100010001000000
   endDialogueLines: 000000010001000100010101
   choices:

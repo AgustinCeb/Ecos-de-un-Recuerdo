@@ -15,13 +15,14 @@ MonoBehaviour:
   npcName: Aldeano 2
   npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
   dialogeLines:
-  - Hola Forastero, buenos dias
+  - "Hola, forastero. \xA1Buenos d\xEDas!"
   - Que Necesitas?
-  - "Si sales por la puerta izquierda, vas hacia la monta\xF1a volcanica y si vas
-    hacia la derecha vas al cementerio pero ten cuidado con los mounstros"
-  - Si tienes Dudas habla con nuestro lider, Es el que esta en la iglecia Aqui a
-    mi derecha
-  - Ok Buena suerte
+  - "Si sales por la puerta de la izquierda, llegar\xE1s a la monta\xF1a volc\xE1nica.
+    Si vas hacia la derecha, llegar\xE1s al cementerio, pero ten cuidado con los
+    monstruos."
+  - "Si tienes dudas, habla con nuestro l\xEDder. Es el que est\xE1 en la iglesia,
+    aqu\xED, a mi derecha."
+  - "\xA1Ok, buena suerte!"
   autoProgressLines: 0101000000
   endDialogueLines: 0000010101
   choices:
@@ -38,4 +39,5 @@ MonoBehaviour:
   voicePitch: 1
   questInProgressIndex: 0
   questCompletedIndex: 0
+  principalQuestComplete: 0
   quest: {fileID: 0}

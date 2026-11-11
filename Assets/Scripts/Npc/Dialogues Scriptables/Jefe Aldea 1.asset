@@ -15,33 +15,33 @@ MonoBehaviour:
   npcName: Jefe Costero
   npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
   dialogeLines:
-  - Bienvenido Forastero, Estas en la aldea Costera
-  - Yo soy su lider Que necesitas?
-  - Que quieres saber?
-  - En esta alde vivimos pocos habitantes pero nos las arreglamos, igual unas manos
-    extras nunca estan de mas
-  - 'Si necesitas pociones ve con el alquimista, esta en la casa a mi derecha '
-  - El cazador vive a su lado y siempre necesita alguna ayuda y te recompenzara por
-    tus servicios
-  - Si vas por la puerta a mi derecha llegaras al cementerio, dicen que hay un tesoro
-    escondido en el centro pero esta custiodiado por mounstros
-  - Si vas alli ten cuidado, muchos de ellos atacan a distancia
-  - "Si vas por la puerta a mi Izquierda llegaras a la monta\xF1a volcanica, Dicen
-    que unos mounstros viven en su interior"
-  - Son un gupo diverso pero bien cordinado, si vas preparate bien podrias tener
-    problemas
-  - Al final del bosque se esconde un poderoso mounstro, si quieres avanzar hacia
-    el Lago Hielo tendras que derrotarlo
-  - "Para romper el sello, deberas recupera los fragmentos de llave que estan en
-    la monta\xF1a y el cementerio, crees poder hacerlo?"
-  - 'Muy bien, buena suerte '
-  - No hay problema, regresa cuando quieras
-  - una vez tengas los fragmentos, traelos para reparar la llave, si tienes dudas
-    consulta el cartel a mi derecha
-  - Bien echo, aqui tienes la llave Reparada, usala para romper el sello en el interior
-    del bosque
-  - Ya tienes la llave, dirigite al extremo del bosque para romper el sello, te deseo
-    suerte
+  - "\xA1Bienvenido, forastero! Est\xE1s en la Aldea Costera."
+  - "Yo soy su l\xEDder. \xBFQu\xE9 necesitas?"
+  - "\xBFQu\xE9 quieres saber?"
+  - "En esta aldea vivimos pocos habitantes, pero nos las arreglamos. De todas formas,
+    unas manos extra nunca est\xE1n de m\xE1s."
+  - "Si necesitas pociones, ve con el alquimista. Est\xE1 en la casa a mi derecha."
+  - "El cazador vive a su lado. Siempre necesita ayuda y te recompensar\xE1 por tus
+    servicios."
+  - "Si sales por la puerta a mi derecha, llegar\xE1s al cementerio. Dicen que hay
+    un tesoro escondido en el centro, pero est\xE1 custodiado por monstruos."
+  - "Si vas all\xED, ten cuidado. Muchos de ellos atacan a distancia."
+  - "Si sales por la puerta a mi izquierda, llegar\xE1s a la monta\xF1a volc\xE1nica.
+    Dicen que algunos monstruos viven en su interior."
+  - "Son un grupo diverso, pero est\xE1n bien coordinados. Si vas, prep\xE1rate bien;
+    podr\xEDas tener problemas."
+  - "Al final del bosque se esconde un poderoso monstruo. Si quieres avanzar hacia
+    el Lago de Hielo, tendr\xE1s que derrotarlo."
+  - "Para romper el sello, deber\xE1s recuperar los fragmentos de luz y oscuridad
+    que se encuentran en la monta\xF1a y en el cementerio. \xBFCrees poder hacerlo?"
+  - "\xA1Muy bien! \xA1Buena suerte!"
+  - No hay problema. Regresa cuando quieras.
+  - "Una vez que tengas los fragmentos, tr\xE1elos para reparar el sello. Si tienes
+    dudas, consulta el cartel a mi derecha."
+  - "\xA1Bien hecho! Aqu\xED tienes el sello reparado. \xDAsala para abrir la puerta
+    que se encuentra en el interior del bosque."
+  - "Ya tienes el sello. Dir\xEDgete al extremo del bosque para abrir la puerta.
+    \xA1Te deseo suerte!"
   autoProgressLines: 0101010101000100010001010000000000
   endDialogueLines: 0000000000010001000100000101010101
   choices:
