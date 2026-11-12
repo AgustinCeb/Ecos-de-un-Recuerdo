@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Enemy_Spawn : MonoBehaviour
 {
+
     [Header("Enemy Configuration")]
     [SerializeField] private GameObject _enemyPrefab;
 
     private GameObject _spawnedEnemy;
+    private bool _enemyDefeated;
 
     public GameObject GetEnemyPrefab()
     {
@@ -22,9 +24,25 @@ public class Enemy_Spawn : MonoBehaviour
         _spawnedEnemy = enemy;
     }
 
-    public bool IsAlive()
+    public bool IsDefeated()
+    {
+        return _enemyDefeated;
+    }
+
+    public bool HasSpawnedEnemy()
     {
         return _spawnedEnemy != null;
+    }
+
+    public void RegisterDeath()
+    {
+        _enemyDefeated = true;
+        _spawnedEnemy = null;
+    }
+
+    public void ResetSpawn()
+    {
+        _enemyDefeated = false;
     }
 
     public Vector3 GetSpawnPosition()
