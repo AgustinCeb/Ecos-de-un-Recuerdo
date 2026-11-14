@@ -88,4 +88,19 @@ public class EnemyZone : MonoBehaviour
             camp.DespawnEnemies();
         }
     }
+
+    public void ResetZone()
+    {
+        if (NetworkManager.Singleton == null) return;
+        if (!NetworkManager.Singleton.IsServer) return;
+
+        foreach (Enemy_Camp camp in _enemyCamps)
+        {
+            if (camp == null) continue;
+
+            camp.ResetCamp();
+            Debug.Log("Campamento reiniciado: " + camp.name);
+        }
+    }
+
 }

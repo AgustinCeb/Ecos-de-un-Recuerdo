@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 5755212047287503873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1.43}
+  m_LocalPosition: {x: 0, y: 0.6, z: 1.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -323,7 +323,7 @@ MonoBehaviour:
   attackRange: 2
   attackMaxCD: 1
   attackInitCD: 0.3
-  isRangedEnemy: 1
+  isRangedEnemy: 0
   animController: {fileID: 6086631976846648264}
 --- !u!114 &3517312035260466364
 MonoBehaviour:

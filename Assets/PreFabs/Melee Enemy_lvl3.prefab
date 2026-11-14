@@ -323,7 +323,7 @@ MonoBehaviour:
   attackRange: 2
   attackMaxCD: 1
   attackInitCD: 0.3
-  isRangedEnemy: 1
+  isRangedEnemy: 0
   animController: {fileID: 6913864594469764067}
 --- !u!114 &7466036755395788035
 MonoBehaviour:
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1031270057
+  GlobalObjectIdHash: 2701217922
   InScenePlacedSourceGlobalObjectIdHash: 2384981645
   DeferredDespawnTick: 0
   Ownership: 1
