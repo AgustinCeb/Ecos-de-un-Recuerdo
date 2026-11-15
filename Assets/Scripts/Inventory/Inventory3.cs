@@ -11,7 +11,47 @@ public class Inventory3 : NetworkBehaviour
 
     public List<InventorySlot> Slots => _slots;
 
-    
+
+    public void SaveInventory(PlayerData data)
+    {
+        if (!IsServer || data == null) return;
+
+        data.Inventory3.Clear();
+
+        foreach (InventorySlot slot in _slots)
+        {
+            if (slot.ItemData == null || slot.Quantity <= 0)
+                continue;
+
+            data.Inventory3.Add(new SavedItem(
+                slot.ItemData.ItemID,
+                slot.Quantity
+            ));
+        }
+    }
+
+    public void RestoreInventory(PlayerData data, ItemDictionary dictionary)
+    {
+        if (!IsServer || data == null || dictionary == null) return;
+
+        _slots.Clear();
+
+        foreach (SavedItem savedItem in data.Inventory3)
+        {
+            ItemData item = dictionary.GetItem(savedItem.ItemID);
+
+            if (item == null || savedItem.Quantity <= 0)
+                continue;
+
+            if (_slots.Count >= _maxSlot)
+            {
+                Debug.LogWarning("No hay espacio suficiente para restaurar el inventario de pociones.");
+                break;
+            }
+
+            _slots.Add(new InventorySlot(item, savedItem.Quantity));
+        }
+    }
 
     public void addItem(ItemData itemData, int amount)
     {

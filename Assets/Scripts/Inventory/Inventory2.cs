@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using System;
 
 public class Inventory2 : NetworkBehaviour
@@ -15,6 +14,51 @@ public class Inventory2 : NetworkBehaviour
 
     Dictionary<int, int> itemsCountCache = new();
     public event Action OnInventoryChanged;
+
+    public void SaveInventory(PlayerData data)
+    {
+        if (data == null) return;
+
+        data.Inventory2.Clear();
+
+        foreach (InventorySlot slot in _slots)
+        {
+            if (slot.ItemData == null || slot.Quantity <= 0)
+                continue;
+
+            data.Inventory2.Add(new SavedItem(
+                slot.ItemData.ItemID,
+                slot.Quantity
+            ));
+        }
+    }
+
+    public void RestoreInventory(PlayerData data, ItemDictionary dictionary)
+    {
+        if (data == null || dictionary == null) return;
+
+        _slots.Clear();
+
+        foreach (SavedItem savedItem in data.Inventory2)
+        {
+            ItemData item = dictionary.GetItem(savedItem.ItemID);
+
+            if (item == null || savedItem.Quantity <= 0)
+                continue;
+
+            if (_slots.Count >= _maxSlot)
+            {
+                Debug.LogWarning("No hay espacio suficiente para restaurar el inventario de materiales.");
+                break;
+            }
+
+            _slots.Add(new InventorySlot(item, savedItem.Quantity));
+        }
+
+        itemsCountCache.Clear();
+
+        OnInventoryChanged?.Invoke();
+    }
 
     public void addItem(ItemData itemData, int amount)
     {

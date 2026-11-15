@@ -99,7 +99,7 @@ public class EnemyZone : MonoBehaviour
             if (camp == null) continue;
 
             camp.ResetCamp();
-            Debug.Log("Campamento reiniciado: " + camp.name);
+            
         }
     }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static PlayerStats Instance;
+    
     int playerLevel;
 
     [SerializeField] StatsPerLevel statValuesPerLevel;
@@ -63,12 +63,36 @@ public class PlayerStats : MonoBehaviour
     }
     void InitializeXP()
     {
+        Debug.Log("InitializeXP ejecutado: nivel inicial 1");
+
         playerLevel = 1;
         heldXP = 0;
+
         LevelStats = statValuesPerLevel.levels[playerLevel -1];
         requiredXP = LevelStats.requiredExpForNextLevel;
-        AddXP(0);
+        
     }
+
+    public void SaveData(PlayerData data)
+    {
+        data.PlayerLevel = playerLevel;
+        data.HeldXP = heldXP;
+    }
+
+    public void LoadData(PlayerData data)
+    {
+        playerLevel = Mathf.Clamp( data.PlayerLevel,1,statValuesPerLevel.levels.Length);
+
+        LevelStats = statValuesPerLevel.levels[playerLevel - 1];
+
+        requiredXP = LevelStats.requiredExpForNextLevel;
+
+        heldXP = Mathf.Max(0, data.HeldXP);
+
+        Debug.Log("Estadísticas restauradas. Nivel: " + playerLevel);
+    }
+
+
     public int getHealthPoints()
     {
         int hp=0;
@@ -100,6 +124,13 @@ public class PlayerStats : MonoBehaviour
         agility = Convert.ToInt32(LevelStats.agility)+ Convert.ToInt32(exAgility);
         return agility;
     }
+
+    public int getBaseHealthPoints() => Convert.ToInt32(LevelStats.maxHealth);
+    public int getBaseMaxMana() => Convert.ToInt32(LevelStats.Maxmana);
+    public int getBaseDamage() => Convert.ToInt32(LevelStats.damage);
+    public int getBaseDefense() => Convert.ToInt32(LevelStats.defense);
+    public int getBaseAgility() => Convert.ToInt32(LevelStats.agility);
+
     public void alterExStats(float addHp, float addMana, float addDmg, float addDef, float addAgi)
     {
         exMaxHp += addHp;

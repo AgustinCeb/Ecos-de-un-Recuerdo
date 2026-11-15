@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +22,46 @@ public class QuestController : MonoBehaviour
 
         questUI = FindObjectOfType<QuestUI>();
 
+    }
+
+    public void RestoreQuestState(List<string> activeIDs,List<string> completedIDs,Inventory2 inventory,QuestDictionari dictionary)
+    {
+        if (inventory == null || dictionary == null)
+        {
+            Debug.LogWarning("No se pudieron restaurar las misiones: faltan referencias.");
+            return;
+        }
+
+        activeQuest.Clear();
+        completedQuestIDs.Clear();
+
+        // Restaurar misiones principales completadas.
+        foreach (string questID in completedIDs)
+        {
+            if (!string.IsNullOrEmpty(questID))
+                completedQuestIDs.Add(questID);
+        }
+
+        // Restaurar misiones activas.
+        foreach (string questID in activeIDs)
+        {
+            QuestData quest = dictionary.GetQuest(questID);
+
+            if (quest == null) continue;
+
+            if (!quest.isRepeatable && completedQuestIDs.Contains(questID))
+                continue;
+
+            if (!IsQuestActive(questID))
+                activeQuest.Add(new QuestProgress(quest));
+        }
+
+        SubscribeToInventory(inventory);
+
+        // Recalcular los objetivos de recolección según el inventario.
+        RefreshCollectObjectives();
+
+        Debug.Log("Misiones del jugador restauradas.");
     }
 
     public void AcceptQuest(QuestData quest, Inventory2 inventory)

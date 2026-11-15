@@ -7,8 +7,6 @@ public class PlayerMana : NetworkBehaviour
 
     public NetworkVariable<int> Mana = new(50);
 
-
-
     private void Update()
     {
         if (!IsServer) return; 

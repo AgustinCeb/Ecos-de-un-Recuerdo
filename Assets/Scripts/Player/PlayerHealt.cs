@@ -15,6 +15,11 @@ public class PlayerHealt : NetworkBehaviour
     {
         if (!IsServer)return;
 
+        if (IsOwner && DeathScreenUI.Instance != null)
+        {
+            DeathScreenUI.Instance.HideDeathScreen();
+        }
+
         int startingMaxHp = maxHealth;
         maxHealth = GetComponent<PlayerStats>().getHealthPoints();
         
@@ -69,10 +74,14 @@ public class PlayerHealt : NetworkBehaviour
 
         Healt.Value -= enemyDamage;
 
-        if(Healt.Value <= 0)
+        if (Healt.Value <= 0)
         {
+            Healt.Value = 0;
+
+            SavePlayerData();
+            ShowDeathScreenRpc();
+
             NetworkObject.Despawn();
-        
         }
 
 
@@ -89,6 +98,48 @@ public class PlayerHealt : NetworkBehaviour
         Healt.Value = Mathf.Min(Healt.Value + amount, maxHealth);
 
         return true;
+    }
+
+    private void SavePlayerData()
+    {
+        if (!IsServer) return;
+
+        PlayerDataManager dataManager = PlayerDataManager.Instance;
+
+        if (dataManager == null)
+        {
+            Debug.LogError("No se encontró PlayerDataManager. No se pudieron guardar los datos.");
+            return;
+        }
+
+        PlayerData data = dataManager.GetOrCreateData(OwnerClientId);
+
+        if (data == null) return;
+
+        // Guardar nivel y experiencia.
+        GetComponent<PlayerStats>().SaveData(data);
+
+        // Guardar inventarios.
+        GetComponent<Inventory>().SaveInventory(data);
+        GetComponent<Inventory2>().SaveInventory(data);
+        GetComponent<Inventory3>().SaveInventory(data);
+
+        // Guardar runas equipadas.
+        GetComponent<RuenEquip>().SaveRunes(data);
+
+        Debug.Log("Datos guardados antes de morir. Jugador: " + OwnerClientId);
+    }
+
+    [Rpc(SendTo.Owner)]
+    private void ShowDeathScreenRpc()
+    {
+        if (DeathScreenUI.Instance == null)
+        {
+            Debug.LogError("DeathScreenUI todavía no está registrado.");
+            return;
+        }
+
+        DeathScreenUI.Instance.ShowDeathScreen();
     }
 
 }

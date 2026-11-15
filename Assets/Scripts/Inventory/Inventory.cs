@@ -1,4 +1,3 @@
-using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -13,7 +12,49 @@ public class Inventory : NetworkBehaviour
 
     public List<InventorySlot> Slots => _slots;
 
-    
+
+
+    public void SaveInventory(PlayerData data)
+    {
+        if (data == null) return;
+
+        data.Inventory.Clear();
+
+        foreach (InventorySlot slot in _slots)
+        {
+            if (slot.ItemData == null || slot.Quantity <= 0)
+                continue;
+
+            data.Inventory.Add(new SavedItem(
+                slot.ItemData.ItemID,
+                slot.Quantity
+            ));
+        }
+    }
+
+    public void RestoreInventory(PlayerData data, ItemDictionary dictionary)
+    {
+        if (data == null || dictionary == null) return;
+
+        _slots.Clear();
+
+        foreach (SavedItem savedItem in data.Inventory)
+        {
+            ItemData item = dictionary.GetItem(savedItem.ItemID);
+
+            if (item == null || savedItem.Quantity <= 0)
+                continue;
+
+            if (_slots.Count >= _maxSlot)
+            {
+                Debug.LogWarning("No hay espacio suficiente para restaurar el inventario.");
+                break;
+            }
+
+            _slots.Add(new InventorySlot(item, savedItem.Quantity));
+        }
+    }
+
 
     public void addItem(ItemData itemData, int amount)
     {

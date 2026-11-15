@@ -23,6 +23,39 @@ public class RuenEquip : MonoBehaviour
             _playerStats = GetComponent<PlayerStats>();
     }
 
+    public void SaveRunes(PlayerData data)
+    {
+        if (data == null) return;
+
+        data.FeetRuneID = _feetRune != null ? _feetRune.ItemID : -1;
+        data.HeadRuneID = _headRune != null ? _headRune.ItemID : -1;
+        data.BodyRuneID = _bodyRune != null ? _bodyRune.ItemID : -1;
+    }
+
+    public void RestoreRunes(PlayerData data, ItemDictionary dictionary)
+    {
+        if (data == null || dictionary == null) return;
+
+        _feetRune = GetValidRune(dictionary.GetItem(data.FeetRuneID), ItemData.RuneSlotType.Feet);
+        _headRune = GetValidRune(dictionary.GetItem(data.HeadRuneID), ItemData.RuneSlotType.Head);
+        _bodyRune = GetValidRune(dictionary.GetItem(data.BodyRuneID), ItemData.RuneSlotType.Body);
+
+        RecalculateStats();
+    }
+
+    private ItemData GetValidRune(ItemData rune, ItemData.RuneSlotType expectedSlot)
+    {
+        if (rune == null) return null;
+
+        if (rune.Type != ItemData.ItemType.Equipment)
+            return null;
+
+        if (rune.RuneSlot != expectedSlot)
+            return null;
+
+        return rune;
+    }
+
     public bool EquipRune(ItemData rune)
     {
         if (rune == null || rune.Type != ItemData.ItemType.Equipment)

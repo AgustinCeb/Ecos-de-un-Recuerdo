@@ -24,6 +24,7 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
     private Inventory3 playerInventory3;
 
     private PlayertInputState _inputState;
+    private Questnetworksync questNetworkSync;
 
     public string ActionText => "Hablar";
 
@@ -45,12 +46,18 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
 
         _inputState = player.GetComponent<PlayertInputState>();
 
-       
+        questNetworkSync = player.GetComponent<Questnetworksync>();
 
 
         if (playerInventory2 == null)
         {
             Debug.Log("El jugador no tiene Inventario");
+            return;
+        }
+
+        if (questNetworkSync == null)
+        {
+            Debug.LogWarning("El jugador no tiene QuestNetworkSync.");
             return;
         }
 
@@ -207,6 +214,7 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
             else
             {
                 QuestController.Instance.AcceptQuest(dialogeData.quest,playerInventory2);
+                questNetworkSync.SyncQuest(dialogeData.quest.questId,true,false);
                 questState = QuestState.InProgress;
                 dialogueIndex = nextIndex;
             }
@@ -251,6 +259,16 @@ public class Npc : MonoBehaviour, IInteractable, IPlayerInteractable
         //QuestReward
         RewardsController.Instance.GiveQuestRewards(quest, playerInventory1, playerInventory2, playerInventory3);
         QuestController.Instance.HandInQuest(quest.questId);
+
+        if (!quest.isRepeatable)
+        {
+            questNetworkSync.SyncQuest( quest.questId,false,true);
+        }
+        else
+        {
+            questNetworkSync.SyncQuest(quest.questId,false,false);
+        }
+
     }
 
 }
