@@ -30,6 +30,7 @@ public class PlayerDataManager : MonoBehaviour
             _playersData.Add(clientId, data);
 
             Debug.Log("Datos creados para el jugador: " + clientId);
+            
         }
 
         return data;

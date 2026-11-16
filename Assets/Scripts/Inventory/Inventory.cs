@@ -56,8 +56,11 @@ public class Inventory : NetworkBehaviour
     }
 
 
-    public void addItem(ItemData itemData, int amount)
+    public bool addItem(ItemData itemData, int amount)
     {
+        if (itemData == null || amount <= 0)
+            return false;
+
         if (itemData.IsStackable)
         {
             foreach (var slot in _slots) 
@@ -65,7 +68,8 @@ public class Inventory : NetworkBehaviour
                 if (slot.ItemData == itemData)
                 {
                     slot.Quantity += amount;
-                    return;
+                    GameManager.Instance.ShowNotification($"Se obtuvo {itemData.ItemName} X {amount}");
+                    return true;
                 }
 
             }
@@ -75,11 +79,15 @@ public class Inventory : NetworkBehaviour
         if (Slots.Count < _maxSlot) 
         {
             _slots.Add(new InventorySlot(itemData,amount));
+            GameManager.Instance.ShowNotification($"Se obtuvo {itemData.ItemName} X {amount}");
+            return true;
 
         }
         else
         {
             Debug.Log ("Inventario lleno");
+            GameManager.Instance.ShowNotification("Inventario lleno");
+            return false;
         }
 
     }

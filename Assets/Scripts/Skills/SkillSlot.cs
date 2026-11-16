@@ -64,6 +64,8 @@ public class SkillSlot : NetworkBehaviour
         UpdateSkillUnlocks();
 
         Debug.Log("SkillUi inicializada correctamente.");
+
+        GameManager.Instance.ShowNotification("SkillUi Iniciada");
     }
 
     private void UpdateSkillUnlocks()
@@ -87,6 +89,21 @@ public class SkillSlot : NetworkBehaviour
 
     public void OnSkill1()
     {
+        if (!IsOwner) return;
+
+        if (_playerStats._playerLevel < 3)
+        {
+            Debug.Log("Habilidad No Desbloqueada");
+            GameManager.Instance.ShowNotification("Habilidad No Desbloqueada");
+            return;
+        }
+
+        if (_coolDownSkill1 > 0)
+        {
+            Debug.Log("Habilidad 1 En enfiramiento" + (_coolDownSkill1.ToString("0F")) + "Seg");
+            GameManager.Instance.ShowNotification("Habilidad 1 En enfiramiento" + " " + (_coolDownSkill1.ToString("0")) + "Seg");
+            return;
+        }
         _animator.SetTrigger("Rayo");
 
     }
@@ -94,19 +111,6 @@ public class SkillSlot : NetworkBehaviour
     public void Skill1()
     {
         if (!IsOwner) return;
-
-        if (_playerStats._playerLevel < 3)
-        {
-            Debug.Log("Habilidad No Desbloqueada");
-            return;
-        }
-
-        if (_coolDownSkill1 > 0)
-        {
-            Debug.Log("Habilidad 1 En enfiramiento"+(_coolDownSkill1.ToString("0F"))+"Seg");
-            
-            return;
-        }
 
         UseSkill1ServerRpc();
 
@@ -121,6 +125,7 @@ public class SkillSlot : NetworkBehaviour
         if (!_playerMana.TryUseMana(_slot1.SkillCost))
         {
             Debug.Log("Mana Insuficiente");
+            GameManager.Instance.ShowNotification("Mana Insuficiente");
             return;
         }
 
@@ -136,25 +141,28 @@ public class SkillSlot : NetworkBehaviour
 
     public void OnSkill2()
     {
-        _animator.SetTrigger("Escudo");
-    }
-
-    public void Skill2()
-    {
         if (!IsOwner) return;
 
         if (_playerStats._playerLevel < 6)
         {
             Debug.Log("Habilidad No Desbloqueada");
+            GameManager.Instance.ShowNotification("Habilidad No Desbloqueada");
             return;
         }
 
         if (_coolDownSkill2 > 0)
         {
             Debug.Log("Habilidad 2 En enfiramiento" + _coolDownSkill2 + "Seg");
+            GameManager.Instance.ShowNotification("Habilidad 2 En enfiramiento" + " " + (_coolDownSkill2.ToString("0")) + "Seg");
 
             return;
         }
+        _animator.SetTrigger("Escudo");
+    }
+
+    public void Skill2()
+    {
+        
 
         UseSkill2ServerRpc();
 
@@ -168,6 +176,7 @@ public class SkillSlot : NetworkBehaviour
         if (!_playerMana.TryUseMana(_slot2.SkillCost))
         {
             Debug.Log("Mana Insuficiente");
+            GameManager.Instance.ShowNotification("Mana Insuficiente");
             return;
         }
 
@@ -192,25 +201,28 @@ public class SkillSlot : NetworkBehaviour
 
     public void OnSkill3()
     {
-        _animator.SetTrigger("Ulti");
-    }
-
-    public void Skill3()
-    {
         if (!IsOwner) return;
 
         if (_playerStats._playerLevel < 9)
         {
             Debug.Log("Habilidad No Desbloqueada");
+            GameManager.Instance.ShowNotification("Habilidad No Desbloqueada");
             return;
         }
 
         if (_coolDownSkill3 > 0)
         {
             Debug.Log("Habilidad 3 En enfiramiento" + _coolDownSkill3 + "Seg");
-
+            GameManager.Instance.ShowNotification("Habilidad 3 En enfiramiento" + " " + (_coolDownSkill3.ToString("0")) + "Seg");
             return;
         }
+
+        _animator.SetTrigger("Ulti");
+    }
+
+    public void Skill3()
+    {
+        
 
         UseSkill3ServerRpc();
 
@@ -223,6 +235,7 @@ public class SkillSlot : NetworkBehaviour
         if (!_playerMana.TryUseMana(_slot3.SkillCost))
         {
             Debug.Log("Mana Insuficiente");
+            GameManager.Instance.ShowNotification("Mana Insuficiente"); 
             return;
         }
 

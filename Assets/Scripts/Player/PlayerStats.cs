@@ -34,6 +34,8 @@ public class PlayerStats : MonoBehaviour
             LevelUp();
         }
         Debug.Log("Nivel "+playerLevel+ " Experiencia para el siguiente nivel: "+ (requiredXP-heldXP));
+        GameManager.Instance.ShowNotification("Obtubiste"+ " " + addXp +" "+"Exp");
+        
     }
     void LevelUp()
     {
@@ -61,7 +63,10 @@ public class PlayerStats : MonoBehaviour
         }
 
         Debug.Log("LEVEL UP, YOUR DAMAGE IS NOW "+LevelStats.damage+ " ,YOUR HEALTH IS NOW " + LevelStats.maxHealth+ " AND YOUR DEFENSE IS NOW " + LevelStats.defense);
-
+        GameManager.Instance.ShowNotification("¡Has subido de nivel!");
+        GameManager.Instance.ShowNotification("Max Healt" + " " + LevelStats.maxHealth +" "+ "Max Mana" + " " + LevelStats.Maxmana);
+        GameManager.Instance.ShowNotification("Ataque" + " " + LevelStats.damage + " " + "DEF" + " " + LevelStats.defense + "" + "Agi" + " " + LevelStats.agility);
+        GameManager.Instance.ShowNotification("Nivel " + " " + playerLevel + " " + " Experiencia para el siguiente nivel: " + " " + " " + (requiredXP - heldXP));
 
     }
     void InitializeXP()
