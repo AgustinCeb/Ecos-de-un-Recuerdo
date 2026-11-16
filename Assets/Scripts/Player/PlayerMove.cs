@@ -265,7 +265,7 @@ public class PlayerMove : NetworkBehaviour
         dashDir = GetRampDirection(dashDir);
         Rbd.linearVelocity = new Vector3(Rbd.linearVelocity.x, 0f, Rbd.linearVelocity.z);
 
-        SFXManager.instance.PlaySFX(_dashSFX, this.transform, 1, 1);
+        //SFXManager.instance.PlaySFX(_dashSFX, this.transform, 1, 1);
         Rbd.AddForce(dashDir.normalized * _dashForce,ForceMode.Impulse);
         yield return new WaitForSeconds(_dashCooldown);
 

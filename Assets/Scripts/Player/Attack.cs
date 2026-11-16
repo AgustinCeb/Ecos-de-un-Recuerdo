@@ -26,7 +26,8 @@ public class Attack : MonoBehaviour
     public void PlayerAttack()
     {
         CancelInvoke(nameof(HideSword));
-        SFXManager.instance.PlaySFX(_attackSound, transform, 1f, 1f);
+        //SFXManager.instance.PlaySFX(_attackSound, transform, 1f, 1f);
+
         _sword.SetActive(true);
         Invoke(nameof(HideSword), _attackColdown);
     }

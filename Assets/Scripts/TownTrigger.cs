@@ -7,7 +7,7 @@ public class TownTrigger : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        MusicManager.Instance.SetTown(true);
+        
     }
 
     private void OnTriggerExit(Collider other)
@@ -15,6 +15,6 @@ public class TownTrigger : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        MusicManager.Instance.SetTown(false);
+       
     }
 }
