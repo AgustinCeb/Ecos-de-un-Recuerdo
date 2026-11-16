@@ -21,9 +21,25 @@ MonoBehaviour:
     description: Manzana Roja
     type: 0
     requiredItem: {fileID: 11400000, guid: 8af1b8240f2eb854ba0203f46b119074, type: 2}
-    requiredAmount: 5
+    requiredAmount: 10
     currentAmount: 0
+  - objectiveID: 17
+    description: Manzana Azul
+    type: 0
+    requiredItem: {fileID: 11400000, guid: d841ff7879a55034185d391f08c15a52, type: 2}
+    requiredAmount: 10
+    currentAmount: 0
+  useRandomItemReward: 0
   questReward:
   - type: 0
     rewardID: 6
-    amount: 1
+    amount: 2
+    chance: 0
+  - type: 0
+    rewardID: 7
+    amount: 2
+    chance: 0
+  - type: 1
+    rewardID: 0
+    amount: 100
+    chance: 0

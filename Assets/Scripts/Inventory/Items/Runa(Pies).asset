@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   _itemName: Runa Pies lvl1
   _itemIcon: {fileID: 21300000, guid: 38f799b3c3eff2243ac08ff6e0c16326, type: 3}
-  _itemDescription: Runa de velocidad +5
+  _itemDescription: Runa que Aumenta la defenza (5%)
   _itemID: 2
   _itemType: 1
   _isStackable: 0
   _maxStack: 1
   _runeSlot: 1
-  _runeEffect: 5
+  _runeEffect: 4
   _effectValue: 5
-  _effectMode: 0
+  _effectMode: 1
   _consumableEffect: 0
   _consumableEffectValue: 0

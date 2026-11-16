@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jefe Aldea 1
   m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
   npcName: Jefe Costero
-  npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
+  npcPortrait: {fileID: 21300000, guid: cbb539dee8f2d62479d774d1374da9b5, type: 3}
   dialogeLines:
   - "\xA1Bienvenido, forastero! Est\xE1s en la Aldea Costera."
   - "Yo soy su l\xEDder. \xBFQu\xE9 necesitas?"

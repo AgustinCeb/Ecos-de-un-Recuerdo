@@ -113,6 +113,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "f48f00c4-b363-49c4-be1f-a76b853f7632",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -291,6 +300,17 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8af94ffd-58f0-4e2b-9e2d-58c284729b6b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -308,9 +328,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Inventory",
+                    "name": "InventoryOpen",
                     "type": "Button",
                     "id": "150f39ca-8473-4357-b355-5a17af1bdac6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MenuOn",
+                    "type": "Button",
+                    "id": "8aaf3e3e-d88c-42f4-b87f-bac630982e3b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -336,7 +365,18 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Inventory",
+                    "action": "InventoryOpen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83247465-0c46-4862-9540-3e26e68a8ade",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuOn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

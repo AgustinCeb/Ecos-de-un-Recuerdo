@@ -20,6 +20,8 @@ public class PlayerStats : MonoBehaviour
 
     public int _playerLevel => playerLevel;
 
+    public System.Action<int> OnLevelChanged;
+
     private void Awake()
     {
         InitializeXP();
@@ -38,6 +40,7 @@ public class PlayerStats : MonoBehaviour
         
             heldXP -= LevelStats.requiredExpForNextLevel;
             playerLevel++;
+            OnLevelChanged?.Invoke(playerLevel);
             LevelStats = statValuesPerLevel.levels[playerLevel-1];
             requiredXP = LevelStats.requiredExpForNextLevel;
 
@@ -84,6 +87,7 @@ public class PlayerStats : MonoBehaviour
         playerLevel = Mathf.Clamp( data.PlayerLevel,1,statValuesPerLevel.levels.Length);
 
         LevelStats = statValuesPerLevel.levels[playerLevel - 1];
+        OnLevelChanged?.Invoke(playerLevel);
 
         requiredXP = LevelStats.requiredExpForNextLevel;
 

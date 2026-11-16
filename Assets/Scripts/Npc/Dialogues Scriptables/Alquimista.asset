@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Alquimista
   m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
   npcName: Alquimista
-  npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
+  npcPortrait: {fileID: 21300000, guid: 20d4721d4a49e6d45880a82c2e831ff2, type: 3}
   dialogeLines:
   - "Hola, forastero. Soy el alquimista. \xBFQu\xE9 necesitas?"
   - "\xBFSobre qu\xE9 quieres saber?"

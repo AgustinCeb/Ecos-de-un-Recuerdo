@@ -1,12 +1,7 @@
-using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PlayerMove : NetworkBehaviour
 {
@@ -17,6 +12,7 @@ public class PlayerMove : NetworkBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Transform _direction;
     private Vector3 _moveInput;
+
     
     //Salto
     [Header("Salto")]
@@ -59,12 +55,15 @@ public class PlayerMove : NetworkBehaviour
     [SerializeField] private Animator _animator;
 
 
+    private PlayerStats _playerStats;
+
     public Vector2 MoveInput => _moveInput;
     public Transform Direction => _direction;
 
     private void Start()
     {
         Rbd= GetComponent<Rigidbody>();
+        _playerStats = GetComponent<PlayerStats>();
 
         if (!IsOwner) 
         {
@@ -197,8 +196,10 @@ public class PlayerMove : NetworkBehaviour
 
         //comprueba si esta en una rampa
         bool onRamp = isOnRamp(out RaycastHit rampHit);
-        
-        Vector3 targetVelocity = new Vector3(moveDir.x * _speed, Rbd.linearVelocity.y, moveDir.z * _speed);
+
+        float speed = _playerStats.getAgility();
+
+        Vector3 targetVelocity = new Vector3(moveDir.x * speed, Rbd.linearVelocity.y, moveDir.z * speed);
         Rbd.linearVelocity = Vector3.Lerp(Rbd.linearVelocity,targetVelocity,0.2f);
 
 

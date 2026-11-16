@@ -13,6 +13,10 @@ public class QuestData : ScriptableObject
 
     public List<QuestObjectives> objetives;
 
+
+    [Header("Reward Settings")]
+    public bool useRandomItemReward;
+
     public List<QuestReward> questReward;
 
 }
@@ -75,8 +79,14 @@ public class QuestProgress
 public class QuestReward
 {
     public RewardType type;
-    public int rewardID; //item ID
+
+    public int rewardID; 
+    //item ID
     public int amount = 1;
+
+    [Range(0f, 100f)]
+    public float chance = 25f;
+
 }
 
 public enum RewardType { Item, Exp, Custom }

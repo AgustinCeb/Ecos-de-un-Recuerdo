@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InventoryUi : MonoBehaviour
 {
+
     [Header("Inventarios")]
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Inventory2 _inventory2;

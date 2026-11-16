@@ -8,7 +8,11 @@ public class SafeZone : NetworkBehaviour
     [SerializeField] private int _healthPerSecond = 5;
     [SerializeField] private int _manaPerSecond = 5;
 
+    [Header("EnemyZones")]
     [SerializeField] private List<EnemyZone> _enemyZones = new();
+
+    [Header("Collectibles")]
+    [SerializeField] private List<MissionCollectible> _collectibles = new();
 
     private bool _campsResetForCurrentVisit;
 
@@ -110,6 +114,7 @@ public class SafeZone : NetworkBehaviour
 
         if (_campsResetForCurrentVisit) return;
 
+        // Reiniciar campamentos.
         foreach (EnemyZone zone in _enemyZones)
         {
             if (zone == null) continue;
@@ -117,9 +122,18 @@ public class SafeZone : NetworkBehaviour
             zone.ResetZone();
         }
 
+        // Regenerar arbustos.
+        foreach (MissionCollectible collectible in _collectibles)
+        {
+            if (collectible == null) continue;
+
+            collectible.ResetCollectible();
+        }
+
         _campsResetForCurrentVisit = true;
 
-        Debug.Log("Todos los jugadores regresaron al pueblo. Zonas reiniciadas.");
+        Debug.Log("Todos los jugadores regresaron al pueblo. Zonas y arbustos reiniciados.");
+
     }
 
 }

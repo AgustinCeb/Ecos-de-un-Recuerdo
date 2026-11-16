@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cazador
   m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
   npcName: Cazador
-  npcPortrait: {fileID: 21300000, guid: dc15d59d7595b8b488f054fc768d2b46, type: 3}
+  npcPortrait: {fileID: 21300000, guid: e66f82ad1a21a7947b71e4540401d838, type: 3}
   dialogeLines:
   - "Hola, forastero. Soy el cazador de esta aldea. \xBFEn qu\xE9 puedo ayudarte?"
   - "Tengo conocimientos sobre las criaturas de este bosque. \xBFSobre qu\xE9 quieres

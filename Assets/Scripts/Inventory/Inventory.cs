@@ -11,7 +11,7 @@ public class Inventory : NetworkBehaviour
 
 
     public List<InventorySlot> Slots => _slots;
-
+    public bool HasFreeSlot => _slots.Count < _maxSlot;
 
 
     public void SaveInventory(PlayerData data)

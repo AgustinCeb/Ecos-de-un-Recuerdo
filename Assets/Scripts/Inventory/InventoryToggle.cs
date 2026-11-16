@@ -76,12 +76,19 @@ public class InventoryToggle : NetworkBehaviour
             
         }
 
-        else
+    }
+
+    public void OnInventoryOpen()
+    {
+        if (!IsOwner || _inventoryMenu == null) return;
+
+        if (_inventoryMenu.activeSelf)
         {
+            _inventoryMenu.SetActive(false);
+
             _inputState.SetUIInput(false);
             _skillUi?.transform.parent.gameObject.SetActive(true);
         }
-
     }
 
     public override void OnNetworkDespawn()

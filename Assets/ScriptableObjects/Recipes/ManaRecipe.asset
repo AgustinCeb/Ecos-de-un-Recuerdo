@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fcef73abc080b744b195e4189cb2011, type: 3}
+  m_Name: ManaRecipe
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeObj
+  Input:
+  - {fileID: 11400000, guid: d841ff7879a55034185d391f08c15a52, type: 2}
+  - {fileID: 11400000, guid: d841ff7879a55034185d391f08c15a52, type: 2}
+  - {fileID: 11400000, guid: d841ff7879a55034185d391f08c15a52, type: 2}
+  Output: {fileID: 11400000, guid: b0bb4df20ffe3ac4d925f4735b3e8542, type: 2}

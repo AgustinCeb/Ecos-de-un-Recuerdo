@@ -52,27 +52,35 @@ public class PlayerHealt : NetworkBehaviour
 
     public void TakeDamagePlayer(int enemyDamage)
     {
-        
-
-        if(!IsServer) return;
+        if (!IsServer) return;
 
         if (ShieldActivate.Value)
         {
             ShieldHits.Value--;
-            Debug.Log(ShieldHits.Value);
+
+            Debug.Log("Golpe bloqueado. Escudo restante: " + ShieldHits.Value);
 
             if (ShieldHits.Value <= 0)
             {
                 ShieldHits.Value = 0;
                 ShieldActivate.Value = false;
-
             }
-            
-            return;
 
+            return;
         }
 
-        Healt.Value -= enemyDamage;
+        // Obtener defensa porcentual.
+        float defense = GetComponent<PlayerStats>().getDefense();
+
+        // Limitar la defensa entre 0% y 100%.
+        defense = Mathf.Clamp(defense, 0f, 100f);
+
+        // Calcular daño después de aplicar la defensa.
+        int finalDamage = Mathf.CeilToInt(enemyDamage * (1f - defense / 100f));
+
+        Debug.Log("Daño enemigo: " + enemyDamage + " | Defensa: " + defense + "%" + " | Daño recibido: " + finalDamage);
+
+        Healt.Value -= finalDamage;
 
         if (Healt.Value <= 0)
         {
@@ -83,8 +91,6 @@ public class PlayerHealt : NetworkBehaviour
 
             NetworkObject.Despawn();
         }
-
-
     }
 
     public bool HealPlayer(int amount)

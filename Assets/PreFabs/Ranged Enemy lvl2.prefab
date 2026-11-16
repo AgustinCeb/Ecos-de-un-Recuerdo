@@ -226,7 +226,7 @@ MonoBehaviour:
       MinSecondsBetweenUpdates: 0
       MaxSecondsBetweenUpdates: 0
     m_InternalValue: 20
-  expOrb: {fileID: 248927684995472292, guid: 14ce02e110b3c364db60bf1203349faa, type: 3}
+  expOrb: {fileID: 248927684995472292, guid: a74276b0ab440114c8afb248f02f1bf8, type: 3}
   itemDroop: {fileID: 6516282604195358936, guid: b17c95bf40a990241892e427a6d79a0c, type: 3}
 --- !u!114 &8247442544839917491
 MonoBehaviour:

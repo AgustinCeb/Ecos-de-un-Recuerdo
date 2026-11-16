@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5950da261acb6945b67b6d80272e596, type: 3}
+  m_Name: Runa(Cabeza)T2
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  _itemName: Runa Mente Lvl2
+  _itemIcon: {fileID: 21300000, guid: 328f174eab5093e41bfd61d34ab0543a, type: 3}
+  _itemDescription: Runa que Aumenta el Mana +30
+  _itemID: 11
+  _itemType: 1
+  _isStackable: 0
+  _maxStack: 1
+  _runeSlot: 2
+  _runeEffect: 2
+  _effectValue: 30
+  _effectMode: 0
+  _consumableEffect: 0
+  _consumableEffectValue: 0

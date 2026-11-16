@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105126643982354680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13730001, y: 0.41337758, z: -0.06320867, w: -0.89792675}
+  m_LocalRotation: {x: -0.20373285, y: 0.40752986, z: -0.0937927, w: -0.88522047}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 6, z: -10}
+  m_FollowOffset: {x: 0, y: 7, z: -8.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -5232,7 +5232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 6, z: -10}
+  m_FollowOffset: {x: 0, y: 7, z: -8.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -5359,7 +5359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineOrbitalTransposer
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 6, z: -10}
+  m_FollowOffset: {x: 0, y: 7, z: -8.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -5457,7 +5457,7 @@ Transform:
   m_GameObject: {fileID: 5263333504941544642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7134914, z: -0, w: 0.700664}
-  m_LocalPosition: {x: 6.3635864, y: 6, z: 7.713928}
+  m_LocalPosition: {x: 5.409027, y: 7, z: 6.5568542}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5707,7 +5707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344687736424359292}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13730001, y: 0.41337758, z: -0.06320867, w: -0.89792675}
+  m_LocalRotation: {x: -0.20373285, y: 0.40752986, z: -0.0937927, w: -0.88522047}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5786,7 +5786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7689137342476405603}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13730001, y: 0.41337758, z: -0.06320867, w: -0.89792675}
+  m_LocalRotation: {x: -0.20373285, y: 0.40752986, z: -0.0937927, w: -0.88522047}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5870,6 +5870,7 @@ GameObject:
   - component: {fileID: 6905028323338983625}
   - component: {fileID: 8295858933576303314}
   - component: {fileID: 7925841656548842990}
+  - component: {fileID: 4140651951422872918}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6082,7 +6083,7 @@ MonoBehaviour:
   _dashForce: 40
   _dashCooldown: 0.5
   _dashSFX: {fileID: 8300000, guid: 0129ac5e615921348b1f45b3e6bf0ec3, type: 3}
-  _maxAngle: 55
+  _maxAngle: 80
   _rampCheckDistance: 1
   _downForce: 35
   _animator: {fileID: 1516776046301021589}
@@ -6372,6 +6373,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1a055c4a30a3c4ea03297a67b9ecd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Questnetworksync
+  ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &4140651951422872918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743155339882080509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dfc5cd0665d7343a3770c34b57a93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenuToggle
   ShowTopMostFoldoutHeaderGroup: 1
 --- !u!1001 &1848078735724031581
 PrefabInstance:

@@ -21,15 +21,29 @@ MonoBehaviour:
     description: Escencia Roja
     type: 0
     requiredItem: {fileID: 11400000, guid: 6992e955065b18c4d8b76e2e87f9e746, type: 2}
-    requiredAmount: 5
+    requiredAmount: 10
     currentAmount: 0
   - objectiveID: 10
     description: Retazo de Tela
     type: 0
     requiredItem: {fileID: 11400000, guid: 360da10bcbcc0864784272c90ce5d713, type: 2}
-    requiredAmount: 5
+    requiredAmount: 10
     currentAmount: 0
+  useRandomItemReward: 1
   questReward:
   - type: 0
-    rewardID: 7
+    rewardID: 11
     amount: 1
+    chance: 25
+  - type: 0
+    rewardID: 13
+    amount: 1
+    chance: 25
+  - type: 0
+    rewardID: 15
+    amount: 1
+    chance: 25
+  - type: 1
+    rewardID: 0
+    amount: 150
+    chance: 0
