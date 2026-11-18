@@ -5,19 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class InventoryToggle : NetworkBehaviour
 {
-
     [SerializeField] private GameObject _inventoryMenu;
-
     [SerializeField] private InventoryUi _inventoryUi;
-
     [SerializeField] private PlayertInputState _inputState;
-
     [SerializeField] private GameObject _skillUi;
 
 
     public override void OnNetworkSpawn()
     {
-
         if (!IsOwner) return;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -26,8 +21,6 @@ public class InventoryToggle : NetworkBehaviour
         {
             InitializeUI();
         }
-
-
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -45,6 +38,7 @@ public class InventoryToggle : NetworkBehaviour
 
         _inputState = GetComponent<PlayertInputState>();
 
+
         if (_inventoryUi != null)
             _inventoryMenu = _inventoryUi.gameObject;
 
@@ -60,22 +54,26 @@ public class InventoryToggle : NetworkBehaviour
 
     public void OnInventory()
     {
-        if(!IsOwner|| _inventoryMenu == null) return;
+        if (!IsOwner || _inventoryMenu == null) return;
 
-        bool active = !_inventoryMenu.activeSelf;
         
+        bool active = !_inventoryMenu.activeSelf;
+
         _inventoryMenu.SetActive(active);
 
         if (active)
         {
-
             _inventoryUi.UpdateUI();
             _inputState.SetUIInput(true);
-            _skillUi.transform.parent.gameObject.SetActive(false);
 
-            
+            _skillUi?.transform.parent.gameObject.SetActive(false);
         }
+        else
+        {
+            _inputState.SetUIInput(false);
 
+            _skillUi?.transform.parent.gameObject.SetActive(true);
+        }
     }
 
     public void OnInventoryOpen()
@@ -87,6 +85,7 @@ public class InventoryToggle : NetworkBehaviour
             _inventoryMenu.SetActive(false);
 
             _inputState.SetUIInput(false);
+
             _skillUi?.transform.parent.gameObject.SetActive(true);
         }
     }

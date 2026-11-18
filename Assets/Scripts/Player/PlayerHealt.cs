@@ -13,12 +13,13 @@ public class PlayerHealt : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (!IsServer)return;
 
         if (IsOwner && DeathScreenUI.Instance != null)
         {
             DeathScreenUI.Instance.HideDeathScreen();
         }
+
+        if (!IsServer)return;
 
         int startingMaxHp = maxHealth;
         maxHealth = GetComponent<PlayerStats>().getHealthPoints();
@@ -50,6 +51,7 @@ public class PlayerHealt : NetworkBehaviour
         Healt.Value = maxHealth;
     }
 
+  
     public void TakeDamagePlayer(int enemyDamage)
     {
         if (!IsServer) return;
@@ -58,8 +60,7 @@ public class PlayerHealt : NetworkBehaviour
         {
             ShieldHits.Value--;
 
-            Debug.Log("Golpe bloqueado. Escudo restante: " + ShieldHits.Value);
-
+            
             if (ShieldHits.Value <= 0)
             {
                 ShieldHits.Value = 0;
@@ -78,7 +79,6 @@ public class PlayerHealt : NetworkBehaviour
         // Calcular daño después de aplicar la defensa.
         int finalDamage = Mathf.CeilToInt(enemyDamage * (1f - defense / 100f));
 
-        Debug.Log("Daño enemigo: " + enemyDamage + " | Defensa: " + defense + "%" + " | Daño recibido: " + finalDamage);
 
         Healt.Value -= finalDamage;
 
@@ -88,6 +88,13 @@ public class PlayerHealt : NetworkBehaviour
 
             SavePlayerData();
             ShowDeathScreenRpc();
+
+            EnemyZone[] zones = FindObjectsByType<EnemyZone>(FindObjectsSortMode.None);
+
+            foreach (EnemyZone zone in zones)
+            {
+                zone.RemovePlayer(OwnerClientId);
+            }
 
             NetworkObject.Despawn();
         }

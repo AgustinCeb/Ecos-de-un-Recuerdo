@@ -30,10 +30,12 @@ public class RuenEquip : MonoBehaviour
         data.FeetRuneID = _feetRune != null ? _feetRune.ItemID : -1;
         data.HeadRuneID = _headRune != null ? _headRune.ItemID : -1;
         data.BodyRuneID = _bodyRune != null ? _bodyRune.ItemID : -1;
+
     }
 
     public void RestoreRunes(PlayerData data, ItemDictionary dictionary)
     {
+        
         if (data == null || dictionary == null) return;
 
         _feetRune = GetValidRune(dictionary.GetItem(data.FeetRuneID), ItemData.RuneSlotType.Feet);
@@ -41,6 +43,7 @@ public class RuenEquip : MonoBehaviour
         _bodyRune = GetValidRune(dictionary.GetItem(data.BodyRuneID), ItemData.RuneSlotType.Body);
 
         RecalculateStats();
+       
     }
 
     private ItemData GetValidRune(ItemData rune, ItemData.RuneSlotType expectedSlot)

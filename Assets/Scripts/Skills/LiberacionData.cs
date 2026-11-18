@@ -14,7 +14,14 @@ public class LiberacionData : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (!IsServer) return;
+        if (!IsServer)return;
+
+        Debug.Log(
+        "RAYO RECIBIDO | Server: " + IsServer +
+        " | Client: " + IsClient +
+        " | Owner: " + OwnerClientId +
+        " | NetworkObjectId: " + NetworkObjectId
+    );
 
         Collider[] hits = Physics.OverlapSphere(transform.position, 5f);
 

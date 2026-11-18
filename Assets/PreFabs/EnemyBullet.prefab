@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 155522121199172302}
   - component: {fileID: 2807011914378893439}
   - component: {fileID: 183806115858924773}
+  - component: {fileID: 9045904117563481592}
   - component: {fileID: 4734718943923217826}
   - component: {fileID: 5884296970442095063}
-  - component: {fileID: 9045904117563481592}
   - component: {fileID: 3331828133907620133}
   m_Layer: 0
   m_Name: EnemyBullet
@@ -117,32 +117,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.67089176
   m_Center: {x: 0, y: 0.3342352, z: 0}
---- !u!114 &4734718943923217826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284065784715675720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70cca425a8791342b88f92b30ffeaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemiesDamage
-  _damage: 1
---- !u!114 &5884296970442095063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284065784715675720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c8370cd06d86d1439e842f4607db22e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  lifeTime: 5
 --- !u!114 &9045904117563481592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +142,33 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &4734718943923217826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284065784715675720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70cca425a8791342b88f92b30ffeaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemiesDamage
+  _damage: 1
+--- !u!114 &5884296970442095063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284065784715675720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8370cd06d86d1439e842f4607db22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  ShowTopMostFoldoutHeaderGroup: 1
+  _lifeTime: 5
 --- !u!114 &3331828133907620133
 MonoBehaviour:
   m_ObjectHideFlags: 0

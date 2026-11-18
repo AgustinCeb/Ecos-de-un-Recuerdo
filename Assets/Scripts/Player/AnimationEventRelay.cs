@@ -7,6 +7,7 @@ public class AnimationEventRelay : MonoBehaviour
 
     public void OnAttack()
     {
+
         _playerAttack.PlayerAttack();
     }
 

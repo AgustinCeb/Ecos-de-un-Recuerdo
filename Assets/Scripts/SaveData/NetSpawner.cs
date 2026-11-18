@@ -209,8 +209,14 @@ public class NetSpawner : NetworkBehaviour
         if (inventory3 != null)
             inventory3.RestoreInventory(data, dictionary);
 
+        RuenEquip runeEquip = playerInstance.GetComponent<RuenEquip>();
+        if(runeEquip != null)
+            runeEquip.RestoreRunes(data, dictionary);
+
         NetworkObject playerNetworkObject =
             playerInstance.GetComponent<NetworkObject>();
+
+        
 
         if (playerNetworkObject == null)
         {
@@ -220,6 +226,15 @@ public class NetSpawner : NetworkBehaviour
         }
 
         playerNetworkObject.SpawnAsPlayerObject(clientId, true);
+        //Restore inv Cliente
+        if (inventory != null)
+            inventory.SendRestoredInventoryToOwner();
+
+        if (inventory2 != null)
+            inventory2.SendRestoredInventoryToOwner();
+
+        if (inventory3 != null)
+            inventory3.SendRestoredInventoryToOwner();
 
         Debug.Log("Jugador " + clientId + " reapareció con sus datos restaurados.");
     }

@@ -11,6 +11,13 @@ public class Attack : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
+    private PlayerAttackNetwork _attackNetwork;
+
+    private void Awake()
+    {
+        _attackNetwork = GetComponentInParent<PlayerAttackNetwork>();
+    }
+
     private void Start()
     {
         _sword.SetActive(false);
@@ -22,13 +29,21 @@ public class Attack : MonoBehaviour
         _animator.SetTrigger("Attack");
 
     }
-
     public void PlayerAttack()
     {
+        if (_attackNetwork == null) return;
+
+        _attackNetwork.PlayBasicAttackEffectRpc();
+    }
+
+    public void PlayAttackEffectLocal()
+    {
         CancelInvoke(nameof(HideSword));
-        //SFXManager.instance.PlaySFX(_attackSound, transform, 1f, 1f);
+
+        SFXManager.instance.PlaySFX(_attackSound, transform, 1f, 1f);
 
         _sword.SetActive(true);
+
         Invoke(nameof(HideSword), _attackColdown);
     }
 

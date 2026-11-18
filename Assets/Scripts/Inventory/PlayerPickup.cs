@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -32,12 +33,13 @@ public class PlayerPickup : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (!IsOwner) return;
+
         ItemPickup pickup = other.GetComponent<ItemPickup>();
 
-
-        if (pickup != null)
-        {
-
+        if (pickup == null) return;
+        
             switch (pickup.ItemData.Type)
             {
             case ItemType.Equipment:
@@ -52,12 +54,23 @@ public class PlayerPickup : NetworkBehaviour
                 _inventory3.addItem(pickup.ItemData, pickup.Quantity);
                 break;
             }
-            
-            if (IsServer)
-            {
-                pickup.GetComponent<NetworkObject>().Despawn();
 
-            }
+        NetworkObject networkObject = pickup.GetComponent<NetworkObject>();
+
+        if (networkObject != null)
+        {
+            DespawnPickupServerRpc(networkObject.NetworkObjectId);
         }
     }
+
+    [ServerRpc]
+    private void DespawnPickupServerRpc(ulong pickupId)
+    {
+        if (!NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(
+            pickupId, out NetworkObject pickup))
+            return;
+
+        pickup.Despawn();
+    }
+
 }

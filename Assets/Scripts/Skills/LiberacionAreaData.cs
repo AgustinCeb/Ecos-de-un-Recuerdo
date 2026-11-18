@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Netcode;
 using System.Collections;
 
-public class LiberacionAreaData : MonoBehaviour
+public class LiberacionAreaData : NetworkBehaviour
 {
     [SerializeField] private int _damagePerTic = 5;
     [SerializeField] private float _tickRate = 1f;
@@ -10,9 +10,21 @@ public class LiberacionAreaData : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(DamageArea());
-        Destroy(gameObject,_duration);
+        if (IsServer)
+        {
+            
+            StartCoroutine(DamageArea());
+            Invoke(nameof(DestruirObjetoRed), _duration);
+        }
 
+    }
+
+    private void DestruirObjetoRed()
+    {
+        if (NetworkObject != null && NetworkObject.IsSpawned)
+        {
+            NetworkObject.Despawn(true); 
+        }
     }
 
     private IEnumerator DamageArea()

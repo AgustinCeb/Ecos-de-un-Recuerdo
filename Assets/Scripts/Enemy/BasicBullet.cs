@@ -1,31 +1,61 @@
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class BasicBullet : MonoBehaviour
+public class BasicBullet : NetworkBehaviour
 {
-    Vector3 moveDir;
-    float bulletSpeed;
-    [SerializeField] float lifeTime;
-    private void Awake()
-    {
+    private Vector3 _moveDir;
+    private float _bulletSpeed;
 
-    }
-    public void setInitVal(Vector3 dir, float speed)
+    [SerializeField] private float _lifeTime = 5f;
+
+    private float _timer;
+    private bool _initialized;
+
+    public void SetInitVal(Vector3 dir, float speed)
     {
-        bulletSpeed = speed;
-        moveDir = dir-transform.position;
-        moveDir.y=0;
-        transform.rotation = Quaternion.LookRotation(moveDir);
+        _bulletSpeed = speed;
+
+        _moveDir = dir - transform.position;
+        _moveDir.y = 0f;
+
+        if (_moveDir.sqrMagnitude > 0.001f)
+        {
+            _moveDir.Normalize();
+            transform.rotation = Quaternion.LookRotation(_moveDir);
+        }
+
+        _timer = _lifeTime;
+        _initialized = true;
     }
+
     private void Update()
     {
-        transform.position += moveDir * bulletSpeed * Time.deltaTime;
-        lifeTime -= Time.deltaTime;
-        if (lifeTime <= 0) GetComponent<NetworkObject>().Despawn();
+        if (!IsServer || !IsSpawned || !_initialized) return;
+
+        transform.position += _moveDir * _bulletSpeed * Time.deltaTime;
+
+        _timer -= Time.deltaTime;
+
+        if (_timer <= 0f)
+        {
+            DespawnBullet();
+        }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) GetComponent<NetworkObject>().Despawn();
+        if (!IsServer || !IsSpawned) return;
+
+        if (other.CompareTag("Player"))
+        {
+            DespawnBullet();
+        }
+    }
+
+    private void DespawnBullet()
+    {
+        if (!IsServer || !IsSpawned) return;
+
+        NetworkObject.Despawn();
     }
 }

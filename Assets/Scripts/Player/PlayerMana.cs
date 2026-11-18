@@ -28,6 +28,8 @@ public class PlayerMana : NetworkBehaviour
 
     public void RestoreMana()
     {
+        if (!IsServer) return;
+
         //Restaura al subir de Nivel
         Mana.Value = GetComponent<PlayerStats>().getMaxMana();
     }

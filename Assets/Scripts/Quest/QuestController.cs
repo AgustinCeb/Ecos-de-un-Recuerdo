@@ -61,7 +61,6 @@ public class QuestController : MonoBehaviour
         // Recalcular los objetivos de recolección según el inventario.
         RefreshCollectObjectives();
 
-        Debug.Log("Misiones del jugador restauradas.");
     }
 
     public void AcceptQuest(QuestData quest, Inventory2 inventory)
@@ -187,6 +186,7 @@ public class QuestController : MonoBehaviour
         questUI?.UpdateQuestUI();
 
         Debug.Log("Misión completada: " + quest.quest.questName);
+        GameManager.Instance.ShowNotification("Misión completada: "+ " " + quest.quest.questName);
 
     }
 

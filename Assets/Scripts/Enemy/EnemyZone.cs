@@ -79,6 +79,19 @@ public class EnemyZone : MonoBehaviour
         }
     }
 
+    public void RemovePlayer(ulong clientId)
+    {
+        if (NetworkManager.Singleton == null) return;
+        if (!NetworkManager.Singleton.IsServer) return;
+
+        if (!_playersInside.Remove(clientId)) return;
+
+        if (_playersInside.Count == 0)
+        {
+            DeactivateZone();
+        }
+    }
+
     private void DeactivateZone()
     {
 
@@ -88,6 +101,7 @@ public class EnemyZone : MonoBehaviour
             camp.DespawnEnemies();
         }
     }
+
 
     public void ResetZone()
     {

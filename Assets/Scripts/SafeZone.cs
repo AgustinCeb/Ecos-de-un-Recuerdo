@@ -132,7 +132,7 @@ public class SafeZone : NetworkBehaviour
 
         _campsResetForCurrentVisit = true;
 
-        Debug.Log("Todos los jugadores regresaron al pueblo. Zonas y arbustos reiniciados.");
+        GameManager.Instance.ShowNotification("Zona Segura");
 
     }
 

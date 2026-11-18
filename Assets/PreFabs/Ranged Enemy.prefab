@@ -213,7 +213,7 @@ MonoBehaviour:
   damageVal: 5
   bulletPrefab: {fileID: 1284065784715675720, guid: 64ce81976be93f14e8992112c0eddbb6, type: 3}
   shootPoint: {fileID: 5605588742316945406}
-  bulletSpeed: 3
+  bulletSpeed: 15
 --- !u!114 &3233607105841120120
 MonoBehaviour:
   m_ObjectHideFlags: 0

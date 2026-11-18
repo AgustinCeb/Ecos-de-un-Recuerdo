@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class EnemiesDamage : MonoBehaviour
@@ -6,12 +7,16 @@ public class EnemiesDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<PlayerHealt>(out PlayerHealt e))
-        {
-            e.TakeDamagePlayer(_damage);
+        if (NetworkManager.Singleton == null) return;
+        if (!NetworkManager.Singleton.IsServer) return;
 
-        }
+        PlayerHealt playerHealth = other.GetComponentInParent<PlayerHealt>();
+
+        if (playerHealth == null) return;
+
+        playerHealth.TakeDamagePlayer(_damage);
     }
+
     public void setDamage(int damage)
     {
         _damage = damage;

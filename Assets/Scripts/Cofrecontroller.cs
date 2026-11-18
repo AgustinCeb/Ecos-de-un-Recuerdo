@@ -11,11 +11,7 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
     [Header("Animacion")]
     [SerializeField] private Animator _animator;
 
-    private NetworkVariable<bool> _isOpened = new NetworkVariable<bool>(
-        false,
-        NetworkVariableReadPermission.Everyone,
-        NetworkVariableWritePermission.Server
-    );
+    private NetworkVariable<bool> _isOpened = new NetworkVariable<bool>(false,NetworkVariableReadPermission.Everyone,NetworkVariableWritePermission.Server);
 
     public string ActionText => _isOpened.Value ? "" : "Abrir";
 
@@ -49,13 +45,26 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
     {
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void OpenChestServerRpc(NetworkObjectReference playerReference)
+    [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
+    private void OpenChestServerRpc(NetworkObjectReference playerReference, RpcParams rpcParams = default)
     {
         if (_isOpened.Value) return;
 
+        ulong senderClientId = rpcParams.Receive.SenderClientId;
+
+        if (!NetworkManager.Singleton.ConnectedClients.TryGetValue(senderClientId, out NetworkClient client))return;
+
+        if (client.PlayerObject == null) return;
+
         if (!playerReference.TryGet(out NetworkObject playerObject))
             return;
+
+        if (playerObject != client.PlayerObject)
+        {
+            Debug.LogWarning("El cofre recibió una referencia de jugador incorrecta.");
+            return;
+        }
+
 
         if (_itemReward == null)
         {
@@ -63,32 +72,36 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
             return;
         }
 
-        Inventory inventory = playerObject.GetComponent<Inventory>();
-        Inventory2 inventory2 = playerObject.GetComponent<Inventory2>();
-        Inventory3 inventory3 = playerObject.GetComponent<Inventory3>();
+        bool rewardGiven = false;
 
-
+        
         switch (_itemReward.Type)
         {
             case ItemData.ItemType.Equipment:
 
+                Inventory inventory = playerObject.GetComponent<Inventory>();
+
                 if (inventory == null) return;
 
-                inventory.addItem(_itemReward, _amount);
+                rewardGiven = inventory.addItem(_itemReward, _amount);
                 break;
 
             case ItemData.ItemType.Material:
 
+                Inventory2 inventory2 = playerObject.GetComponent<Inventory2>();
+
                 if (inventory2 == null) return;
 
-                inventory2.addItem(_itemReward, _amount);
+                rewardGiven = inventory2.addItem(_itemReward, _amount);
                 break;
 
             case ItemData.ItemType.Consumable:
 
+                Inventory3 inventory3 = playerObject.GetComponent<Inventory3>();
+
                 if (inventory3 == null) return;
 
-                inventory3.addItem(_itemReward, _amount);
+                rewardGiven = inventory3.addItem(_itemReward, _amount);
                 break;
 
             default:
@@ -96,17 +109,23 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
                 return;
         }
 
+        if (!rewardGiven) return;
+
         _isOpened.Value = true;
     }
 
     private void OnChestOpened(bool previousValue, bool newValue)
     {
         if (newValue)
-        {
-            _animator.SetTrigger("Open");
-        }
+            OpenAnimation();
     }
 
-   
+    private void OpenAnimation()
+    {
+        if (_animator != null)
+            _animator.SetTrigger("Open");
+    }
+
+
 }
  

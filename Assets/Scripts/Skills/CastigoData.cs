@@ -12,18 +12,23 @@ public class CastigoData : NetworkBehaviour
 
     private Transform _direction;
 
-    public void Initialize(PlayerMove playerMove)
+    public void Initialize(Vector3 playerPosition, Vector3 direction)
     {
-        Transform direction = playerMove.Direction;
+        direction.Normalize();
 
-        transform.position = playerMove.transform.position
-            + direction.forward * _posisionF;
-
-        transform.rotation = direction.rotation;
+        transform.position = playerPosition + direction * _posisionF;
+        transform.rotation = Quaternion.LookRotation(direction);
     }
 
     public override void OnNetworkSpawn()
     {
+        Debug.Log(
+        "RAYO RECIBIDO | Server: " + IsServer +
+        " | Client: " + IsClient +
+        " | Owner: " + OwnerClientId +
+        " | NetworkObjectId: " + NetworkObjectId
+    );
+
         SFXManager.instance.PlaySFX(_skillSound, transform, 1f, 1f);
     }
 

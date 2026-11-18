@@ -63,9 +63,6 @@ public class SkillSlot : NetworkBehaviour
 
         UpdateSkillUnlocks();
 
-        Debug.Log("SkillUi inicializada correctamente.");
-
-        GameManager.Instance.ShowNotification("SkillUi Iniciada");
     }
 
     private void UpdateSkillUnlocks()
@@ -112,15 +109,20 @@ public class SkillSlot : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        UseSkill1ServerRpc();
+        PlayerMove playerMove = GetComponent<PlayerMove>();
 
-        
+        Vector3 playerPosition = transform.position;
+        Vector3 direction = playerMove.Direction.forward;
+
+        UseSkill1ServerRpc(playerPosition, direction);
+
         _coolDownSkill1 = _slot1.SkillCooldown;
 
        
     }
+
     [ServerRpc]
-    private void UseSkill1ServerRpc() 
+    private void UseSkill1ServerRpc(Vector3 playerPosition, Vector3 direction) 
     {
         if (!_playerMana.TryUseMana(_slot1.SkillCost))
         {
@@ -129,11 +131,11 @@ public class SkillSlot : NetworkBehaviour
             return;
         }
 
-        GameObject obj = Instantiate(_slot1.SkillPrefab, transform.position, transform.rotation);
+        GameObject obj = Instantiate(_slot1.SkillPrefab,playerPosition,Quaternion.LookRotation(direction));
 
         CastigoData skill = obj.GetComponent<CastigoData>();
 
-        skill.Initialize(GetComponent<PlayerMove>());
+        skill.Initialize(playerPosition,direction);
 
         obj.GetComponent<NetworkObject>().Spawn();
 
@@ -191,7 +193,7 @@ public class SkillSlot : NetworkBehaviour
 
         NetworkObject shieldObject = obj.GetComponent<NetworkObject>();
 
-        shieldObject.Spawn();
+        shieldObject.SpawnWithOwnership(OwnerClientId);
 
         shieldObject.TrySetParent(NetworkObject, false);
 
@@ -243,7 +245,7 @@ public class SkillSlot : NetworkBehaviour
 
         NetworkObject ultiObject = obj.GetComponent<NetworkObject>();
 
-        ultiObject.Spawn();
+        ultiObject.SpawnWithOwnership(OwnerClientId);
 
         ultiObject.TrySetParent(NetworkObject, false);
 

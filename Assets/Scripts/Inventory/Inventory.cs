@@ -18,6 +18,8 @@ public class Inventory : NetworkBehaviour
     {
         if (data == null) return;
 
+        if (!IsOwner) return;
+
         data.Inventory.Clear();
 
         foreach (InventorySlot slot in _slots)
@@ -31,6 +33,52 @@ public class Inventory : NetworkBehaviour
             ));
         }
     }
+    //
+    private void SyncInventoryToServer()
+    {
+        if (!IsOwner || !IsSpawned) return;
+
+        List<int> itemIDs = new();
+        List<int> quantities = new();
+
+        foreach (InventorySlot slot in _slots)
+        {
+            if (slot.ItemData == null || slot.Quantity <= 0)
+                continue;
+
+            itemIDs.Add(slot.ItemData.ItemID);
+            quantities.Add(slot.Quantity);
+        }
+
+        UpdateServerInventoryRpc(itemIDs.ToArray(), quantities.ToArray());
+    }
+
+    [Rpc(SendTo.Server)]
+    private void UpdateServerInventoryRpc(int[] itemIDs, int[] quantities)
+    {
+        if (!IsServer) return;
+
+        if (itemIDs == null || quantities == null) return;
+        if (itemIDs.Length != quantities.Length) return;
+
+        PlayerDataManager dataManager = PlayerDataManager.Instance;
+        if (dataManager == null) return;
+
+        PlayerData data = dataManager.GetOrCreateData(OwnerClientId);
+        if (data == null) return;
+
+        data.Inventory.Clear();
+
+        for (int i = 0; i < itemIDs.Length; i++)
+        {
+            if (quantities[i] <= 0) continue;
+
+            data.Inventory.Add(new SavedItem(itemIDs[i], quantities[i]));
+        }
+
+        Debug.Log($"[SYNC INVENTORY 1 ] Jugador: {OwnerClientId} | Slots: {data.Inventory.Count}");
+    }
+    //
 
     public void RestoreInventory(PlayerData data, ItemDictionary dictionary)
     {
@@ -54,8 +102,60 @@ public class Inventory : NetworkBehaviour
             _slots.Add(new InventorySlot(item, savedItem.Quantity));
         }
     }
+    //
+    public void SendRestoredInventoryToOwner()
+    {
+
+        Debug.Log($"[SEND RESTORE] Server: {IsServer} | Spawned: {IsSpawned} | Owner: {OwnerClientId} | Slots: {_slots.Count}");
+
+        if (!IsServer || !IsSpawned) return;
+
+        List<int> itemIDs = new();
+        List<int> quantities = new();
+
+        foreach (InventorySlot slot in _slots)
+        {
+            if (slot.ItemData == null || slot.Quantity <= 0)
+                continue;
+
+            itemIDs.Add(slot.ItemData.ItemID);
+            quantities.Add(slot.Quantity);
+        }
+
+        RestoreInventoryClientRpc(itemIDs.ToArray(), quantities.ToArray());
+    }
+
+    [Rpc(SendTo.Owner)]
+    private void RestoreInventoryClientRpc(int[] itemIDs, int[] quantities)
+    {
+
+        Debug.Log($"[RECEIVE RESTORE] RPC recibido. Owner: {OwnerClientId} | Es dueño: {IsOwner}");
+
+        if (itemIDs == null || quantities == null) return;
+        if (itemIDs.Length != quantities.Length) return;
+
+        ItemDictionary dictionary = FindFirstObjectByType<ItemDictionary>();
+        if (dictionary == null) return;
+
+        _slots.Clear();
+
+        for (int i = 0; i < itemIDs.Length; i++)
+        {
+            ItemData item = dictionary.GetItem(itemIDs[i]);
+
+            if (item == null || quantities[i] <= 0)
+                continue;
+
+            if (_slots.Count >= _maxSlot) break;
+
+            _slots.Add(new InventorySlot(item, quantities[i]));
+        }
 
 
+        Debug.Log($"[CLIENT RESTORE INVENTORY1] Slots: {_slots.Count}");
+    }
+
+    //
     public bool addItem(ItemData itemData, int amount)
     {
         if (itemData == null || amount <= 0)
@@ -68,6 +168,7 @@ public class Inventory : NetworkBehaviour
                 if (slot.ItemData == itemData)
                 {
                     slot.Quantity += amount;
+                    SyncInventoryToServer();
                     GameManager.Instance.ShowNotification($"Se obtuvo {itemData.ItemName} X {amount}");
                     return true;
                 }
@@ -79,6 +180,7 @@ public class Inventory : NetworkBehaviour
         if (Slots.Count < _maxSlot) 
         {
             _slots.Add(new InventorySlot(itemData,amount));
+            SyncInventoryToServer();
             GameManager.Instance.ShowNotification($"Se obtuvo {itemData.ItemName} X {amount}");
             return true;
 
@@ -114,9 +216,10 @@ public class Inventory : NetworkBehaviour
                 continue;
 
             slot.Quantity -= amount;
-
             if (slot.Quantity <= 0)
                 _slots.Remove(slot);
+
+            SyncInventoryToServer();
 
             return true;
         }

@@ -1,7 +1,8 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : NetworkBehaviour
 {
     
     int playerLevel;
@@ -18,61 +19,170 @@ public class PlayerStats : MonoBehaviour
     float exDefense;
     float exAgility;
 
+    public NetworkVariable<int> PlayerLevel = new(1);
+
+    public NetworkVariable<int> HeldXP = new(0);
+
     public int _playerLevel => playerLevel;
 
     public System.Action<int> OnLevelChanged;
 
+    
     private void Awake()
     {
         InitializeXP();
     }
+
+    public override void OnNetworkSpawn()
+    {
+        PlayerLevel.OnValueChanged += OnPlayerLevelChanged;
+
+        if (IsServer)
+        {
+            // El servidor conserva los datos restaurados.
+            // Los publica para que los clientes los reciban.
+            PlayerLevel.Value = playerLevel;
+            HeldXP.Value = heldXP;
+        }
+        else
+        {
+            // El cliente recibe los datos del servidor.
+            playerLevel = PlayerLevel.Value;
+            heldXP = HeldXP.Value;
+
+            LevelStats = statValuesPerLevel.levels[playerLevel - 1];
+            requiredXP = LevelStats.requiredExpForNextLevel;
+        }
+    }
+
     public void AddXP(int addXp)
     {
+       
+        if (addXp <= 0) return;
+
+        if (IsServer)
+        {
+            AddXPServer(addXp);
+        }
+        else if (IsOwner)
+        {
+            AddXPRpc(addXp);
+        }
+    }
+
+    ///
+    [Rpc(SendTo.Server)]
+    private void AddXPRpc(int addXp)
+    {
+        if (addXp <= 0) return;
+
+        AddXPServer(addXp);
+    }
+
+    private void AddXPServer(int addXp)
+    {
+        if (!IsServer) return;
+
         heldXP += addXp;
-        while (heldXP >= requiredXP && playerLevel< statValuesPerLevel.levels.Length)
+
+        while (heldXP >= requiredXP && playerLevel < statValuesPerLevel.levels.Length)
         {
             LevelUp();
         }
-        Debug.Log("Nivel "+playerLevel+ " Experiencia para el siguiente nivel: "+ (requiredXP-heldXP));
-        GameManager.Instance.ShowNotification("Obtubiste"+ " " + addXp +" "+"Exp");
-        
+
+        PlayerLevel.Value = playerLevel;
+        HeldXP.Value = heldXP;
+
+        Debug.Log("Nivel " + playerLevel + " Experiencia para el siguiente nivel: " + (requiredXP - heldXP));
+
+        if (IsOwner)
+        {
+            ShowXPNotificationRpc(addXp);
+        }
+        else
+        {
+            ShowXPNotificationRpc(addXp);
+        }
     }
+     
+    [Rpc(SendTo.Owner)]
+    private void ShowXPNotificationRpc(int addXp)
+    {
+        GameManager.Instance.ShowNotification("Obtuviste " + addXp + " Exp");
+    }
+    //
+
     void LevelUp()
     {
-        
-            heldXP -= LevelStats.requiredExpForNextLevel;
-            playerLevel++;
-            OnLevelChanged?.Invoke(playerLevel);
-            LevelStats = statValuesPerLevel.levels[playerLevel-1];
-            requiredXP = LevelStats.requiredExpForNextLevel;
 
-        //Recarga la vida al subir de nivel
+        if (!IsServer) return;
+
+        heldXP -= requiredXP;
+        playerLevel++;
+
+        LevelStats = statValuesPerLevel.levels[playerLevel - 1];
+        requiredXP = LevelStats.requiredExpForNextLevel;
+
+        // Sincronizar nivel y experiencia.
+        PlayerLevel.Value = playerLevel;
+        HeldXP.Value = heldXP;
+
+        // Recargar vida y maná desde el servidor.
         PlayerHealt playerHealt = GetComponent<PlayerHealt>();
-
         if (playerHealt != null)
-        {
             playerHealt.RestoreHealth();
-        }
 
-        // Recargar maná al subir de nivel
         PlayerMana playerMana = GetComponent<PlayerMana>();
-
         if (playerMana != null)
-        {
             playerMana.RestoreMana();
-        }
 
-        Debug.Log("LEVEL UP, YOUR DAMAGE IS NOW "+LevelStats.damage+ " ,YOUR HEALTH IS NOW " + LevelStats.maxHealth+ " AND YOUR DEFENSE IS NOW " + LevelStats.defense);
-        GameManager.Instance.ShowNotification("¡Has subido de nivel!");
-        GameManager.Instance.ShowNotification("Max Healt" + " " + LevelStats.maxHealth +" "+ "Max Mana" + " " + LevelStats.Maxmana);
-        GameManager.Instance.ShowNotification("Ataque" + " " + LevelStats.damage + " " + "DEF" + " " + LevelStats.defense + "" + "Agi" + " " + LevelStats.agility);
-        GameManager.Instance.ShowNotification("Nivel " + " " + playerLevel + " " + " Experiencia para el siguiente nivel: " + " " + " " + (requiredXP - heldXP));
+        // Notificaciones únicamente para el propietario.
+        ShowLevelUpNotificationRpc(
+            playerLevel,
+            LevelStats.maxHealth,
+            LevelStats.Maxmana,
+            LevelStats.damage,
+            LevelStats.defense,
+            LevelStats.agility,
+            requiredXP - heldXP
+        );
 
+        Debug.Log("LEVEL UP. Nivel actual: " + playerLevel);
+
+        
     }
+
+    //
+    [Rpc(SendTo.Owner)]
+    private void ShowLevelUpNotificationRpc(
+    int level,
+    float health,
+    float mana,
+    float damage,
+    float defense,
+    float agility,
+    int remainingXP)
+    {
+        GameManager.Instance.ShowNotification("¡Has subido de nivel!");
+        GameManager.Instance.ShowNotification("Max Health " + health + " Max Mana " + mana);
+        GameManager.Instance.ShowNotification("Ataque " + damage + " DEF " + defense + " Agi " + agility);
+        GameManager.Instance.ShowNotification("Nivel " + level + " Experiencia para el siguiente nivel: " + remainingXP);
+    }
+    //
+
+    private void OnPlayerLevelChanged(int previousValue, int newValue)
+    {
+        playerLevel = newValue;
+
+        LevelStats = statValuesPerLevel.levels[playerLevel - 1];
+        requiredXP = LevelStats.requiredExpForNextLevel;
+
+        OnLevelChanged?.Invoke(playerLevel);
+    }
+
     void InitializeXP()
     {
-        Debug.Log("InitializeXP ejecutado: nivel inicial 1");
-
+        
         playerLevel = 1;
         heldXP = 0;
 
@@ -85,6 +195,7 @@ public class PlayerStats : MonoBehaviour
     {
         data.PlayerLevel = playerLevel;
         data.HeldXP = heldXP;
+        Debug.Log("GUARDANDO NIVEL: " + data.PlayerLevel);
     }
 
     public void LoadData(PlayerData data)
@@ -98,7 +209,7 @@ public class PlayerStats : MonoBehaviour
 
         heldXP = Mathf.Max(0, data.HeldXP);
 
-        Debug.Log("Estadísticas restauradas. Nivel: " + playerLevel);
+       
     }
 
 

@@ -26,8 +26,19 @@ public class RewardsController : MonoBehaviour
         Debug.Log("Inventory2: " + (inventory2 != null));
         Debug.Log("Inventory3: " + (inventory3 != null));
 
-        if (NetworkManager.Singleton == null || !NetworkManager.Singleton.IsServer) return;
+        NetworkObject playerNetworkObject = null;
 
+        if (inventory != null)
+            playerNetworkObject = inventory.GetComponent<NetworkObject>();
+
+        if (playerNetworkObject == null && inventory2 != null)
+            playerNetworkObject = inventory2.GetComponent<NetworkObject>();
+
+        if (playerNetworkObject == null && inventory3 != null)
+            playerNetworkObject = inventory3.GetComponent<NetworkObject>();
+
+        if (playerNetworkObject == null || !playerNetworkObject.IsOwner)
+            return;
         if (quest?.questReward == null) return;
 
         PlayerStats stats = null;

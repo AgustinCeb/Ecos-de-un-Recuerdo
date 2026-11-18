@@ -58,7 +58,6 @@ public class Questnetworksync : NetworkBehaviour
 
         questController.RestoreQuestState(new List<string>(activeIDs.IDs),new List<string>(completedIDs.IDs),inventory,dictionary);
 
-        Debug.Log("Misiones restauradas correctamente para el jugador: " + OwnerClientId);
     }
 
     public void SyncQuest(string questID, bool isActive, bool isCompleted)
