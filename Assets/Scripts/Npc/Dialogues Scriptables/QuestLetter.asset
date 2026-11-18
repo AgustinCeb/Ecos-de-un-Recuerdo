@@ -15,10 +15,10 @@ MonoBehaviour:
   npcName: Blaze
   npcPortrait: {fileID: -668044383, guid: aeaf391c80985d34692a2032ea4a0f2b, type: 3}
   dialogeLines:
-  - Veamos que mision quieres que leea?
-  - Dice que tenemos que recolecter 5 bayas de los arbustor rojos que hay por el
-    bosque
-  - La aceptamos ?
+  - Este Cartel Contiene Mucha Informacion, Que parte quieres saber?
+  - Sobre Que Mision quieres Saber?
+  - "Para Completar la mision principal Tienes que conseguir 2 fragmentos, uno esta
+    en la monta\xF1a y el otro en el cementerio."
   - Mision Aceptada
   - DIce que tenemos que matar a 10 mounstros para completar el encargo
   - La aceptamos ?
@@ -29,22 +29,24 @@ MonoBehaviour:
     volcan y el otro en el cementerio
   - La aceptamos ?
   - Mision Aceptada
-  autoProgressLines: 0001000001000001010000
-  endDialogueLines: 0000000100000100000001
+  autoProgressLines: 0101000001000001010000
+  endDialogueLines: 0000010000000100000001
   choices:
   - dialogueIndex: 0
     choices:
-    - Recoleccion
-    - Conbate
-    - Principal
-    nextDialogueIndexes: 010000000400000007000000
-    givesQuest: 000000
-  - dialogueIndex: 2
+    - Misiones
+    - Exploracion
+    - Equipo
+    - Salir
+    nextDialogueIndexes: 01000000040000000700000007000000
+    givesQuest: 00000000
+  - dialogueIndex: 1
     choices:
-    - Aceptar
-    - Regresar
-    nextDialogueIndexes: 0300000000000000
-    givesQuest: 0000
+    - Principal
+    - Cazeria
+    - Recoleccion
+    nextDialogueIndexes: 020000000000000000000000
+    givesQuest: 000000
   - dialogueIndex: 5
     choices:
     - Aceptar
