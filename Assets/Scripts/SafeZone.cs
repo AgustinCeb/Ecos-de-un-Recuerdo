@@ -52,7 +52,12 @@ public class SafeZone : NetworkBehaviour
             Timer = 0f
         });
 
+        NetSpawner.Instance.UpdatePlayerCheckpoint(clientId);
+
         CheckAllPlayersInside();
+
+        GameManager.Instance.ShowNotification("Zona Segura");
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -132,7 +137,7 @@ public class SafeZone : NetworkBehaviour
 
         _campsResetForCurrentVisit = true;
 
-        GameManager.Instance.ShowNotification("Zona Segura");
+       
 
     }
 

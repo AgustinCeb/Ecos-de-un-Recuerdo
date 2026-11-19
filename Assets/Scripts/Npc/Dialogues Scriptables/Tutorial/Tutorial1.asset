@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81642716c47bc7d42a1e9b5b7314af51, type: 3}
+  m_Name: Tutorial1
+  m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
+  npcName: Blaze
+  npcPortrait: {fileID: -668044383, guid: aeaf391c80985d34692a2032ea4a0f2b, type: 3}
+  dialogeLines:
+  - "Hola, Eco. Mi nombre es Blaze. Ser\xE9 tu compa\xF1era en este viaje."
+  - "No te preocupes, yo te ense\xF1ar\xE9 c\xF3mo sobrevivir. Primero, utiliza WASD
+    para moverte. Con el mouse puedes mirar a tu alrededor y con el clic izquierdo,
+    atacar."
+  - "Si presionas Shift, te desplazar\xE1s r\xE1pidamente hacia adelante. Es una
+    buena herramienta para esquivar ataques."
+  - "Si presionas E, podr\xE1s interactuar con los objetos, como este letrero o las
+    personas que encuentres. Tambi\xE9n podr\xE1s avanzar m\xE1s r\xE1pido los di\xE1logos."
+  - "Con I abrir\xE1s el inventario y con Esc, el men\xFA desde el que podr\xE1s
+    regresar a la pantalla principal."
+  - "Si haces clic derecho sobre un objeto del inventario, podr\xE1s usarlo, equiparlo
+    o examinarlo para descubrir qu\xE9 hace"
+  autoProgressLines: 010101010100
+  endDialogueLines: 000000000001
+  choices: []
+  typingSpeed: 0.05
+  autoProgressDelay: 1.5
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  principalQuestComplete: 0
+  quest: {fileID: 0}

@@ -19,18 +19,23 @@ MonoBehaviour:
   - Sobre Que Mision quieres Saber?
   - "Para Completar la mision principal Tienes que conseguir 2 fragmentos, uno esta
     en la monta\xF1a y el otro en el cementerio."
-  - Mision Aceptada
-  - DIce que tenemos que matar a 10 mounstros para completar el encargo
-  - La aceptamos ?
-  - Mision Aceptada
-  - DIce que para acceder al sigiente piso tenemos que Abrir la puerta del temlpo
-    del bosque
-  - juntando los 2 fragmentos para crear la llave dorada, un fragmento esta en el
-    volcan y el otro en el cementerio
-  - La aceptamos ?
-  - Mision Aceptada
-  autoProgressLines: 0101000001000001010000
-  endDialogueLines: 0000010000000100000001
+  - 'Para completar la Mision "Festival de cazeria" debes obtener 10 fragmentos de
+    tela y 10 esencias rojas de los mounstros que hay por la zona '
+  - Para completar la mision "Dia de cosehas" debes obtener 10 manzanas rojas y 10
+    manzanas azules, se obtienen de los arbustos que hay por la zona
+  - Sobre Que Quieres Saber?
+  - Al explorar puede que te encuentres con cofres, estos tiene recompenzas muy valiosas
+    como pociones y runas si ves uno no dudes en abrirlo
+  - Las areas se dividen en 2 grupos, las de combate donde hay enemigos y las zonas
+    seguras como este pueblo,En las zonas seguras tu vida se restablece pero los
+    enemigos regresan a la vida
+  - Sobre Que Quieres Saber?
+  - Las runas son artefactos que puedes equiparte para potenciar tus atributos, se
+    obtiene dentro de cofres o completando la mision del cazador
+  - 'Las ranuras son 3, cabeza, cuerpo y pies. puedes equiparte una runa por ranura '
+  - Ok
+  autoProgressLines: 010100000001000001000000
+  endDialogueLines: 000001010100010100010101
   choices:
   - dialogueIndex: 0
     choices:
@@ -38,26 +43,26 @@ MonoBehaviour:
     - Exploracion
     - Equipo
     - Salir
-    nextDialogueIndexes: 01000000040000000700000007000000
+    nextDialogueIndexes: 0100000005000000080000000b000000
     givesQuest: 00000000
   - dialogueIndex: 1
     choices:
     - Principal
     - Cazeria
     - Recoleccion
-    nextDialogueIndexes: 020000000000000000000000
+    nextDialogueIndexes: 020000000300000004000000
     givesQuest: 000000
   - dialogueIndex: 5
     choices:
-    - Aceptar
-    - Regresar
-    nextDialogueIndexes: 0600000000000000
+    - Cofres
+    - Areas
+    nextDialogueIndexes: 0600000007000000
     givesQuest: 0000
-  - dialogueIndex: 9
+  - dialogueIndex: 8
     choices:
-    - Aceptar
-    - Regresar
-    nextDialogueIndexes: 0a00000000000000
+    - Runas
+    - Ranuras
+    nextDialogueIndexes: 090000000a000000
     givesQuest: 0000
   typingSpeed: 0.05
   autoProgressDelay: 1.5

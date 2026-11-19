@@ -101,10 +101,18 @@ public class SkillSlot : NetworkBehaviour
             GameManager.Instance.ShowNotification("Habilidad 1 En enfiramiento" + " " + (_coolDownSkill1.ToString("0")) + "Seg");
             return;
         }
-        _animator.SetTrigger("Rayo");
-
+        
+        PlayRayoAnimationRpc();
     }
+    //
+    [Rpc(SendTo.ClientsAndHost)]
+    private void PlayRayoAnimationRpc()
+    {
+        if (_animator == null) return;
 
+        _animator.SetTrigger("Rayo");
+    }
+    //
     public void Skill1()
     {
         if (!IsOwner) return;
@@ -159,8 +167,17 @@ public class SkillSlot : NetworkBehaviour
 
             return;
         }
+        PlayEscudoAnimationRpc();
+    }
+    //
+    [Rpc(SendTo.ClientsAndHost)]
+    private void PlayEscudoAnimationRpc()
+    {
+        if (_animator == null) return;
+
         _animator.SetTrigger("Escudo");
     }
+    //
 
     public void Skill2()
     {
@@ -219,8 +236,17 @@ public class SkillSlot : NetworkBehaviour
             return;
         }
 
+        PlayUltiAnimationRpc();
+    }
+    //
+    [Rpc(SendTo.ClientsAndHost)]
+    private void PlayUltiAnimationRpc()
+    {
+        if (_animator == null) return;
+
         _animator.SetTrigger("Ulti");
     }
+    //
 
     public void Skill3()
     {

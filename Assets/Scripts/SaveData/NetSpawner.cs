@@ -7,8 +7,11 @@ public class NetSpawner : NetworkBehaviour
 
     public static NetSpawner Instance { get; private set; }
 
-    [Header("Puntos de aparición del pueblo")]
+    [Header("Puntos de aparición del Inicial")]
     [SerializeField] private Transform[] _townSpawnPoints = new Transform[4];
+
+    [Header("Puntos de aparicion Pueblo")]
+    [SerializeField] private Transform[] _checkpoints = new Transform[4];
 
     private Dictionary<ulong, int> _playerSlots = new();
 
@@ -135,6 +138,36 @@ public class NetSpawner : NetworkBehaviour
         RequestRespawnRpc();
     }
 
+    public void UpdatePlayerCheckpoint(ulong clientId)
+    {
+        if (!IsServer) return;
+
+        if (!_playerSlots.TryGetValue(clientId, out int slot))
+        {
+            Debug.LogWarning("El jugador no tiene un slot asignado.");
+            return;
+        }
+
+        if (_checkpoints == null || slot >= _checkpoints.Length)
+            return;
+
+        Transform spawn = _checkpoints[slot];
+
+        if (spawn == null) return;
+
+        PlayerDataManager dataManager = PlayerDataManager.Instance;
+        if (dataManager == null) return;
+
+        PlayerData data = dataManager.GetOrCreateData(clientId);
+        if (data == null) return;
+
+        data.HasCheckpoint = true;
+        data.CheckpointPosition = spawn.position;
+        data.CheckpointRotation = spawn.rotation;
+
+        Debug.Log($"[CHECKPOINT] Jugador {clientId} ahora reaparece en el pueblo. Slot: {slot}");
+    }
+
     [Rpc(SendTo.Server)]
     private void RequestRespawnRpc(RpcParams rpcParams = default)
     {
@@ -191,6 +224,8 @@ public class NetSpawner : NetworkBehaviour
             data.CheckpointRotation
         );
 
+        Debug.Log($"[RESPAWN] Jugador: {clientId} | Posición guardada: {data.CheckpointPosition}");
+
         // Restaurar nivel y experiencia.
         PlayerStats stats = playerInstance.GetComponent<PlayerStats>();
         if (stats != null)
@@ -226,6 +261,7 @@ public class NetSpawner : NetworkBehaviour
         }
 
         playerNetworkObject.SpawnAsPlayerObject(clientId, true);
+        
         //Restore inv Cliente
         if (inventory != null)
             inventory.SendRestoredInventoryToOwner();
@@ -235,6 +271,9 @@ public class NetSpawner : NetworkBehaviour
 
         if (inventory3 != null)
             inventory3.SendRestoredInventoryToOwner();
+
+        if (runeEquip != null)
+            runeEquip.SendRestoredRunesToOwner();
 
         Debug.Log("Jugador " + clientId + " reapareció con sus datos restaurados.");
     }

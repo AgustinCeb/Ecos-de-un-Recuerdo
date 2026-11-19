@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81642716c47bc7d42a1e9b5b7314af51, type: 3}
+  m_Name: Tutorial2
+  m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
+  npcName: Blaze
+  npcPortrait: {fileID: -668044383, guid: aeaf391c80985d34692a2032ea4a0f2b, type: 3}
+  dialogeLines:
+  - "\xA1Mira! M\xE1s adelante hay enemigos. Ten cuidado"
+  - No te preocupes, recuerda que con el clic izquierdo puedes atacar
+  - "Al derrotar a los enemigos, soltar\xE1n objetos que tienen un gran valor para
+    los cazadores y Tambi\xE9n sueltan experiencia. Cuando acumules suficiente, subir\xE1s
+    de nivel"
+  - "En la parte superior podr\xE1s ver tu vida, tu man\xE1 y tu nivel"
+  - "Si tu vida llega a 0, tu alma se extinguir\xE1 y regresar\xE1s al \xFAltimo
+    punto de control"
+  - "El man\xE1 sirve para lanzar habilidades. Por ahora no tienes ninguna, pero
+    se ir\xE1n desbloqueando a medida que subas de nivel"
+  autoProgressLines: 010101010100
+  endDialogueLines: 000000000001
+  choices: []
+  typingSpeed: 0.05
+  autoProgressDelay: 1.5
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  principalQuestComplete: 0
+  quest: {fileID: 0}

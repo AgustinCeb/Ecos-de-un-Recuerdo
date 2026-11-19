@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class RuenEquip : MonoBehaviour
+public class RuenEquip : NetworkBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private Inventory _inventory;
@@ -27,6 +28,8 @@ public class RuenEquip : MonoBehaviour
     {
         if (data == null) return;
 
+        if (!IsOwner) return;
+
         data.FeetRuneID = _feetRune != null ? _feetRune.ItemID : -1;
         data.HeadRuneID = _headRune != null ? _headRune.ItemID : -1;
         data.BodyRuneID = _bodyRune != null ? _bodyRune.ItemID : -1;
@@ -45,7 +48,63 @@ public class RuenEquip : MonoBehaviour
         RecalculateStats();
        
     }
+    //
+    private void SyncRunesToServer()
+    {
+        if (!IsOwner || !IsSpawned) return;
 
+        int feetID = _feetRune != null ? _feetRune.ItemID : -1;
+        int headID = _headRune != null ? _headRune.ItemID : -1;
+        int bodyID = _bodyRune != null ? _bodyRune.ItemID : -1;
+
+        UpdateServerRunesRpc(feetID, headID, bodyID);
+    }
+
+    [Rpc(SendTo.Server)]
+    private void UpdateServerRunesRpc(int feetID, int headID, int bodyID)
+    {
+        if (!IsServer) return;
+
+        PlayerDataManager dataManager = PlayerDataManager.Instance;
+        if (dataManager == null) return;
+
+        PlayerData data = dataManager.GetOrCreateData(OwnerClientId);
+        if (data == null) return;
+
+        data.FeetRuneID = feetID;
+        data.HeadRuneID = headID;
+        data.BodyRuneID = bodyID;
+
+        Debug.Log($"[SYNC RUNES] Jugador: {OwnerClientId} | Pies: {feetID} | Cabeza: {headID} | Cuerpo: {bodyID}");
+    }
+    //
+    //
+    public void SendRestoredRunesToOwner()
+    {
+        if (!IsServer || !IsSpawned) return;
+
+        int feetID = _feetRune != null ? _feetRune.ItemID : -1;
+        int headID = _headRune != null ? _headRune.ItemID : -1;
+        int bodyID = _bodyRune != null ? _bodyRune.ItemID : -1;
+
+        RestoreRunesClientRpc(feetID, headID, bodyID);
+    }
+
+    [Rpc(SendTo.Owner)]
+    private void RestoreRunesClientRpc(int feetID, int headID, int bodyID)
+    {
+        ItemDictionary dictionary = FindFirstObjectByType<ItemDictionary>();
+        if (dictionary == null) return;
+
+        _feetRune = GetValidRune(dictionary.GetItem(feetID), ItemData.RuneSlotType.Feet);
+        _headRune = GetValidRune(dictionary.GetItem(headID), ItemData.RuneSlotType.Head);
+        _bodyRune = GetValidRune(dictionary.GetItem(bodyID), ItemData.RuneSlotType.Body);
+
+        RecalculateStats();
+
+        Debug.Log($"[RESTORE RUNES] Pies: {feetID} | Cabeza: {headID} | Cuerpo: {bodyID}");
+    }
+    //
     private ItemData GetValidRune(ItemData rune, ItemData.RuneSlotType expectedSlot)
     {
         if (rune == null) return null;
@@ -85,6 +144,7 @@ public class RuenEquip : MonoBehaviour
         SetRuneInSlot(rune.RuneSlot, rune);
 
         RecalculateStats();
+        SyncRunesToServer();
 
         return true;
     }
@@ -104,6 +164,7 @@ public class RuenEquip : MonoBehaviour
 
         // Actualizar estadísticas.
         RecalculateStats();
+        SyncRunesToServer();
 
         return true;
     }

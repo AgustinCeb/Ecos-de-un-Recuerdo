@@ -83,7 +83,7 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
 
                 if (inventory == null) return;
 
-                rewardGiven = inventory.addItem(_itemReward, _amount);
+                inventory.ReceiveChestRewardRpc(_itemReward.ItemID,_amount);
                 break;
 
             case ItemData.ItemType.Material:
@@ -92,7 +92,7 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
 
                 if (inventory2 == null) return;
 
-                rewardGiven = inventory2.addItem(_itemReward, _amount);
+                inventory2.ReceiveChestRewardRpc(_itemReward.ItemID, _amount);
                 break;
 
             case ItemData.ItemType.Consumable:
@@ -101,15 +101,13 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
 
                 if (inventory3 == null) return;
 
-                rewardGiven = inventory3.addItem(_itemReward, _amount);
+                inventory3.ReceiveChestRewardRpc(_itemReward.ItemID, _amount);
                 break;
 
             default:
                 Debug.Log("Tipo de objeto no reconocido");
                 return;
         }
-
-        if (!rewardGiven) return;
 
         _isOpened.Value = true;
     }
