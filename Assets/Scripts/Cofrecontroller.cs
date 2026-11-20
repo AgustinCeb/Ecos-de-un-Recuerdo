@@ -11,9 +11,19 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
     [Header("Animacion")]
     [SerializeField] private Animator _animator;
 
-    private NetworkVariable<bool> _isOpened = new NetworkVariable<bool>(false,NetworkVariableReadPermission.Everyone,NetworkVariableWritePermission.Server);
+    private NetworkList<ulong> _openedByPlayers = new();
 
-    public string ActionText => _isOpened.Value ? "" : "Abrir";
+    public string ActionText
+    {
+        get
+        {
+            if (NetworkManager.Singleton == null) return "";
+
+            return _openedByPlayers.Contains(NetworkManager.Singleton.LocalClientId)
+                ? ""
+                : "Abrir";
+        }
+    }
 
     public bool CantInteract()
     {
@@ -22,17 +32,20 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
 
     public override void OnNetworkSpawn()
     {
-        _isOpened.OnValueChanged += OnChestOpened;
+        _openedByPlayers.OnListChanged += OnChestOpened;
     }
 
     public override void OnNetworkDespawn()
     {
-        _isOpened.OnValueChanged -= OnChestOpened;
+        _openedByPlayers.OnListChanged -= OnChestOpened;
     }
 
     public void interact(PlayerInteract player)
     {
-        if (_isOpened.Value) return;
+        if (!IsSpawned) return;
+
+        if (_openedByPlayers.Contains(NetworkManager.Singleton.LocalClientId))
+            return;
 
         NetworkObject playerNetworkObject = player.GetComponent<NetworkObject>();
 
@@ -48,9 +61,10 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
     [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     private void OpenChestServerRpc(NetworkObjectReference playerReference, RpcParams rpcParams = default)
     {
-        if (_isOpened.Value) return;
-
         ulong senderClientId = rpcParams.Receive.SenderClientId;
+
+        if (_openedByPlayers.Contains(senderClientId))
+            return;
 
         if (!NetworkManager.Singleton.ConnectedClients.TryGetValue(senderClientId, out NetworkClient client))return;
 
@@ -109,12 +123,15 @@ public class Cofrecontroller : NetworkBehaviour,IPlayerInteractable, IInteractab
                 return;
         }
 
-        _isOpened.Value = true;
+        _openedByPlayers.Add(senderClientId);
     }
 
-    private void OnChestOpened(bool previousValue, bool newValue)
+    private void OnChestOpened(NetworkListEvent<ulong> changeEvent)
     {
-        if (newValue)
+        if (changeEvent.Type != NetworkListEvent<ulong>.EventType.Add)
+            return;
+
+        if (changeEvent.Value == NetworkManager.Singleton.LocalClientId)
             OpenAnimation();
     }
 

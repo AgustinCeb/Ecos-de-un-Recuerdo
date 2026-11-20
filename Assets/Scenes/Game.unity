@@ -18590,6 +18590,10 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 914558315}
+    - target: {fileID: 1122013138543926595, guid: 6c1ce2c6d95de324cad819c5bd569e80, type: 3}
+      propertyPath: _itemReward
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bfd670bbf1b32b48ad16b2bc5e9bde2, type: 2}
     - target: {fileID: 8030531967909425351, guid: 6c1ce2c6d95de324cad819c5bd569e80, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 601091078
@@ -30379,6 +30383,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d841ff7879a55034185d391f08c15a52, type: 2}
   - {fileID: 11400000, guid: 6992e955065b18c4d8b76e2e87f9e746, type: 2}
   - {fileID: 11400000, guid: 360da10bcbcc0864784272c90ce5d713, type: 2}
+  - {fileID: 11400000, guid: 0bfd670bbf1b32b48ad16b2bc5e9bde2, type: 2}
 --- !u!1001 &1556954048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32830,6 +32835,8 @@ GameObject:
   - component: {fileID: 1706069868}
   - component: {fileID: 1706069867}
   - component: {fileID: 1706069866}
+  - component: {fileID: 1706069870}
+  - component: {fileID: 1706069869}
   m_Layer: 7
   m_Name: Puerta Tutorial
   m_TagString: Untagged
@@ -32846,8 +32853,8 @@ Transform:
   m_GameObject: {fileID: 1706069864}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3838265, z: -0, w: 0.9234053}
-  m_LocalPosition: {x: 283.4716, y: 9.1997795, z: 229.7221}
-  m_LocalScale: {x: 68.81104, y: 15.731053, z: 0.5736908}
+  m_LocalPosition: {x: 279.7166, y: 9.1997795, z: 229.7221}
+  m_LocalScale: {x: 74, y: 15.731053, z: 0.688017}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1554393839}
@@ -32930,6 +32937,47 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706069864}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1706069869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706069864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79e4dd1ddc23844eb0c8a2c3549fc08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialDoor
+  ShowTopMostFoldoutHeaderGroup: 1
+  _itemDictionary: {fileID: 1556206519}
+  _requiredItemID: 30
+  _requiredAmount: 1
+--- !u!114 &1706069870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706069864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 3196533414
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1001 &1707197096
 PrefabInstance:
   m_ObjectHideFlags: 0
