@@ -69,5 +69,19 @@ public class PlayerCamera : NetworkBehaviour
                 Time.deltaTime * _rotationSpeed
             );
         }
+
+        SyncRotationRpc(_playerObj.rotation);
+
     }
+    //
+    [Rpc(SendTo.ClientsAndHost)]
+    private void SyncRotationRpc(Quaternion rotation)
+    {
+        if (_playerObj == null) return;
+
+        if (IsOwner) return;
+
+        _playerObj.rotation = rotation;
+    }
+    //
 }

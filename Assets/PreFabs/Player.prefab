@@ -5874,7 +5874,7 @@ Transform:
   m_GameObject: {fileID: 7743155339882080509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 283, y: 13, z: 269}
+  m_LocalPosition: {x: 24.67682, y: 3.15, z: 21.13894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6029,7 +6029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1231986452
+  GlobalObjectIdHash: 2419518658
   InScenePlacedSourceGlobalObjectIdHash: 2419518658
   DeferredDespawnTick: 0
   Ownership: 1
@@ -6161,7 +6161,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c12f4a8c0a8fc44b0d95e43f7a6a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  ShowTopMostFoldoutHeaderGroup: 1
   statValuesPerLevel: {fileID: 11400000, guid: 919070e7d1f694741bac9b6a609a5b40, type: 2}
+  PlayerLevel:
+    UpdateTraits:
+      MinSecondsBetweenUpdates: 0
+      MaxSecondsBetweenUpdates: 0
+    m_InternalValue: 1
+  HeldXP:
+    UpdateTraits:
+      MinSecondsBetweenUpdates: 0
+      MaxSecondsBetweenUpdates: 0
+    m_InternalValue: 0
 --- !u!114 &6697559600555014996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6174,6 +6185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303e480ed2c572549b272a754d9ccaa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RuenEquip
+  ShowTopMostFoldoutHeaderGroup: 1
   _inventory: {fileID: 1466018179155869162}
   _playerStats: {fileID: 1037178149719760196}
 --- !u!114 &1246945688859726084

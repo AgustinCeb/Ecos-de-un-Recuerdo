@@ -53,6 +53,7 @@ public class PlayerMove : NetworkBehaviour
     //Aniamator
     [Header("Animator")]
     [SerializeField] private Animator _animator;
+    private float _lastSentSpeed = -1f;
 
 
     private PlayerStats _playerStats;
@@ -82,11 +83,20 @@ public class PlayerMove : NetworkBehaviour
         if (!IsOwner) return; 
         if (!_canDash) return;
 
-        _animator.SetTrigger("Dash");
+        PlayDashAnimationRpc();
 
         StartCoroutine(Dash());
 
     }
+    //
+    [Rpc(SendTo.ClientsAndHost)]
+    private void PlayDashAnimationRpc()
+    {
+        if (_animator == null) return;
+
+        _animator.SetTrigger("Dash");
+    }
+    //
 
     private void OnMove(InputValue inputValue)
     {
@@ -95,7 +105,7 @@ public class PlayerMove : NetworkBehaviour
         _moveInput = inputValue.Get<Vector2>();
         
     }
-        
+    
     private void OnJump(InputValue Value)
     {
         if (!IsOwner) return;
@@ -206,7 +216,14 @@ public class PlayerMove : NetworkBehaviour
         //Animation
         Vector3 horizontalVelocity = new Vector3(Rbd.linearVelocity.x,0f,Rbd.linearVelocity.z);
 
-        _animator.SetFloat("Speed",horizontalVelocity.magnitude);
+        //_animator.SetFloat("Speed",horizontalVelocity.magnitude);
+        float currentSpeed = horizontalVelocity.magnitude;
+
+        if (Mathf.Abs(currentSpeed - _lastSentSpeed) > 0.1f)
+        {
+            _lastSentSpeed = currentSpeed;
+            UpdateSpeedAnimationRpc(currentSpeed);
+        }
 
 
         //Compureba si esta en el suelo
@@ -249,6 +266,15 @@ public class PlayerMove : NetworkBehaviour
         }
 
     }
+    //
+    [Rpc(SendTo.ClientsAndHost)]
+    private void UpdateSpeedAnimationRpc(float speed)
+    {
+        if (_animator == null) return;
+
+        _animator.SetFloat("Speed", speed);
+    }
+    //
     private IEnumerator Dash()
     {
         

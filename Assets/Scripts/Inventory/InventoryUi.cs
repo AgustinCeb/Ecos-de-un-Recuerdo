@@ -55,11 +55,6 @@ public class InventoryUi : MonoBehaviour
             }
         }
 
-        Debug.Log(
-    "INVENTARIO UI - Owner: " + newInventory.OwnerClientId +
-    " | Items Inventory: " + newInventory.Slots.Count +
-    " | Spawned: " + newInventory.IsSpawned
-);
 
         if (newInventory == null)
         {

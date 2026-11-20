@@ -193,7 +193,21 @@ public class Inventory : NetworkBehaviour
         }
 
     }
+    //
+    [Rpc(SendTo.Owner)]
+    public void ReceiveChestRewardRpc(int itemID, int amount)
+    {
+        ItemDictionary dictionary = FindFirstObjectByType<ItemDictionary>();
 
+        if (dictionary == null) return;
+
+        ItemData item = dictionary.GetItem(itemID);
+
+        if (item == null) return;
+
+        addItem(item, amount);
+    }
+    //
     public bool HasItem(ItemData itemData)
     {
         foreach (var slot in _slots)

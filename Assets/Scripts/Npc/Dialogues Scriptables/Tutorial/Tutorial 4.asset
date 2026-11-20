@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81642716c47bc7d42a1e9b5b7314af51, type: 3}
+  m_Name: Tutorial 4
+  m_EditorClassIdentifier: Assembly-CSharp::Npc_DialogeData
+  npcName: Blaze
+  npcPortrait: {fileID: -668044383, guid: aeaf391c80985d34692a2032ea4a0f2b, type: 3}
+  dialogeLines:
+  - "\xA1Ya casi llegamos! Mira, m\xE1s adelante hay un cofre"
+  - Hay cofres escondidos por todas partes. Si ves uno, intenta abrirlo; suelen contener
+    valiosas recompensas
+  - "Suelen estar custodiados por monstruos, as\xED que ten cuidado"
+  - "\xA1Vamos! Abre el cofre, veamos qu\xE9 hay dentro y continuemos"
+  - "Si tienes dudas o no sabes ad\xF3nde ir, intenta hablar con las personas o consultar
+    los carteles que encontrar\xE1s en los pueblos"
+  - "Contienen informaci\xF3n muy \xFAtil. \xA1Y creo que eso es todo!"
+  - "\xA1Buena suerte y divi\xE9rtete! :)"
+  autoProgressLines: 01010101010100
+  endDialogueLines: 00000000000001
+  choices: []
+  typingSpeed: 0.05
+  autoProgressDelay: 1.5
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  principalQuestComplete: 0
+  quest: {fileID: 0}
