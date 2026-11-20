@@ -34,7 +34,7 @@ public class BossAI : MonoBehaviour
         if (!playerInSight)
             playerObjective = null;
 
-        handleAttack();
+
 
         if (playerObjective != null)
         {
@@ -44,8 +44,12 @@ public class BossAI : MonoBehaviour
             );
 
             if (distance > meleeRange)
+            {
                 MoveTowardPlayer();
+            }
+
         }
+        handleAttack();
     }
     private void MoveTowardPlayer()
     {

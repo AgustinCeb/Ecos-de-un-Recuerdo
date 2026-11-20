@@ -6,8 +6,7 @@ public class BossAnimation : MonoBehaviour
 
     public void AnimAttack(int type)
     {
-        if (type == 0) animator.SetTrigger("MeleeAttack");
-        if (type == 1) animator.SetTrigger("RangedAttack");
+        animator.SetTrigger("Attack");
     }
     public void SetState(int state)
     {
